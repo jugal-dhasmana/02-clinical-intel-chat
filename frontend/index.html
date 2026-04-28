@@ -1,67 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ClinicalIntel — Disease Intelligence Platform</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
   <style>
-
     /* ═══════════════════════════════════════════════════════════════════════
        DESIGN TOKENS
     ═══════════════════════════════════════════════════════════════════════ */
     :root {
-      --navy-950: #050C1A; --navy-900: #091220; --navy-800: #0D1B30;
-      --navy-700: #122240; --navy-600: #183055; --navy-500: #234070;
-      --navy-400: #3A5A90; --navy-300: #5A7BB0; --navy-200: #8AAAD0;
-      --navy-100: #C2D4E8; --navy-50:  #EBF1F8;
+      --navy-950: #050C1A;
+      --navy-900: #091220;
+      --navy-800: #0D1B30;
+      --navy-700: #122240;
+      --navy-600: #183055;
+      --navy-500: #234070;
+      --navy-400: #3A5A90;
+      --navy-300: #5A7BB0;
+      --navy-200: #8AAAD0;
+      --navy-100: #C2D4E8;
+      --navy-50: #EBF1F8;
 
-      --cobalt-700: #1039A8; --cobalt-600: #1A4EC8; --cobalt-500: #2563EB;
-      --cobalt-400: #4680F0; --cobalt-300: #7AA5F5; --cobalt-100: #DBEAFE;
-      --cobalt-50:  #EFF6FF;
+      --cobalt-700: #1039A8;
+      --cobalt-600: #1A4EC8;
+      --cobalt-500: #2563EB;
+      --cobalt-400: #4680F0;
+      --cobalt-300: #7AA5F5;
+      --cobalt-100: #DBEAFE;
+      --cobalt-50: #EFF6FF;
 
-      --teal-700: #0B6E5F; --teal-600: #0D8A77; --teal-400: #2AB5A0;
-      --teal-100: #CCEFE9; --teal-50:  #EDFAF7;
+      --teal-700: #0B6E5F;
+      --teal-600: #0D8A77;
+      --teal-400: #2AB5A0;
+      --teal-100: #CCEFE9;
+      --teal-50: #EDFAF7;
 
-      --amber-700: #92580A; --amber-600: #B06A0C; --amber-100: #FDE8BB; --amber-50: #FFFBEB;
+      --amber-700: #92580A;
+      --amber-600: #B06A0C;
+      --amber-100: #FDE8BB;
+      --amber-50: #FFFBEB;
 
-      --violet-700: #5435B2; --violet-600: #6344C8; --violet-100: #E0D9FC; --violet-50: #F5F2FF;
-      --rose-700: #B02A3A;   --rose-600: #C83244;   --rose-100: #FDD5D8;   --rose-50:  #FFF1F2;
-      --slate-700: #415068;  --slate-600: #506080;   --slate-100: #DDE3ED;  --slate-50: #F3F5F8;
+      --violet-700: #5435B2;
+      --violet-600: #6344C8;
+      --violet-100: #E0D9FC;
+      --violet-50: #F5F2FF;
+      --rose-700: #B02A3A;
+      --rose-600: #C83244;
+      --rose-100: #FDD5D8;
+      --rose-50: #FFF1F2;
+      --slate-700: #415068;
+      --slate-600: #506080;
+      --slate-100: #DDE3ED;
+      --slate-50: #F3F5F8;
 
-      --page-bg:   #F4F6FA;
-      --card-bg:   #FFFFFF;
+      --page-bg: #F4F6FA;
+      --card-bg: #FFFFFF;
       --subtle-bg: #F8F9FC;
-      --hover-bg:  #F0F3F8;
+      --hover-bg: #F0F3F8;
 
       --border-xs: #EAEEF5;
       --border-sm: #D8DEE9;
       --border-md: #BEC8DA;
 
-      --text-900: #0C1222; --text-700: #2D3A52; --text-500: #556080;
-      --text-300: #8A97AF; --text-100: #C0CAD8;
+      --text-900: #0C1222;
+      --text-700: #2D3A52;
+      --text-500: #556080;
+      --text-300: #8A97AF;
+      --text-100: #C0CAD8;
 
-      --green-500: #16A860; --green-100: #C8F0DC; --green-50: #EDFAF4;
-      --red-700:   #B91C1C; --red-100:   #FEE2E2; --red-50:   #FFF5F5;
+      --green-500: #16A860;
+      --green-100: #C8F0DC;
+      --green-50: #EDFAF4;
+      --red-700: #B91C1C;
+      --red-100: #FEE2E2;
+      --red-50: #FFF5F5;
 
       --font: 'Inter', system-ui, sans-serif;
       --mono: 'JetBrains Mono', 'Menlo', monospace;
 
-      --r-xs: 4px; --r-sm: 6px; --r-md: 10px; --r-lg: 14px; --r-xl: 18px;
+      --r-xs: 4px;
+      --r-sm: 6px;
+      --r-md: 10px;
+      --r-lg: 14px;
+      --r-xl: 18px;
 
-      --shadow-xs: 0 1px 2px rgba(12,18,34,0.05);
-      --shadow-sm: 0 1px 3px rgba(12,18,34,0.07), 0 2px 6px rgba(12,18,34,0.04);
-      --shadow-md: 0 2px 6px rgba(12,18,34,0.08), 0 6px 20px rgba(12,18,34,0.06);
-      --shadow-lg: 0 4px 12px rgba(12,18,34,0.12), 0 12px 32px rgba(12,18,34,0.08);
+      --shadow-xs: 0 1px 2px rgba(12, 18, 34, 0.05);
+      --shadow-sm: 0 1px 3px rgba(12, 18, 34, 0.07), 0 2px 6px rgba(12, 18, 34, 0.04);
+      --shadow-md: 0 2px 6px rgba(12, 18, 34, 0.08), 0 6px 20px rgba(12, 18, 34, 0.06);
+      --shadow-lg: 0 4px 12px rgba(12, 18, 34, 0.12), 0 12px 32px rgba(12, 18, 34, 0.08);
     }
 
     /* ═══════════════════════════════════════════════════════════════════════
        RESET & BASE
     ═══════════════════════════════════════════════════════════════════════ */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    html { font-size: 14px; scroll-behavior: smooth; }
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      font-size: 14px;
+      scroll-behavior: smooth;
+    }
 
     body {
       font-family: var(--font);
@@ -73,39 +122,105 @@
       -moz-osx-font-smoothing: grayscale;
     }
 
-    #app { display: flex; flex-direction: column; min-height: 100vh; }
+    #app {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        TOPBAR
     ═══════════════════════════════════════════════════════════════════════ */
     .topbar {
-      position: sticky; top: 0; z-index: 300;
+      position: sticky;
+      top: 0;
+      z-index: 300;
       height: 56px;
       background: var(--navy-900);
       border-bottom: 1px solid var(--navy-700);
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       padding: 0 2.5rem;
     }
 
-    .brand { display: flex; align-items: center; gap: 12px; }
-    .brand-mark {
-      width: 32px; height: 32px; background: var(--cobalt-500);
-      border-radius: var(--r-sm);
-      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
-    .brand-mark svg { width: 16px; height: 16px; stroke: #fff; stroke-width: 2.2; }
-    .brand-name { font-size: 15px; font-weight: 700; color: #fff; letter-spacing: -0.4px; }
-    .brand-pipe { width: 1px; height: 16px; background: var(--navy-500); }
-    .brand-sub  { font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--navy-300); letter-spacing: 0.8px; text-transform: uppercase; }
 
-    .topbar-right { display: flex; align-items: center; gap: 8px; }
-    .online-pip { width: 6px; height: 6px; border-radius: 50%; background: var(--teal-400); box-shadow: 0 0 0 2px rgba(42,181,160,0.25); }
-    .online-label { font-family: var(--mono); font-size: 10px; color: var(--navy-300); letter-spacing: 0.6px; text-transform: uppercase; }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      background: var(--cobalt-500);
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .brand-mark svg {
+      width: 16px;
+      height: 16px;
+      stroke: #fff;
+      stroke-width: 2.2;
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-pipe {
+      width: 1px;
+      height: 16px;
+      background: var(--navy-500);
+    }
+
+    .brand-sub {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--navy-300);
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+    }
+
+    .topbar-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .online-pip {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--teal-400);
+      box-shadow: 0 0 0 2px rgba(42, 181, 160, 0.25);
+    }
+
+    .online-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--navy-300);
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        PAGE WRAPPER
     ═══════════════════════════════════════════════════════════════════════ */
-    .page-wrap { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 2.5rem 8rem; }
+    .page-wrap {
+      width: 100%;
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2.5rem 8rem;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        SEARCH HERO
@@ -114,67 +229,276 @@
       background: var(--navy-900);
       margin: 0 -2.5rem;
       padding: 3.5rem 2.5rem 3rem;
-      display: flex; flex-direction: column; align-items: center; gap: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
       border-bottom: 1px solid var(--navy-700);
     }
 
-    .hero-kicker { display: flex; align-items: center; gap: 10px; }
-    .kicker-line { width: 28px; height: 1px; background: var(--navy-500); }
-    .kicker-text { font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--cobalt-300); letter-spacing: 1.5px; text-transform: uppercase; }
+    .hero-kicker {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-    .hero-headline { font-size: 28px; font-weight: 300; color: #fff; letter-spacing: -0.7px; text-align: center; line-height: 1.2; }
-    .hero-headline strong { font-weight: 700; color: #fff; }
-    .hero-sub { font-size: 13px; color: var(--navy-300); text-align: center; margin-top: -8px; }
+    .kicker-line {
+      width: 28px;
+      height: 1px;
+      background: var(--navy-500);
+    }
 
-    .search-shell { width: 100%; max-width: 680px; display: flex; flex-direction: column; gap: 12px; }
+    .kicker-text {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--cobalt-300);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+    }
+
+    .hero-headline {
+      font-size: 28px;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: -0.7px;
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .hero-headline strong {
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .hero-sub {
+      font-size: 13px;
+      color: var(--navy-300);
+      text-align: center;
+      margin-top: -8px;
+    }
+
+    .search-shell {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
 
     .search-bar {
-      display: flex; background: var(--navy-800); border: 1.5px solid var(--navy-600);
-      border-radius: var(--r-lg); overflow: hidden;
+      display: flex;
+      background: var(--navy-800);
+      border: 1.5px solid var(--navy-600);
+      border-radius: var(--r-lg);
+      overflow: hidden;
       transition: border-color 0.15s, box-shadow 0.15s;
-      box-shadow: 0 2px 8px rgba(5,12,26,0.3);
+      box-shadow: 0 2px 8px rgba(5, 12, 26, 0.3);
     }
-    .search-bar:focus-within { border-color: var(--cobalt-400); box-shadow: 0 0 0 3px rgba(70,128,240,0.2), 0 2px 8px rgba(5,12,26,0.3); }
 
-    .search-prefix { width: 48px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .search-prefix svg { width: 15px; height: 15px; stroke: var(--navy-300); stroke-width: 1.7; }
+    .search-bar:focus-within {
+      border-color: var(--cobalt-400);
+      box-shadow: 0 0 0 3px rgba(70, 128, 240, 0.2), 0 2px 8px rgba(5, 12, 26, 0.3);
+    }
 
-    .search-input { flex: 1; border: none; outline: none; font-family: var(--font); font-size: 14px; color: #fff; background: transparent; height: 54px; padding: 0 4px; }
-    .search-input::placeholder { color: var(--navy-400); }
+    .search-prefix {
+      width: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .search-prefix svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--navy-300);
+      stroke-width: 1.7;
+    }
+
+    .search-input {
+      flex: 1;
+      border: none;
+      outline: none;
+      font-family: var(--font);
+      font-size: 14px;
+      color: #fff;
+      background: transparent;
+      height: 54px;
+      padding: 0 4px;
+    }
+
+    .search-input::placeholder {
+      color: var(--navy-400);
+    }
 
     .search-go {
-      height: 54px; margin: 5px; padding: 0 1.5rem;
-      background: var(--cobalt-500); color: #fff; border: none; border-radius: var(--r-md); cursor: pointer;
-      font-family: var(--font); font-size: 13px; font-weight: 600; letter-spacing: 0.1px;
-      display: flex; align-items: center; gap: 7px; white-space: nowrap;
+      height: 54px;
+      margin: 5px;
+      padding: 0 1.5rem;
+      background: var(--cobalt-500);
+      color: #fff;
+      border: none;
+      border-radius: var(--r-md);
+      cursor: pointer;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.1px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      white-space: nowrap;
       transition: background 0.14s, transform 0.1s;
     }
-    .search-go:hover  { background: var(--cobalt-600); }
-    .search-go:active { background: var(--cobalt-700); transform: scale(0.985); }
-    .search-go svg { width: 14px; height: 14px; stroke: #fff; stroke-width: 1.9; }
 
-    .search-hints { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; padding: 0 1px; }
-    .hints-label { font-family: var(--mono); font-size: 10px; color: var(--navy-400); letter-spacing: 0.5px; text-transform: uppercase; margin-right: 2px; }
-    .hint-chip { font-size: 11.5px; font-weight: 500; color: var(--navy-200); background: var(--navy-700); border: 1px solid var(--navy-600); border-radius: var(--r-xs); padding: 3px 10px; cursor: pointer; transition: color 0.12s, border-color 0.12s, background 0.12s; }
-    .hint-chip:hover { color: #fff; border-color: var(--cobalt-400); background: var(--navy-600); }
+    .search-go:hover {
+      background: var(--cobalt-600);
+    }
+
+    .search-go:active {
+      background: var(--cobalt-700);
+      transform: scale(0.985);
+    }
+
+    .search-go svg {
+      width: 14px;
+      height: 14px;
+      stroke: #fff;
+      stroke-width: 1.9;
+    }
+
+    .search-hints {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+      padding: 0 1px;
+    }
+
+    .hints-label {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--navy-400);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-right: 2px;
+    }
+
+    .hint-chip {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--navy-200);
+      background: var(--navy-700);
+      border: 1px solid var(--navy-600);
+      border-radius: var(--r-xs);
+      padding: 3px 10px;
+      cursor: pointer;
+      transition: color 0.12s, border-color 0.12s, background 0.12s;
+    }
+
+    .hint-chip:hover {
+      color: #fff;
+      border-color: var(--cobalt-400);
+      background: var(--navy-600);
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        STATE PANELS
     ═══════════════════════════════════════════════════════════════════════ */
-    .state-panel { display: flex; flex-direction: column; align-items: center; padding: 5rem 2rem; text-align: center; }
-    .state-icon { width: 48px; height: 48px; border-radius: 50%; background: var(--card-bg); border: 1.5px solid var(--border-sm); display: flex; align-items: center; justify-content: center; margin-bottom: 1.1rem; box-shadow: var(--shadow-xs); }
-    .state-icon svg { width: 20px; height: 20px; stroke: var(--text-300); stroke-width: 1.5; }
-    .state-h { font-size: 15px; font-weight: 600; color: var(--text-700); margin-bottom: 5px; }
-    .state-p { font-size: 13px; color: var(--text-300); max-width: 320px; line-height: 1.6; }
+    .state-panel {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 5rem 2rem;
+      text-align: center;
+    }
 
-    .spin-wrap { margin-bottom: 1.1rem; }
-    .spin-ring { width: 26px; height: 26px; border: 2.5px solid var(--border-sm); border-top-color: var(--cobalt-500); border-radius: 50%; animation: spin 0.7s linear infinite; }
-    @keyframes spin { to { transform: rotate(360deg); } }
+    .state-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1.5px solid var(--border-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.1rem;
+      box-shadow: var(--shadow-xs);
+    }
 
-    .error-box { background: var(--red-50); border: 1.5px solid var(--red-100); border-radius: var(--r-lg); padding: 1.1rem 1.4rem; display: flex; align-items: flex-start; gap: 11px; }
-    .error-box svg { width: 16px; height: 16px; stroke: var(--red-700); stroke-width: 1.7; flex-shrink: 0; margin-top: 1px; }
-    .error-title { font-size: 13px; font-weight: 600; color: var(--red-700); margin-bottom: 2px; }
-    .error-body  { font-size: 12.5px; color: var(--red-700); opacity: 0.8; line-height: 1.5; }
+    .state-icon svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--text-300);
+      stroke-width: 1.5;
+    }
+
+    .state-h {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-700);
+      margin-bottom: 5px;
+    }
+
+    .state-p {
+      font-size: 13px;
+      color: var(--text-300);
+      max-width: 320px;
+      line-height: 1.6;
+    }
+
+    .spin-wrap {
+      margin-bottom: 1.1rem;
+    }
+
+    .spin-ring {
+      width: 26px;
+      height: 26px;
+      border: 2.5px solid var(--border-sm);
+      border-top-color: var(--cobalt-500);
+      border-radius: 50%;
+      animation: spin 0.7s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .error-box {
+      background: var(--red-50);
+      border: 1.5px solid var(--red-100);
+      border-radius: var(--r-lg);
+      padding: 1.1rem 1.4rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+    }
+
+    .error-box svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--red-700);
+      stroke-width: 1.7;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .error-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--red-700);
+      margin-bottom: 2px;
+    }
+
+    .error-body {
+      font-size: 12.5px;
+      color: var(--red-700);
+      opacity: 0.8;
+      line-height: 1.5;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        RESULTS LAYOUT — two-column grid
@@ -186,7 +510,9 @@
       align-items: start;
     }
 
-    .results-main { min-width: 0; }
+    .results-main {
+      min-width: 0;
+    }
 
     .results-rail {
       position: sticky;
@@ -197,9 +523,18 @@
     }
 
     @media (max-width: 900px) {
-      .results-layout { grid-template-columns: 1fr; }
-      .results-rail   { position: static; order: 2; }
-      .results-main   { order: 1; }
+      .results-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .results-rail {
+        position: static;
+        order: 2;
+      }
+
+      .results-main {
+        order: 1;
+      }
     }
 
     /* ═══════════════════════════════════════════════════════════════════════
@@ -211,24 +546,93 @@
       border: 1px solid var(--navy-700);
       border-radius: var(--r-xl);
       padding: 2rem 2.25rem;
-      display: flex; align-items: flex-start; justify-content: space-between; gap: 2rem;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 2rem;
       box-shadow: var(--shadow-lg);
-      position: relative; overflow: hidden;
+      position: relative;
+      overflow: hidden;
     }
+
     .result-header::before {
-      content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
       background: var(--cobalt-500);
       border-radius: var(--r-xl) 0 0 var(--r-xl);
     }
 
-    .rh-eyebrow { font-family: var(--mono); font-size: 9.5px; font-weight: 500; letter-spacing: 1.6px; text-transform: uppercase; color: var(--cobalt-300); margin-bottom: 10px; }
-    .rh-title   { font-size: 28px; font-weight: 700; color: #fff; letter-spacing: -0.8px; line-height: 1.1; margin-bottom: 14px; }
-    .rh-meta    { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
-    .rh-meta-pill { font-family: var(--mono); font-size: 10px; color: var(--navy-200); background: var(--navy-700); border: 1px solid var(--navy-600); border-radius: var(--r-xs); padding: 3px 8px; letter-spacing: 0.2px; }
-    .rh-right   { flex-shrink: 0; display: flex; flex-direction: column; align-items: flex-end; gap: 7px; }
-    .rh-badge   { font-family: var(--mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.5px; text-transform: uppercase; padding: 4px 10px; border-radius: var(--r-xs); border: 1px solid; }
-    .badge-cobalt { color: var(--cobalt-300); border-color: rgba(74,128,240,0.4); background: rgba(37,99,235,0.12); }
-    .badge-teal   { color: var(--teal-400);   border-color: rgba(42,181,160,0.4); background: rgba(42,181,160,0.08); }
+    .rh-eyebrow {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 1.6px;
+      text-transform: uppercase;
+      color: var(--cobalt-300);
+      margin-bottom: 10px;
+    }
+
+    .rh-title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.8px;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .rh-meta {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .rh-meta-pill {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--navy-200);
+      background: var(--navy-700);
+      border: 1px solid var(--navy-600);
+      border-radius: var(--r-xs);
+      padding: 3px 8px;
+      letter-spacing: 0.2px;
+    }
+
+    .rh-right {
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 7px;
+    }
+
+    .rh-badge {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--r-xs);
+      border: 1px solid;
+    }
+
+    .badge-cobalt {
+      color: var(--cobalt-300);
+      border-color: rgba(74, 128, 240, 0.4);
+      background: rgba(37, 99, 235, 0.12);
+    }
+
+    .badge-teal {
+      color: var(--teal-400);
+      border-color: rgba(42, 181, 160, 0.4);
+      background: rgba(42, 181, 160, 0.08);
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        SECTION CARDS — base style
@@ -244,7 +648,10 @@
       /* Each section gets a coloured top border via its theme class */
       border-top-width: 3px;
     }
-    .section:hover { box-shadow: var(--shadow-sm); }
+
+    .section:hover {
+      box-shadow: var(--shadow-sm);
+    }
 
     /* ── Per-section colour themes ─────────────────────────────────────────
        Pattern: 3px top border + always-on tinted header bg + richer icon
@@ -252,58 +659,196 @@
     ─────────────────────────────────────────────────────────────────────── */
 
     /* OVERVIEW — cobalt */
-    .section.theme-cobalt                    { border-top-color: var(--cobalt-500); }
-    .section.theme-cobalt .sec-hdr           { background: var(--cobalt-50); }
-    .section.theme-cobalt .sec-hdr:hover     { background: #E0ECFE; }
-    .section.theme-cobalt .sec-icon          { background: var(--cobalt-100); }
-    .section.theme-cobalt .sec-icon svg      { stroke: var(--cobalt-600); }
-    .section.theme-cobalt .sec-count         { color: var(--cobalt-700); background: var(--cobalt-100); border-color: #b8d0fa; font-weight: 600; }
-    .section.theme-cobalt .sec-body          { border-top-color: #dce9fd; }
+    .section.theme-cobalt {
+      border-top-color: var(--cobalt-500);
+    }
+
+    .section.theme-cobalt .sec-hdr {
+      background: var(--cobalt-50);
+    }
+
+    .section.theme-cobalt .sec-hdr:hover {
+      background: #E0ECFE;
+    }
+
+    .section.theme-cobalt .sec-icon {
+      background: var(--cobalt-100);
+    }
+
+    .section.theme-cobalt .sec-icon svg {
+      stroke: var(--cobalt-600);
+    }
+
+    .section.theme-cobalt .sec-count {
+      color: var(--cobalt-700);
+      background: var(--cobalt-100);
+      border-color: #b8d0fa;
+      font-weight: 600;
+    }
+
+    .section.theme-cobalt .sec-body {
+      border-top-color: #dce9fd;
+    }
 
     /* SYMPTOMS / TREATMENTS — teal */
-    .section.theme-teal                      { border-top-color: var(--teal-600); }
-    .section.theme-teal .sec-hdr             { background: var(--teal-50); }
-    .section.theme-teal .sec-hdr:hover       { background: #D5F5EE; }
-    .section.theme-teal .sec-icon            { background: var(--teal-100); }
-    .section.theme-teal .sec-icon svg        { stroke: var(--teal-700); }
-    .section.theme-teal .sec-count           { color: var(--teal-700); background: var(--teal-100); border-color: #a0dfd4; font-weight: 600; }
-    .section.theme-teal .sec-body            { border-top-color: #c0eee7; }
+    .section.theme-teal {
+      border-top-color: var(--teal-600);
+    }
+
+    .section.theme-teal .sec-hdr {
+      background: var(--teal-50);
+    }
+
+    .section.theme-teal .sec-hdr:hover {
+      background: #D5F5EE;
+    }
+
+    .section.theme-teal .sec-icon {
+      background: var(--teal-100);
+    }
+
+    .section.theme-teal .sec-icon svg {
+      stroke: var(--teal-700);
+    }
+
+    .section.theme-teal .sec-count {
+      color: var(--teal-700);
+      background: var(--teal-100);
+      border-color: #a0dfd4;
+      font-weight: 600;
+    }
+
+    .section.theme-teal .sec-body {
+      border-top-color: #c0eee7;
+    }
 
     /* DIAGNOSIS — amber */
-    .section.theme-amber                     { border-top-color: var(--amber-600); }
-    .section.theme-amber .sec-hdr            { background: var(--amber-50); }
-    .section.theme-amber .sec-hdr:hover      { background: #FEF0D0; }
-    .section.theme-amber .sec-icon           { background: var(--amber-100); }
-    .section.theme-amber .sec-icon svg       { stroke: var(--amber-700); }
-    .section.theme-amber .sec-count          { color: var(--amber-700); background: var(--amber-100); border-color: #f8d48a; font-weight: 600; }
-    .section.theme-amber .sec-body           { border-top-color: #fde4a0; }
+    .section.theme-amber {
+      border-top-color: var(--amber-600);
+    }
+
+    .section.theme-amber .sec-hdr {
+      background: var(--amber-50);
+    }
+
+    .section.theme-amber .sec-hdr:hover {
+      background: #FEF0D0;
+    }
+
+    .section.theme-amber .sec-icon {
+      background: var(--amber-100);
+    }
+
+    .section.theme-amber .sec-icon svg {
+      stroke: var(--amber-700);
+    }
+
+    .section.theme-amber .sec-count {
+      color: var(--amber-700);
+      background: var(--amber-100);
+      border-color: #f8d48a;
+      font-weight: 600;
+    }
+
+    .section.theme-amber .sec-body {
+      border-top-color: #fde4a0;
+    }
 
     /* ICD CODES — violet */
-    .section.theme-violet                    { border-top-color: var(--violet-600); }
-    .section.theme-violet .sec-hdr           { background: var(--violet-50); }
-    .section.theme-violet .sec-hdr:hover     { background: #EBE5FD; }
-    .section.theme-violet .sec-icon          { background: var(--violet-100); }
-    .section.theme-violet .sec-icon svg      { stroke: var(--violet-700); }
-    .section.theme-violet .sec-count         { color: var(--violet-700); background: var(--violet-100); border-color: #c4b6f8; font-weight: 600; }
-    .section.theme-violet .sec-body          { border-top-color: #d5ccfa; }
+    .section.theme-violet {
+      border-top-color: var(--violet-600);
+    }
+
+    .section.theme-violet .sec-hdr {
+      background: var(--violet-50);
+    }
+
+    .section.theme-violet .sec-hdr:hover {
+      background: #EBE5FD;
+    }
+
+    .section.theme-violet .sec-icon {
+      background: var(--violet-100);
+    }
+
+    .section.theme-violet .sec-icon svg {
+      stroke: var(--violet-700);
+    }
+
+    .section.theme-violet .sec-count {
+      color: var(--violet-700);
+      background: var(--violet-100);
+      border-color: #c4b6f8;
+      font-weight: 600;
+    }
+
+    .section.theme-violet .sec-body {
+      border-top-color: #d5ccfa;
+    }
 
     /* PROCEDURES — rose */
-    .section.theme-rose                      { border-top-color: var(--rose-600); }
-    .section.theme-rose .sec-hdr             { background: var(--rose-50); }
-    .section.theme-rose .sec-hdr:hover       { background: #FDEAEC; }
-    .section.theme-rose .sec-icon            { background: var(--rose-100); }
-    .section.theme-rose .sec-icon svg        { stroke: var(--rose-700); }
-    .section.theme-rose .sec-count           { color: var(--rose-700); background: var(--rose-100); border-color: #f8b0b8; font-weight: 600; }
-    .section.theme-rose .sec-body            { border-top-color: #fac4ca; }
+    .section.theme-rose {
+      border-top-color: var(--rose-600);
+    }
+
+    .section.theme-rose .sec-hdr {
+      background: var(--rose-50);
+    }
+
+    .section.theme-rose .sec-hdr:hover {
+      background: #FDEAEC;
+    }
+
+    .section.theme-rose .sec-icon {
+      background: var(--rose-100);
+    }
+
+    .section.theme-rose .sec-icon svg {
+      stroke: var(--rose-700);
+    }
+
+    .section.theme-rose .sec-count {
+      color: var(--rose-700);
+      background: var(--rose-100);
+      border-color: #f8b0b8;
+      font-weight: 600;
+    }
+
+    .section.theme-rose .sec-body {
+      border-top-color: #fac4ca;
+    }
 
     /* LITERATURE / SOURCES — slate */
-    .section.theme-slate                     { border-top-color: var(--slate-600); }
-    .section.theme-slate .sec-hdr            { background: var(--slate-50); }
-    .section.theme-slate .sec-hdr:hover      { background: #E8ECF4; }
-    .section.theme-slate .sec-icon           { background: var(--slate-100); }
-    .section.theme-slate .sec-icon svg       { stroke: var(--slate-700); }
-    .section.theme-slate .sec-count          { color: var(--slate-700); background: var(--slate-100); border-color: #bdc6d8; font-weight: 600; }
-    .section.theme-slate .sec-body           { border-top-color: #cdd4e2; }
+    .section.theme-slate {
+      border-top-color: var(--slate-600);
+    }
+
+    .section.theme-slate .sec-hdr {
+      background: var(--slate-50);
+    }
+
+    .section.theme-slate .sec-hdr:hover {
+      background: #E8ECF4;
+    }
+
+    .section.theme-slate .sec-icon {
+      background: var(--slate-100);
+    }
+
+    .section.theme-slate .sec-icon svg {
+      stroke: var(--slate-700);
+    }
+
+    .section.theme-slate .sec-count {
+      color: var(--slate-700);
+      background: var(--slate-100);
+      border-color: #bdc6d8;
+      font-weight: 600;
+    }
+
+    .section.theme-slate .sec-body {
+      border-top-color: #cdd4e2;
+    }
 
     /* DATA CONSIDERATIONS — strongest cobalt emphasis */
     .section.dc-sect {
@@ -311,110 +856,280 @@
       border-left: 3px solid var(--cobalt-500);
       border-right: 1.5px solid var(--cobalt-100);
       border-bottom: 1.5px solid var(--cobalt-100);
-      box-shadow: 0 0 0 4px rgba(37,99,235,0.07), var(--shadow-sm);
+      box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.07), var(--shadow-sm);
     }
+
     .section.dc-sect .sec-hdr {
       background: var(--cobalt-50);
       border-bottom: 1.5px solid var(--cobalt-100);
     }
-    .section.dc-sect .sec-hdr:hover { background: #E4EDFE; }
-    .section.dc-sect .sec-label     { color: var(--cobalt-700); }
-    .section.dc-sect .sec-chev      { stroke: var(--cobalt-500); }
-    .section.dc-sect .sec-icon      { background: var(--cobalt-100); }
-    .section.dc-sect .sec-icon svg  { stroke: var(--cobalt-600); }
-    .section.dc-sect .sec-body      { background: #FAFCFF; border-top-color: var(--cobalt-100); }
+
+    .section.dc-sect .sec-hdr:hover {
+      background: #E4EDFE;
+    }
+
+    .section.dc-sect .sec-label {
+      color: var(--cobalt-700);
+    }
+
+    .section.dc-sect .sec-chev {
+      stroke: var(--cobalt-500);
+    }
+
+    .section.dc-sect .sec-icon {
+      background: var(--cobalt-100);
+    }
+
+    .section.dc-sect .sec-icon svg {
+      stroke: var(--cobalt-600);
+    }
+
+    .section.dc-sect .sec-body {
+      background: #FAFCFF;
+      border-top-color: var(--cobalt-100);
+    }
 
     .sec-hdr {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 1.4rem; height: 54px;
-      cursor: pointer; user-select: none; transition: background 0.1s;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 1.4rem;
+      height: 54px;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.1s;
     }
-    .sec-hdr:hover { background: var(--subtle-bg); } /* overridden by theme classes above */
 
-    .sec-left { display: flex; align-items: center; gap: 11px; }
+    .sec-hdr:hover {
+      background: var(--subtle-bg);
+    }
 
-    .sec-icon { width: 32px; height: 32px; border-radius: var(--r-sm); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
-    .sec-icon svg { width: 14px; height: 14px; stroke-width: 1.7; }
+    /* overridden by theme classes above */
+
+    .sec-left {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+    }
+
+    .sec-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--r-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .sec-icon svg {
+      width: 14px;
+      height: 14px;
+      stroke-width: 1.7;
+    }
 
     /* Icon fills — richer tint so icons read at a glance */
-    .si-cobalt  { background: var(--cobalt-100); } .si-cobalt  svg { stroke: var(--cobalt-700); }
-    .si-teal    { background: var(--teal-100);   } .si-teal    svg { stroke: var(--teal-700);   }
-    .si-amber   { background: var(--amber-100);  } .si-amber   svg { stroke: var(--amber-700);  }
-    .si-violet  { background: var(--violet-100); } .si-violet  svg { stroke: var(--violet-700); }
-    .si-rose    { background: var(--rose-100);   } .si-rose    svg { stroke: var(--rose-700);   }
-    .si-slate   { background: var(--slate-100);  } .si-slate   svg { stroke: var(--slate-700);  }
+    .si-cobalt {
+      background: var(--cobalt-100);
+    }
 
-    .sec-label { font-size: 13px; font-weight: 600; color: var(--text-900); letter-spacing: -0.15px; }
+    .si-cobalt svg {
+      stroke: var(--cobalt-700);
+    }
+
+    .si-teal {
+      background: var(--teal-100);
+    }
+
+    .si-teal svg {
+      stroke: var(--teal-700);
+    }
+
+    .si-amber {
+      background: var(--amber-100);
+    }
+
+    .si-amber svg {
+      stroke: var(--amber-700);
+    }
+
+    .si-violet {
+      background: var(--violet-100);
+    }
+
+    .si-violet svg {
+      stroke: var(--violet-700);
+    }
+
+    .si-rose {
+      background: var(--rose-100);
+    }
+
+    .si-rose svg {
+      stroke: var(--rose-700);
+    }
+
+    .si-slate {
+      background: var(--slate-100);
+    }
+
+    .si-slate svg {
+      stroke: var(--slate-700);
+    }
+
+    .sec-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-900);
+      letter-spacing: -0.15px;
+    }
 
     /* Base count badge — overridden per theme */
     .sec-count {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 500;
-      color: var(--text-300); background: var(--subtle-bg);
-      border: 1px solid var(--border-xs); border-radius: var(--r-xs); padding: 1px 7px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--text-300);
+      background: var(--subtle-bg);
+      border: 1px solid var(--border-xs);
+      border-radius: var(--r-xs);
+      padding: 1px 7px;
       transition: background 0.1s, color 0.1s;
     }
 
     .dc-badge {
-      font-family: var(--mono); font-size: 9px; font-weight: 500;
-      letter-spacing: 0.9px; text-transform: uppercase;
-      background: var(--cobalt-500); color: #fff; padding: 3px 8px; border-radius: var(--r-xs);
+      font-family: var(--mono);
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      background: var(--cobalt-500);
+      color: #fff;
+      padding: 3px 8px;
+      border-radius: var(--r-xs);
     }
+
     .dc-count {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 500;
-      color: var(--cobalt-700); background: var(--cobalt-100);
-      border: 1px solid var(--cobalt-100); border-radius: var(--r-xs); padding: 1px 7px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      color: var(--cobalt-700);
+      background: var(--cobalt-100);
+      border: 1px solid var(--cobalt-100);
+      border-radius: var(--r-xs);
+      padding: 1px 7px;
     }
 
-    .sec-chev { width: 16px; height: 16px; stroke: var(--text-300); flex-shrink: 0; transition: transform 0.18s ease; }
-    .sec-chev.open { transform: rotate(180deg); }
+    .sec-chev {
+      width: 16px;
+      height: 16px;
+      stroke: var(--text-300);
+      flex-shrink: 0;
+      transition: transform 0.18s ease;
+    }
 
-    .sec-body { padding: 0 1.4rem 1.4rem; border-top: 1.5px solid var(--border-xs); }
+    .sec-chev.open {
+      transform: rotate(180deg);
+    }
+
+    .sec-body {
+      padding: 0 1.4rem 1.4rem;
+      border-top: 1.5px solid var(--border-xs);
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        CONTENT STYLES
        Inner elements now echo their section's accent colour so bullet dots,
        chips, kickers, and numbering all reinforce the section identity.
     ═══════════════════════════════════════════════════════════════════════ */
-    .prose { font-size: 13.5px; font-weight: 400; line-height: 1.85; color: var(--text-700); padding-top: 1.1rem; }
+    .prose {
+      font-size: 13.5px;
+      font-weight: 400;
+      line-height: 1.85;
+      color: var(--text-700);
+      padding-top: 1.1rem;
+    }
 
     /* ── Generic list ───────────────────────────────────────────────────── */
-    .item-list { padding-top: 0.6rem; }
-    .item-row {
-      display: flex; align-items: flex-start; gap: 11px;
-      padding: 8px 0; border-bottom: 1px solid var(--border-xs);
-      font-size: 13px; color: var(--text-700); line-height: 1.6;
+    .item-list {
+      padding-top: 0.6rem;
     }
-    .item-row:last-child { border-bottom: none; }
+
+    .item-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-xs);
+      font-size: 13px;
+      color: var(--text-700);
+      line-height: 1.6;
+    }
+
+    .item-row:last-child {
+      border-bottom: none;
+    }
 
     /* Base pip — overridden per section theme below */
     .item-pip {
-      width: 6px; height: 6px; border-radius: 50%;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
       background: var(--border-md);
-      margin-top: 7px; flex-shrink: 0;
+      margin-top: 7px;
+      flex-shrink: 0;
     }
 
     /* Section-specific pip colours */
-    .section.theme-teal   .item-pip { background: var(--teal-600);   }
-    .section.theme-amber  .item-pip { background: var(--amber-600);  }
-    .section.theme-cobalt .item-pip { background: var(--cobalt-500); }
-    .section.theme-violet .item-pip { background: var(--violet-600); }
-    .section.theme-rose   .item-pip { background: var(--rose-600);   }
-    .section.theme-slate  .item-pip { background: var(--slate-600);  }
+    .section.theme-teal .item-pip {
+      background: var(--teal-600);
+    }
+
+    .section.theme-amber .item-pip {
+      background: var(--amber-600);
+    }
+
+    .section.theme-cobalt .item-pip {
+      background: var(--cobalt-500);
+    }
+
+    .section.theme-violet .item-pip {
+      background: var(--violet-600);
+    }
+
+    .section.theme-rose .item-pip {
+      background: var(--rose-600);
+    }
+
+    .section.theme-slate .item-pip {
+      background: var(--slate-600);
+    }
 
     /* ── Structured rows (Procedures / Treatments) ──────────────────────── */
-    .struct-group { padding-top: 0.6rem; }
-    .struct-row {
-      display: flex; flex-direction: column; gap: 3px;
-      padding: 9px 0; border-bottom: 1px solid var(--border-xs);
+    .struct-group {
+      padding-top: 0.6rem;
     }
-    .struct-row:last-child { border-bottom: none; }
+
+    .struct-row {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border-xs);
+    }
+
+    .struct-row:last-child {
+      border-bottom: none;
+    }
 
     /* Treatment category kicker — now a proper coloured micro-tag */
     .struct-kicker {
       display: inline-flex;
       align-items: center;
       font-family: var(--mono);
-      font-size: 9px; font-weight: 500; letter-spacing: 0.8px;
+      font-size: 9px;
+      font-weight: 500;
+      letter-spacing: 0.8px;
       text-transform: uppercase;
       color: var(--teal-700);
       background: var(--teal-50);
@@ -425,115 +1140,300 @@
       width: fit-content;
     }
 
-    .struct-main   { font-size: 13px; font-weight: 500; color: var(--text-900); line-height: 1.45; }
-    .struct-detail { font-size: 12px; color: var(--text-500); line-height: 1.5; }
+    .struct-main {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-900);
+      line-height: 1.45;
+    }
+
+    .struct-detail {
+      font-size: 12px;
+      color: var(--text-500);
+      line-height: 1.5;
+    }
 
     /* Procedure CPT code tag — rose tinted */
     .code-tag {
-      font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      font-weight: 500;
       color: var(--rose-700);
       background: var(--rose-50);
       border: 1px solid var(--rose-100);
       border-radius: var(--r-xs);
-      padding: 1px 6px; margin-left: 8px; vertical-align: middle;
+      padding: 1px 6px;
+      margin-left: 8px;
+      vertical-align: middle;
     }
 
     /* ── ICD chips — violet, slightly richer ────────────────────────────── */
-    .tag-grid { display: flex; flex-wrap: wrap; gap: 7px; padding-top: 1.1rem; }
-    .icd-chip {
-      font-family: var(--mono); font-size: 11.5px; font-weight: 600;
-      padding: 5px 11px; border-radius: var(--r-sm);
-      border: 1.5px solid var(--violet-100);
-      color: var(--violet-700); background: var(--violet-50);
-      letter-spacing: 0.15px;
-      transition: background 0.1s, border-color 0.1s; cursor: default;
-      box-shadow: 0 1px 2px rgba(84,53,178,0.07);
+    .tag-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      padding-top: 1.1rem;
     }
-    .icd-chip:hover { background: var(--violet-100); border-color: var(--violet-600); }
+
+    .icd-chip {
+      font-family: var(--mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 5px 11px;
+      border-radius: var(--r-sm);
+      border: 1.5px solid var(--violet-100);
+      color: var(--violet-700);
+      background: var(--violet-50);
+      letter-spacing: 0.15px;
+      transition: background 0.1s, border-color 0.1s;
+      cursor: default;
+      box-shadow: 0 1px 2px rgba(84, 53, 178, 0.07);
+    }
+
+    .icd-chip:hover {
+      background: var(--violet-100);
+      border-color: var(--violet-600);
+    }
 
     /* ── Trial cards — cobalt-accented ─────────────────────────────────── */
-    .trial-grid { padding-top: 0.6rem; display: flex; flex-direction: column; gap: 7px; }
+    .trial-grid {
+      padding-top: 0.6rem;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
     .trial-card {
       border: 1.5px solid var(--cobalt-100);
       border-left: 3px solid var(--cobalt-400);
       border-radius: var(--r-md);
       padding: 11px 14px;
       background: var(--cobalt-50);
-      display: flex; gap: 14px; align-items: flex-start;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
       transition: border-color 0.12s, background 0.12s;
     }
-    .trial-card:hover { background: #E8F0FE; border-color: var(--cobalt-300); border-left-color: var(--cobalt-500); }
-    .t-id-col { flex-shrink: 0; }
+
+    .trial-card:hover {
+      background: #E8F0FE;
+      border-color: var(--cobalt-300);
+      border-left-color: var(--cobalt-500);
+    }
+
+    .t-id-col {
+      flex-shrink: 0;
+    }
+
     .t-id {
-      font-family: var(--mono); font-size: 11px; font-weight: 600;
-      color: var(--cobalt-600); margin-top: 2px; display: block;
+      font-family: var(--mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--cobalt-600);
+      margin-top: 2px;
+      display: block;
       letter-spacing: 0.2px;
     }
-    .t-body { flex: 1; display: flex; flex-direction: column; gap: 5px; }
-    .t-title { font-size: 13px; color: var(--text-700); line-height: 1.5; }
-    .t-chips { display: flex; gap: 5px; flex-wrap: wrap; }
-    .tchip {
-      font-family: var(--mono); font-size: 9.5px; font-weight: 500;
-      letter-spacing: 0.3px; padding: 2px 8px;
-      border-radius: var(--r-xs); border: 1px solid;
+
+    .t-body {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
     }
-    .tchip-phase  { color: var(--amber-700); border-color: var(--amber-100); background: var(--amber-50); }
-    .tchip-active { color: var(--teal-700);  border-color: var(--teal-100);  background: var(--teal-50);  }
-    .tchip-done   { color: var(--text-300);  border-color: var(--border-xs); background: var(--subtle-bg); }
+
+    .t-title {
+      font-size: 13px;
+      color: var(--text-700);
+      line-height: 1.5;
+    }
+
+    .t-chips {
+      display: flex;
+      gap: 5px;
+      flex-wrap: wrap;
+    }
+
+    .tchip {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      padding: 2px 8px;
+      border-radius: var(--r-xs);
+      border: 1px solid;
+    }
+
+    .tchip-phase {
+      color: var(--amber-700);
+      border-color: var(--amber-100);
+      background: var(--amber-50);
+    }
+
+    .tchip-active {
+      color: var(--teal-700);
+      border-color: var(--teal-100);
+      background: var(--teal-50);
+    }
+
+    .tchip-done {
+      color: var(--text-300);
+      border-color: var(--border-xs);
+      background: var(--subtle-bg);
+    }
 
     /* ── Literature — slate-accented numbering ──────────────────────────── */
-    .lit-list { padding-top: 0.6rem; }
-    .lit-row { display: flex; gap: 13px; padding: 10px 0; border-bottom: 1px solid var(--border-xs); }
-    .lit-row:last-child { border-bottom: none; }
+    .lit-list {
+      padding-top: 0.6rem;
+    }
+
+    .lit-row {
+      display: flex;
+      gap: 13px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-xs);
+    }
+
+    .lit-row:last-child {
+      border-bottom: none;
+    }
+
     .lit-n {
-      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
       color: var(--slate-700);
       background: var(--slate-100);
       border: 1px solid var(--slate-100);
       border-radius: var(--r-xs);
-      padding: 2px 7px; flex-shrink: 0; align-self: flex-start; margin-top: 2px;
+      padding: 2px 7px;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 2px;
     }
-    .lit-body    { display: flex; flex-direction: column; gap: 2px; }
-    .lit-authors { font-size: 11.5px; color: var(--text-300); }
-    .lit-title   { font-size: 13px; font-weight: 500; color: var(--text-700); line-height: 1.4; }
-    .lit-journal { font-size: 11.5px; color: var(--text-300); font-style: italic; }
-    .lit-link    { font-size: 11.5px; color: var(--cobalt-500); text-decoration: none; margin-top: 1px; }
-    .lit-link:hover { text-decoration: underline; }
+
+    .lit-body {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .lit-authors {
+      font-size: 11.5px;
+      color: var(--text-300);
+    }
+
+    .lit-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-700);
+      line-height: 1.4;
+    }
+
+    .lit-journal {
+      font-size: 11.5px;
+      color: var(--text-300);
+      font-style: italic;
+    }
+
+    .lit-link {
+      font-size: 11.5px;
+      color: var(--cobalt-500);
+      text-decoration: none;
+      margin-top: 1px;
+    }
+
+    .lit-link:hover {
+      text-decoration: underline;
+    }
 
     /* ── Sources — slate-accented numbering ─────────────────────────────── */
-    .src-list { padding-top: 0.6rem; }
-    .src-row {
-      display: flex; align-items: baseline; gap: 11px;
-      padding: 8px 0; border-bottom: 1px solid var(--border-xs); font-size: 13px;
+    .src-list {
+      padding-top: 0.6rem;
     }
-    .src-row:last-child { border-bottom: none; }
+
+    .src-row {
+      display: flex;
+      align-items: baseline;
+      gap: 11px;
+      padding: 8px 0;
+      border-bottom: 1px solid var(--border-xs);
+      font-size: 13px;
+    }
+
+    .src-row:last-child {
+      border-bottom: none;
+    }
+
     .src-n {
-      font-family: var(--mono); font-size: 10px; font-weight: 600;
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 600;
       color: var(--slate-700);
       background: var(--slate-100);
       border: 1px solid var(--slate-100);
-      border-radius: var(--r-xs); padding: 2px 7px; flex-shrink: 0;
+      border-radius: var(--r-xs);
+      padding: 2px 7px;
+      flex-shrink: 0;
     }
-    .src-lbl { font-weight: 500; color: var(--text-900); }
-    .src-dtl { font-size: 12px; color: var(--text-300); margin-left: 6px; }
+
+    .src-lbl {
+      font-weight: 500;
+      color: var(--text-900);
+    }
+
+    .src-dtl {
+      font-size: 12px;
+      color: var(--text-300);
+      margin-left: 6px;
+    }
 
     /* ── Data Considerations (unchanged — already strongest) ────────────── */
-    .dc-list { padding-top: 0.6rem; }
-    .dc-row  {
-      display: flex; align-items: flex-start; gap: 12px;
-      padding: 10px 0; border-bottom: 1.5px solid var(--cobalt-100);
-      font-size: 13px; color: var(--cobalt-700); line-height: 1.72;
+    .dc-list {
+      padding-top: 0.6rem;
     }
-    .dc-row:last-child { border-bottom: none; }
-    .dc-pip  {
-      width: 20px; height: 20px; border-radius: 50%;
-      background: var(--cobalt-100); border: 1.5px solid var(--cobalt-300);
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0; margin-top: 1px;
-    }
-    .dc-pip svg { width: 10px; height: 10px; stroke: var(--cobalt-600); stroke-width: 2; }
 
-    .no-data { font-size: 12.5px; color: var(--text-100); font-style: italic; padding: 0.9rem 0; }
+    .dc-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 0;
+      border-bottom: 1.5px solid var(--cobalt-100);
+      font-size: 13px;
+      color: var(--cobalt-700);
+      line-height: 1.72;
+    }
+
+    .dc-row:last-child {
+      border-bottom: none;
+    }
+
+    .dc-pip {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--cobalt-100);
+      border: 1.5px solid var(--cobalt-300);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .dc-pip svg {
+      width: 10px;
+      height: 10px;
+      stroke: var(--cobalt-600);
+      stroke-width: 2;
+    }
+
+    .no-data {
+      font-size: 12.5px;
+      color: var(--text-100);
+      font-style: italic;
+      padding: 0.9rem 0;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════
        SUMMARY RAIL
@@ -549,15 +1449,48 @@
     .rail-card-hdr {
       padding: 10px 14px;
       border-bottom: 1px solid var(--border-xs);
-      display: flex; align-items: center; gap: 7px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
     }
-    .rail-card-hdr svg { width: 13px; height: 13px; stroke: var(--text-300); stroke-width: 1.7; flex-shrink: 0; }
-    .rail-card-title { font-family: var(--mono); font-size: 9.5px; font-weight: 500; letter-spacing: 0.9px; text-transform: uppercase; color: var(--text-300); }
+
+    .rail-card-hdr svg {
+      width: 13px;
+      height: 13px;
+      stroke: var(--text-300);
+      stroke-width: 1.7;
+      flex-shrink: 0;
+    }
+
+    .rail-card-title {
+      font-family: var(--mono);
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      color: var(--text-300);
+    }
 
     /* Identity card */
-    .rail-identity { padding: 14px; }
-    .rail-term { font-size: 15px; font-weight: 700; color: var(--text-900); letter-spacing: -0.3px; line-height: 1.25; margin-bottom: 6px; }
-    .rail-ts   { font-family: var(--mono); font-size: 10px; color: var(--text-300); letter-spacing: 0.2px; }
+    .rail-identity {
+      padding: 14px;
+    }
+
+    .rail-term {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text-900);
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+      margin-bottom: 6px;
+    }
+
+    .rail-ts {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--text-300);
+      letter-spacing: 0.2px;
+    }
 
     /* ── Metric rows — button-style navigation controls ──────────────────
        Design intent:
@@ -566,39 +1499,59 @@
          • Hover deepens fill, shifts left-accent bar into view
          • Active/pressed gives a strong inset feedback
     ─────────────────────────────────────────────────────────────────────── */
-    .rail-metrics { padding: 5px 8px; display: flex; flex-direction: column; gap: 4px; }
+    .rail-metrics {
+      padding: 5px 8px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
 
     .rail-metric {
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 8px 10px 8px 11px;
-      border-radius: var(--r-md);          /* more rounded = more button-like  */
+      border-radius: var(--r-md);
+      /* more rounded = more button-like  */
       border: 1.5px solid var(--border-sm);
-      background: var(--subtle-bg);         /* filled resting state              */
+      background: var(--subtle-bg);
+      /* filled resting state              */
       cursor: pointer;
       user-select: none;
       transition: background 0.1s, border-color 0.1s, box-shadow 0.1s;
-      border-left: 3px solid var(--border-md); /* always-visible left accent       */
+      border-left: 3px solid var(--border-md);
+      /* always-visible left accent       */
     }
 
     .rail-metric:hover {
       background: var(--cobalt-50);
       border-color: var(--cobalt-300);
       border-left-color: var(--cobalt-500);
-      box-shadow: 0 1px 4px rgba(37,99,235,0.10);
+      box-shadow: 0 1px 4px rgba(37, 99, 235, 0.10);
     }
 
-    .rail-metric:hover .rm-label  { color: var(--cobalt-700); }
-    .rail-metric:hover .rm-count  { background: var(--cobalt-100); border-color: var(--cobalt-300); color: var(--cobalt-700); }
-    .rail-metric:hover .rm-arrow  { opacity: 1; stroke: var(--cobalt-500); transform: translateX(2px); }
+    .rail-metric:hover .rm-label {
+      color: var(--cobalt-700);
+    }
+
+    .rail-metric:hover .rm-count {
+      background: var(--cobalt-100);
+      border-color: var(--cobalt-300);
+      color: var(--cobalt-700);
+    }
+
+    .rail-metric:hover .rm-arrow {
+      opacity: 1;
+      stroke: var(--cobalt-500);
+      transform: translateX(2px);
+    }
 
     /* Pressed / active — clear inset feel */
     .rail-metric:active {
       background: var(--cobalt-100);
       border-color: var(--cobalt-500);
       border-left-color: var(--cobalt-600);
-      box-shadow: inset 0 1px 3px rgba(37,99,235,0.15);
+      box-shadow: inset 0 1px 3px rgba(37, 99, 235, 0.15);
       transform: scale(0.99);
     }
 
@@ -608,26 +1561,53 @@
     }
 
     .rm-label {
-      display: flex; align-items: center; gap: 9px;
-      font-size: 12.5px; font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      font-size: 12.5px;
+      font-weight: 500;
       color: var(--text-700);
       transition: color 0.1s;
     }
 
     .rm-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
-      box-shadow: 0 0 0 2px rgba(0,0,0,0.08);
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.08);
     }
 
     /* Dot colours */
-    .dot-cobalt { background: var(--cobalt-500); }
-    .dot-teal   { background: var(--teal-600);   }
-    .dot-amber  { background: var(--amber-600);  }
-    .dot-violet { background: var(--violet-600); }
-    .dot-rose   { background: var(--rose-600);   }
-    .dot-slate  { background: var(--slate-600);  }
+    .dot-cobalt {
+      background: var(--cobalt-500);
+    }
 
-    .rm-right { display: flex; align-items: center; gap: 7px; }
+    .dot-teal {
+      background: var(--teal-600);
+    }
+
+    .dot-amber {
+      background: var(--amber-600);
+    }
+
+    .dot-violet {
+      background: var(--violet-600);
+    }
+
+    .dot-rose {
+      background: var(--rose-600);
+    }
+
+    .dot-slate {
+      background: var(--slate-600);
+    }
+
+    .rm-right {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
 
     .rm-count {
       font-family: var(--mono);
@@ -645,10 +1625,12 @@
 
     /* Arrow: always visible at moderate opacity, brightens on hover */
     .rm-arrow {
-      width: 13px; height: 13px;
+      width: 13px;
+      height: 13px;
       stroke: var(--text-300);
       stroke-width: 2.2;
-      opacity: 0.65;                       /* always visible, not ghost          */
+      opacity: 0.65;
+      /* always visible, not ghost          */
       transition: opacity 0.12s, stroke 0.12s, transform 0.12s;
       flex-shrink: 0;
     }
@@ -656,15 +1638,36 @@
     /* Analyst note card */
     .rail-card.note-card {
       border-color: var(--cobalt-100);
-      box-shadow: 0 0 0 3px rgba(37,99,235,0.06), var(--shadow-xs);
+      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.06), var(--shadow-xs);
     }
-    .rail-card.note-card .rail-card-hdr { background: var(--cobalt-50); border-bottom-color: var(--cobalt-100); }
-    .rail-card.note-card .rail-card-hdr svg { stroke: var(--cobalt-500); }
-    .rail-card.note-card .rail-card-title   { color: var(--cobalt-600); }
 
-    .rail-note      { padding: 13px 14px; background: var(--cobalt-50); }
-    .rail-note-body { font-size: 12px; line-height: 1.65; color: var(--cobalt-700); }
-    .rail-note-body strong { font-weight: 600; }
+    .rail-card.note-card .rail-card-hdr {
+      background: var(--cobalt-50);
+      border-bottom-color: var(--cobalt-100);
+    }
+
+    .rail-card.note-card .rail-card-hdr svg {
+      stroke: var(--cobalt-500);
+    }
+
+    .rail-card.note-card .rail-card-title {
+      color: var(--cobalt-600);
+    }
+
+    .rail-note {
+      padding: 13px 14px;
+      background: var(--cobalt-50);
+    }
+
+    .rail-note-body {
+      font-size: 12px;
+      line-height: 1.65;
+      color: var(--cobalt-700);
+    }
+
+    .rail-note-body strong {
+      font-weight: 600;
+    }
 
 
     /* ═══════════════════════════════════════════════════════════════════════
@@ -820,202 +1823,226 @@
        FOOTER
     ═══════════════════════════════════════════════════════════════════════ */
     .page-footer {
-      margin-top: auto; background: var(--navy-950);
+      margin-top: auto;
+      background: var(--navy-950);
       border-top: 1px solid var(--navy-800);
       padding: 1.4rem 2.5rem;
-      display: flex; align-items: center; justify-content: space-between;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .footer-brand { font-family: var(--mono); font-size: 10px; font-weight: 500; color: var(--navy-400); letter-spacing: 0.5px; text-transform: uppercase; }
-    .footer-note  { font-size: 11px; color: var(--navy-500); }
 
+    .footer-brand {
+      font-family: var(--mono);
+      font-size: 10px;
+      font-weight: 500;
+      color: var(--navy-400);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .footer-note {
+      font-size: 11px;
+      color: var(--navy-500);
+    }
   </style>
 </head>
-<body>
-<div id="app">
 
-  <!-- ═══════════════════════════════════════════════════════════════════
+<body>
+  <div id="app">
+
+    <!-- ═══════════════════════════════════════════════════════════════════
        TOPBAR
   ═══════════════════════════════════════════════════════════════════════ -->
-  <header class="topbar">
-    <div class="brand">
-      <div class="brand-mark">
-        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round">
-          <path d="M8 2v12M2 8h12"/>
-        </svg>
-      </div>
-      <span class="brand-name">ClinicalIntel</span>
-      <div class="brand-pipe"></div>
-      <span class="brand-sub">RWD Analytics</span>
-    </div>
-    <div class="topbar-right">
-      <div class="online-pip"></div>
-      <span class="online-label">Platform Online</span>
-    </div>
-  </header>
-
-  <main>
-    <div class="page-wrap">
-
-      <!-- SEARCH HERO -->
-      <section class="search-hero">
-        <div class="hero-kicker">
-          <div class="kicker-line"></div>
-          <span class="kicker-text">Disease Intelligence Search</span>
-          <div class="kicker-line"></div>
-        </div>
-        <h1 class="hero-headline">Structured clinical data for any<br/><strong>disease or condition</strong></h1>
-        <p class="hero-sub">ICD codes · Procedures · Treatments · Trials · RWD Considerations</p>
-
-        <div class="search-shell">
-          <form class="search-bar" id="searchForm" onsubmit="handleSearch(event)">
-            <div class="search-prefix">
-              <svg viewBox="0 0 16 16" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="6.5" cy="6.5" r="4.5"/><path d="M10.5 10.5l3 3"/>
-              </svg>
-            </div>
-            <input class="search-input" id="searchInput" type="text"
-              placeholder="Enter disease name, ICD term, or condition…"
-              autocomplete="off" spellcheck="false" />
-            <button class="search-go" type="submit">
-              <svg viewBox="0 0 16 16" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
-                <path d="M3 8h10M9 4l4 4-4 4"/>
-              </svg>
-              Run Query
-            </button>
-          </form>
-
-          <div class="search-hints">
-            <span class="hints-label">Try:</span>
-            <span class="hint-chip" onclick="fillSearch('iTTP')">iTTP</span>
-            <span class="hint-chip" onclick="fillSearch('Crohn\'s disease')">Crohn's disease</span>
-            <span class="hint-chip" onclick="fillSearch('amyloidosis')">amyloidosis</span>
-            <span class="hint-chip" onclick="fillSearch('multiple myeloma')">multiple myeloma</span>
-            <span class="hint-chip" onclick="fillSearch('ALS')">ALS</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- EMPTY -->
-      <div class="state-panel" id="emptyState">
-        <div class="state-icon">
-          <svg viewBox="0 0 20 20" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="9" cy="9" r="5.5"/><path d="M14 14l3.5 3.5"/><path d="M9 6.5v2.5l1.5 1.5"/>
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark">
+          <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-linecap="round">
+            <path d="M8 2v12M2 8h12" />
           </svg>
         </div>
-        <p class="state-h">No query entered</p>
-        <p class="state-p">Enter a disease or condition above to retrieve structured clinical intelligence.</p>
+        <span class="brand-name">ClinicalIntel</span>
+        <div class="brand-pipe"></div>
+        <span class="brand-sub">RWD Analytics</span>
       </div>
-
-      <!-- LOADING -->
-      <div class="state-panel" id="loadingState" style="display:none">
-        <div class="spin-wrap"><div class="spin-ring"></div></div>
-        <p class="state-h">Retrieving clinical data…</p>
-        <p class="state-p">Querying the intelligence database.</p>
+      <div class="topbar-right">
+        <div class="online-pip"></div>
+        <span class="online-label">Platform Online</span>
       </div>
+    </header>
 
-      <!-- ERROR -->
-      <div id="errorState" style="display:none"></div>
+    <main>
+      <div class="page-wrap">
 
-      <!-- RESULTS -->
-      <div id="resultsContainer" style="display:none"></div>
+        <!-- SEARCH HERO -->
+        <section class="search-hero">
+          <div class="hero-kicker">
+            <div class="kicker-line"></div>
+            <span class="kicker-text">Disease Intelligence Search</span>
+            <div class="kicker-line"></div>
+          </div>
+          <h1 class="hero-headline">Structured clinical data for any<br /><strong>disease or condition</strong></h1>
+          <p class="hero-sub">ICD codes · Procedures · Treatments · Trials · RWD Considerations</p>
 
-    </div>
-  </main>
+          <div class="search-shell">
+            <form class="search-bar" id="searchForm" onsubmit="handleSearch(event)">
+              <div class="search-prefix">
+                <svg viewBox="0 0 16 16" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="6.5" cy="6.5" r="4.5" />
+                  <path d="M10.5 10.5l3 3" />
+                </svg>
+              </div>
+              <input class="search-input" id="searchInput" type="text"
+                placeholder="Enter disease name, ICD term, or condition…" autocomplete="off" spellcheck="false" />
+              <button class="search-go" type="submit">
+                <svg viewBox="0 0 16 16" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+                Run Query
+              </button>
+            </form>
 
-  <footer class="page-footer">
-    <span class="footer-brand">ClinicalIntel &nbsp;/&nbsp; RWD Analytics</span>
-    <span class="footer-note">For research use only · Not for direct clinical decision-making</span>
-  </footer>
+            <div class="search-hints">
+              <span class="hints-label">Try:</span>
+              <span class="hint-chip" onclick="fillSearch('iTTP')">iTTP</span>
+              <span class="hint-chip" onclick="fillSearch('Crohn\'s disease')">Crohn's disease</span>
+              <span class="hint-chip" onclick="fillSearch('amyloidosis')">amyloidosis</span>
+              <span class="hint-chip" onclick="fillSearch('multiple myeloma')">multiple myeloma</span>
+              <span class="hint-chip" onclick="fillSearch('ALS')">ALS</span>
+            </div>
+          </div>
+        </section>
 
-</div><!-- /#app -->
+        <!-- EMPTY -->
+        <div class="state-panel" id="emptyState">
+          <div class="state-icon">
+            <svg viewBox="0 0 20 20" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="9" cy="9" r="5.5" />
+              <path d="M14 14l3.5 3.5" />
+              <path d="M9 6.5v2.5l1.5 1.5" />
+            </svg>
+          </div>
+          <p class="state-h">No query entered</p>
+          <p class="state-p">Enter a disease or condition above to retrieve structured clinical intelligence.</p>
+        </div>
 
-<script>
+        <!-- LOADING -->
+        <div class="state-panel" id="loadingState" style="display:none">
+          <div class="spin-wrap">
+            <div class="spin-ring"></div>
+          </div>
+          <p class="state-h">Retrieving clinical data…</p>
+          <p class="state-p">Querying the intelligence database.</p>
+        </div>
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   CONFIG
-═══════════════════════════════════════════════════════════════════════════ */
-const API_URL = "http://127.0.0.1:8000/api/clinical-intel";
+        <!-- ERROR -->
+        <div id="errorState" style="display:none"></div>
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   UTILITIES
-═══════════════════════════════════════════════════════════════════════════ */
-function fillSearch(term) {
-  document.getElementById("searchInput").value = term;
-  document.getElementById("searchInput").focus();
-}
+        <!-- RESULTS -->
+        <div id="resultsContainer" style="display:none"></div>
 
-function setState(which) {
-  ["emptyState","loadingState","errorState","resultsContainer"].forEach(id => {
-    document.getElementById(id).style.display = (id === which) ? "" : "none";
-  });
-}
+      </div>
+    </main>
 
-function toggleSection(id) {
-  const body = document.getElementById("body-" + id);
-  const chev = document.getElementById("chev-" + id);
-  const isOpen = body.style.display !== "none";
-  body.style.display = isOpen ? "none" : "";
-  chev.classList.toggle("open", !isOpen);
-}
+    <footer class="page-footer">
+      <span class="footer-brand">ClinicalIntel &nbsp;/&nbsp; RWD Analytics</span>
+      <span class="footer-note">For research use only · Not for direct clinical decision-making</span>
+    </footer>
 
-/**
- * Navigate to a section from the rail.
- * Expands it if collapsed, then scrolls it into view.
- */
-function navToSection(id) {
-  const body = document.getElementById("body-" + id);
-  const chev = document.getElementById("chev-" + id);
-  if (!body) return;
+  </div><!-- /#app -->
 
-  /* Expand if collapsed */
-  if (body.style.display === "none") {
-    body.style.display = "";
-    if (chev) chev.classList.add("open");
-  }
+  <script>
 
-  /* Scroll the section header into view with a small top offset */
-  const section = body.closest(".section");
-  if (!section) return;
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CONFIG
+    ═══════════════════════════════════════════════════════════════════════════ */
+    const API_URL = "http://127.0.0.1:8000/api/clinical-intel";
 
-  const topbarH = 56;
-  const gap = 16;
-  const y = section.getBoundingClientRect().top + window.scrollY - topbarH - gap;
-  window.scrollTo({ top: y, behavior: "smooth" });
-}
+    /* ═══════════════════════════════════════════════════════════════════════════
+       UTILITIES
+    ═══════════════════════════════════════════════════════════════════════════ */
+    function fillSearch(term) {
+      document.getElementById("searchInput").value = term;
+      document.getElementById("searchInput").focus();
+    }
 
-function icon(d) {
-  return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
+    function runSuggestion(term) {
+      document.getElementById("searchInput").value = term;
+      document.getElementById("searchForm").requestSubmit();
+    }
+
+    function setState(which) {
+      ["emptyState", "loadingState", "errorState", "resultsContainer"].forEach(id => {
+        document.getElementById(id).style.display = (id === which) ? "" : "none";
+      });
+    }
+
+    function toggleSection(id) {
+      const body = document.getElementById("body-" + id);
+      const chev = document.getElementById("chev-" + id);
+      const isOpen = body.style.display !== "none";
+      body.style.display = isOpen ? "none" : "";
+      chev.classList.toggle("open", !isOpen);
+    }
+
+    /**
+     * Navigate to a section from the rail.
+     * Expands it if collapsed, then scrolls it into view.
+     */
+    function navToSection(id) {
+      const body = document.getElementById("body-" + id);
+      const chev = document.getElementById("chev-" + id);
+      if (!body) return;
+
+      /* Expand if collapsed */
+      if (body.style.display === "none") {
+        body.style.display = "";
+        if (chev) chev.classList.add("open");
+      }
+
+      /* Scroll the section header into view with a small top offset */
+      const section = body.closest(".section");
+      if (!section) return;
+
+      const topbarH = 56;
+      const gap = 16;
+      const y = section.getBoundingClientRect().top + window.scrollY - topbarH - gap;
+      window.scrollTo({ top: y, behavior: "smooth" });
+    }
+
+    function icon(d) {
+      return `<svg viewBox="0 0 16 16" fill="none" stroke="currentColor"
     stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"
     xmlns="http://www.w3.org/2000/svg">${d}</svg>`;
-}
+    }
 
-function safeStr(v) {
-  if (v === null || v === undefined) return "";
-  if (typeof v !== "object") return String(v);
-  return Object.values(v).filter(x => x !== null && x !== undefined && x !== "").join("  ·  ");
-}
+    function safeStr(v) {
+      if (v === null || v === undefined) return "";
+      if (typeof v !== "object") return String(v);
+      return Object.values(v).filter(x => x !== null && x !== undefined && x !== "").join("  ·  ");
+    }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   SECTION BUILDER
-   Added: themeClass parameter for per-section colour identity
-═══════════════════════════════════════════════════════════════════════════ */
-function buildSection(id, iconSvg, iconClass, label, bodyHtml, count = 0, isDc = false) {
-  const themeMap = {
-    "si-cobalt": "theme-cobalt",
-    "si-teal":   "theme-teal",
-    "si-amber":  "theme-amber",
-    "si-violet": "theme-violet",
-    "si-rose":   "theme-rose",
-    "si-slate":  "theme-slate",
-  };
-  const themeClass = isDc ? "dc-sect" : (themeMap[iconClass] || "");
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SECTION BUILDER
+       Added: themeClass parameter for per-section colour identity
+    ═══════════════════════════════════════════════════════════════════════════ */
+    function buildSection(id, iconSvg, iconClass, label, bodyHtml, count = 0, isDc = false) {
+      const themeMap = {
+        "si-cobalt": "theme-cobalt",
+        "si-teal": "theme-teal",
+        "si-amber": "theme-amber",
+        "si-violet": "theme-violet",
+        "si-rose": "theme-rose",
+        "si-slate": "theme-slate",
+      };
+      const themeClass = isDc ? "dc-sect" : (themeMap[iconClass] || "");
 
-  const countEl = count > 0
-    ? `<span class="${isDc ? "dc-count" : "sec-count"}">${count}</span>`
-    : "";
-  const dcEl = isDc ? `<span class="dc-badge">Key Insight</span>` : "";
+      const countEl = count > 0
+        ? `<span class="${isDc ? "dc-count" : "sec-count"}">${count}</span>`
+        : "";
+      const dcEl = isDc ? `<span class="dc-badge">Key Insight</span>` : "";
 
-  return `
+      return `
     <div id="section-${id}" class="section ${themeClass}">
       <div class="sec-hdr" onclick="toggleSection('${id}')">
         <div class="sec-left">
@@ -1031,135 +2058,135 @@ function buildSection(id, iconSvg, iconClass, label, bodyHtml, count = 0, isDc =
       </div>
       <div id="body-${id}" class="sec-body">${bodyHtml}</div>
     </div>`;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   CONTENT RENDERERS (all unchanged)
-═══════════════════════════════════════════════════════════════════════════ */
-function renderList(items) {
-  if (!items?.length) return `<p class="no-data">No data available.</p>`;
-  return `<div class="item-list">` +
-    items.map(item =>
-      `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`
-    ).join("") + `</div>`;
-}
-
-function renderIcd(codes) {
-  if (!codes?.length) return `<p class="no-data">No ICD codes found.</p>`;
-  return `<div class="tag-grid">` + codes.map(c => {
-    if (typeof c === "object" && c !== null) {
-      const code = c.code || c.icd_code || c.icd || "";
-      const desc = c.description || c.desc || c.label || "";
-      return `<span class="icd-chip" title="${desc}">${code}</span>`;
     }
-    const parts = String(c).split(/\s*[—–-]\s*/);
-    return `<span class="icd-chip" title="${parts.slice(1).join(" ") || ""}">${parts[0]}</span>`;
-  }).join("") + `</div>`;
-}
 
-function renderProcedures(items) {
-  if (!items?.length) return `<p class="no-data">No procedures listed.</p>`;
-  return `<div class="struct-group">` + items.map(item => {
-    if (typeof item !== "object" || item === null)
-      return `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`;
-    const name  = item.name  || item.procedure || item.title       || "";
-    const cpt   = item.cpt   || item.code       || item.cpt_code   || "";
-    const notes = item.notes || item.detail     || item.description || "";
-    return `<div class="struct-row">
+    /* ═══════════════════════════════════════════════════════════════════════════
+       CONTENT RENDERERS (all unchanged)
+    ═══════════════════════════════════════════════════════════════════════════ */
+    function renderList(items) {
+      if (!items?.length) return `<p class="no-data">No data available.</p>`;
+      return `<div class="item-list">` +
+        items.map(item =>
+          `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`
+        ).join("") + `</div>`;
+    }
+
+    function renderIcd(codes) {
+      if (!codes?.length) return `<p class="no-data">No ICD codes found.</p>`;
+      return `<div class="tag-grid">` + codes.map(c => {
+        if (typeof c === "object" && c !== null) {
+          const code = c.code || c.icd_code || c.icd || "";
+          const desc = c.description || c.desc || c.label || "";
+          return `<span class="icd-chip" title="${desc}">${code}</span>`;
+        }
+        const parts = String(c).split(/\s*[—–-]\s*/);
+        return `<span class="icd-chip" title="${parts.slice(1).join(" ") || ""}">${parts[0]}</span>`;
+      }).join("") + `</div>`;
+    }
+
+    function renderProcedures(items) {
+      if (!items?.length) return `<p class="no-data">No procedures listed.</p>`;
+      return `<div class="struct-group">` + items.map(item => {
+        if (typeof item !== "object" || item === null)
+          return `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`;
+        const name = item.name || item.procedure || item.title || "";
+        const cpt = item.cpt || item.code || item.cpt_code || "";
+        const notes = item.notes || item.detail || item.description || "";
+        return `<div class="struct-row">
       <div class="struct-main">${name}${cpt ? `<span class="code-tag">${cpt}</span>` : ""}</div>
       ${notes ? `<div class="struct-detail">${notes}</div>` : ""}
     </div>`;
-  }).join("") + `</div>`;
-}
+      }).join("") + `</div>`;
+    }
 
-function renderTreatments(items) {
-  if (!items?.length) return `<p class="no-data">No treatments listed.</p>`;
-  return `<div class="struct-group">` + items.map(item => {
-    if (typeof item !== "object" || item === null)
-      return `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`;
-    const name     = item.name     || item.treatment || item.drug  || item.agent || "";
-    const category = item.category || item.class     || item.type  || item.line  || "";
-    const detail   = item.detail   || item.notes     || item.description || item.mechanism || "";
-    return `<div class="struct-row">
+    function renderTreatments(items) {
+      if (!items?.length) return `<p class="no-data">No treatments listed.</p>`;
+      return `<div class="struct-group">` + items.map(item => {
+        if (typeof item !== "object" || item === null)
+          return `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`;
+        const name = item.name || item.treatment || item.drug || item.agent || "";
+        const category = item.category || item.class || item.type || item.line || "";
+        const detail = item.detail || item.notes || item.description || item.mechanism || "";
+        return `<div class="struct-row">
       ${category ? `<div class="struct-kicker">${category}</div>` : ""}
       <div class="struct-main">${name}</div>
       ${detail ? `<div class="struct-detail">${detail}</div>` : ""}
     </div>`;
-  }).join("") + `</div>`;
-}
+      }).join("") + `</div>`;
+    }
 
-function renderTrials(items) {
-  if (!items?.length) return `<p class="no-data">No clinical trials found.</p>`;
-  return `<div class="trial-grid">` + items.map(item => {
-    if (typeof item !== "object" || item === null)
-      return `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`;
-    const id     = item.id     || item.nct_id     || item.trial_id   || "";
-    const title  = item.title  || item.name       || item.description || "";
-    const phase  = item.phase  || item.phase_label || "";
-    const status = item.status || item.recruitment_status             || "";
-    const statusClass = /active|recruiting|ongoing/i.test(status) ? "tchip-active" : "tchip-done";
-    return `<div class="trial-card">
+    function renderTrials(items) {
+      if (!items?.length) return `<p class="no-data">No clinical trials found.</p>`;
+      return `<div class="trial-grid">` + items.map(item => {
+        if (typeof item !== "object" || item === null)
+          return `<div class="item-row"><span class="item-pip"></span><span>${safeStr(item)}</span></div>`;
+        const id = item.id || item.nct_id || item.trial_id || "";
+        const title = item.title || item.name || item.description || "";
+        const phase = item.phase || item.phase_label || "";
+        const status = item.status || item.recruitment_status || "";
+        const statusClass = /active|recruiting|ongoing/i.test(status) ? "tchip-active" : "tchip-done";
+        return `<div class="trial-card">
       <div class="t-id-col">${id ? `<span class="t-id">${id}</span>` : ""}</div>
       <div class="t-body">
         ${title ? `<div class="t-title">${title}</div>` : ""}
         <div class="t-chips">
-          ${phase  ? `<span class="tchip tchip-phase">${phase}</span>` : ""}
+          ${phase ? `<span class="tchip tchip-phase">${phase}</span>` : ""}
           ${status ? `<span class="tchip ${statusClass}">${status}</span>` : ""}
         </div>
       </div>
     </div>`;
-  }).join("") + `</div>`;
-}
+      }).join("") + `</div>`;
+    }
 
-function renderLiterature(items) {
-  if (!items?.length) return `<p class="no-data">No literature available.</p>`;
-  return `<div class="lit-list">` + items.map((item, i) => {
-    if (typeof item !== "object" || item === null)
-      return `<div class="lit-row"><span class="lit-n">${i+1}</span><div class="lit-body"><span class="lit-title">${safeStr(item)}</span></div></div>`;
-    const authors = item.authors || item.author                    || "";
-    const year    = item.year    || item.date                      || "";
-    const title   = item.title   || item.name                      || "";
-    const journal = item.journal || item.source || item.publication || "";
-    const url     = item.url     || item.link   || item.doi         || "";
-    const jLine   = [journal, year].filter(Boolean).join(", ");
-    return `<div class="lit-row">
-      <span class="lit-n">${i+1}</span>
+    function renderLiterature(items) {
+      if (!items?.length) return `<p class="no-data">No literature available.</p>`;
+      return `<div class="lit-list">` + items.map((item, i) => {
+        if (typeof item !== "object" || item === null)
+          return `<div class="lit-row"><span class="lit-n">${i + 1}</span><div class="lit-body"><span class="lit-title">${safeStr(item)}</span></div></div>`;
+        const authors = item.authors || item.author || "";
+        const year = item.year || item.date || "";
+        const title = item.title || item.name || "";
+        const journal = item.journal || item.source || item.publication || "";
+        const url = item.url || item.link || item.doi || "";
+        const jLine = [journal, year].filter(Boolean).join(", ");
+        return `<div class="lit-row">
+      <span class="lit-n">${i + 1}</span>
       <div class="lit-body">
         ${authors ? `<span class="lit-authors">${authors}</span>` : ""}
-        ${title   ? `<span class="lit-title">${title}</span>` : ""}
-        ${jLine   ? `<span class="lit-journal">${jLine}</span>` : ""}
-        ${url     ? `<a class="lit-link" href="${url}" target="_blank" rel="noopener">Open source →</a>` : ""}
+        ${title ? `<span class="lit-title">${title}</span>` : ""}
+        ${jLine ? `<span class="lit-journal">${jLine}</span>` : ""}
+        ${url ? `<a class="lit-link" href="${url}" target="_blank" rel="noopener">Open source →</a>` : ""}
       </div>
     </div>`;
-  }).join("") + `</div>`;
-}
+      }).join("") + `</div>`;
+    }
 
-function renderSources(items) {
-  if (!items?.length) return `<p class="no-data">No sources listed.</p>`;
-  return `<div class="src-list">` + items.map((item, i) => {
-    if (typeof item !== "object" || item === null)
-      return `<div class="src-row"><span class="src-n">${i+1}</span><span class="src-lbl">${safeStr(item)}</span></div>`;
-    const label  = item.label  || item.name   || item.source || item.title || "";
-    const detail = item.detail || item.notes  || item.description           || "";
-    const url    = item.url    || item.link   || item.href                   || "";
-    return `<div class="src-row">
-      <span class="src-n">${i+1}</span>
+    function renderSources(items) {
+      if (!items?.length) return `<p class="no-data">No sources listed.</p>`;
+      return `<div class="src-list">` + items.map((item, i) => {
+        if (typeof item !== "object" || item === null)
+          return `<div class="src-row"><span class="src-n">${i + 1}</span><span class="src-lbl">${safeStr(item)}</span></div>`;
+        const label = item.label || item.name || item.source || item.title || "";
+        const detail = item.detail || item.notes || item.description || "";
+        const url = item.url || item.link || item.href || "";
+        return `<div class="src-row">
+      <span class="src-n">${i + 1}</span>
       <span>
         <span class="src-lbl">${label}</span>
         ${detail ? `<span class="src-dtl">${detail}</span>` : ""}
-        ${url    ? `&ensp;<a class="lit-link" href="${url}" target="_blank" rel="noopener">↗</a>` : ""}
+        ${url ? `&ensp;<a class="lit-link" href="${url}" target="_blank" rel="noopener">↗</a>` : ""}
       </span>
     </div>`;
-  }).join("") + `</div>`;
-}
+      }).join("") + `</div>`;
+    }
 
-function renderDC(items) {
-  if (!items?.length) return `<p class="no-data">No data considerations noted.</p>`;
-  return `<div class="dc-list">` + items.map(item => {
-    const txt = (typeof item === "object" && item !== null)
-      ? (item.text || item.note || item.consideration || item.detail || safeStr(item))
-      : safeStr(item);
-    return `<div class="dc-row">
+    function renderDC(items) {
+      if (!items?.length) return `<p class="no-data">No data considerations noted.</p>`;
+      return `<div class="dc-list">` + items.map(item => {
+        const txt = (typeof item === "object" && item !== null)
+          ? (item.text || item.note || item.consideration || item.detail || safeStr(item))
+          : safeStr(item);
+        return `<div class="dc-row">
       <div class="dc-pip">
         <svg viewBox="0 0 10 10" fill="none" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
           <circle cx="5" cy="5" r="3.5" stroke-width="1.2"/>
@@ -1168,36 +2195,36 @@ function renderDC(items) {
       </div>
       <span>${txt}</span>
     </div>`;
-  }).join("") + `</div>`;
-}
+      }).join("") + `</div>`;
+    }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   SUMMARY RAIL BUILDER
-   Each metric row is now a keyboard-accessible button that calls navToSection().
-═══════════════════════════════════════════════════════════════════════════ */
-function buildRail(data, ts) {
-  const n = key => (Array.isArray(data[key]) ? data[key].length : 0);
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SUMMARY RAIL BUILDER
+       Each metric row is now a keyboard-accessible button that calls navToSection().
+    ═══════════════════════════════════════════════════════════════════════════ */
+    function buildRail(data, ts) {
+      const n = key => (Array.isArray(data[key]) ? data[key].length : 0);
 
-  /*
-   * [ display label, data key for count, section id to navigate to, dot class ]
-   */
-  const metrics = [
-    ["Symptoms",        "symptoms",        "symptoms",  "dot-teal"  ],
-    ["Diagnosis",       "diagnosis",       "diagnosis", "dot-amber" ],
-    ["ICD Codes",       "icd_codes",       "icd",       "dot-violet"],
-    ["Treatments",      "treatments",      "treatments","dot-teal"  ],
-    ["Clinical Trials", "clinical_trials", "trials",    "dot-cobalt"],
-    ["Sources",         "sources",         "sources",   "dot-slate" ],
-  ];
+      /*
+       * [ display label, data key for count, section id to navigate to, dot class ]
+       */
+      const metrics = [
+        ["Symptoms", "symptoms", "symptoms", "dot-teal"],
+        ["Diagnosis", "diagnosis", "diagnosis", "dot-amber"],
+        ["ICD Codes", "icd_codes", "icd", "dot-violet"],
+        ["Treatments", "treatments", "treatments", "dot-teal"],
+        ["Clinical Trials", "clinical_trials", "trials", "dot-cobalt"],
+        ["Sources", "sources", "sources", "dot-slate"],
+      ];
 
-  /* Tiny inline SVG chevron used inside each row */
-  const arrowSvg = `<svg class="rm-arrow" viewBox="0 0 12 12" fill="none"
+      /* Tiny inline SVG chevron used inside each row */
+      const arrowSvg = `<svg class="rm-arrow" viewBox="0 0 12 12" fill="none"
     stroke="currentColor" stroke-linecap="round"
     xmlns="http://www.w3.org/2000/svg">
     <path d="M4 2l4 4-4 4"/>
   </svg>`;
 
-  const metricRows = metrics.map(([label, dataKey, secId, dot]) => `
+      const metricRows = metrics.map(([label, dataKey, secId, dot]) => `
     <div class="rail-metric"
          role="button"
          tabindex="0"
@@ -1213,9 +2240,9 @@ function buildRail(data, ts) {
         ${arrowSvg}
       </span>
     </div>`
-  ).join("");
+      ).join("");
 
-  return `
+      return `
     <!-- Identity card -->
     <div class="rail-card">
       <div class="rail-card-hdr">
@@ -1258,18 +2285,18 @@ function buildRail(data, ts) {
         </p>
       </div>
     </div>`;
-}
+    }
 
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   NON-CURATED FALLBACK RENDERER
-═══════════════════════════════════════════════════════════════════════════ */
-function renderFallbackResult(data) {
-  setState("resultsContainer");
+    /* ═══════════════════════════════════════════════════════════════════════════
+       NON-CURATED FALLBACK RENDERER
+    ═══════════════════════════════════════════════════════════════════════════ */
+    function renderFallbackResult(data) {
+      setState("resultsContainer");
 
-  const term = data.normalized_term || data.query || "Requested therapy";
+      const term = data.normalized_term || data.query || "Requested therapy";
 
-  document.getElementById("resultsContainer").innerHTML = `
+      document.getElementById("resultsContainer").innerHTML = `
     <div class="fallback-shell">
       <div class="fallback-card">
         <div class="fallback-card-hdr">
@@ -1284,7 +2311,16 @@ function renderFallbackResult(data) {
           <p class="fallback-message">
             ${data.overview || "This therapy is not yet available in the curated ClinicalIntel knowledge base."}
           </p>
-
+          ${data.suggestions && data.suggestions.length ? `
+            <div class="fallback-supported">
+              <div class="fallback-supported-title">Did you mean?</div>
+              <div class="fallback-chip-row">
+                ${data.suggestions.map(s => `
+                  <span class="fallback-chip" onclick='runSuggestion(${JSON.stringify(s)})'>${s}</span>
+                `).join("")}
+              </div>
+            </div>
+          ` : ""}
           <div class="fallback-next">
             <div class="fallback-step">
               <div class="fallback-step-label">Status</div>
@@ -1313,85 +2349,85 @@ function renderFallbackResult(data) {
         </div>
       </div>
     </div>`;
-}
+    }
 
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   RENDER RESULTS
-═══════════════════════════════════════════════════════════════════════════ */
-function renderResults(data) {
-  if (data.is_curated === false) {
-    renderFallbackResult(data);
-    return;
-  }
+    /* ═══════════════════════════════════════════════════════════════════════════
+       RENDER RESULTS
+    ═══════════════════════════════════════════════════════════════════════════ */
+    function renderResults(data) {
+      if (data.is_curated === false) {
+        renderFallbackResult(data);
+        return;
+      }
 
-  setState("resultsContainer");
+      setState("resultsContainer");
 
-  const ts = new Date().toLocaleString("en-US", {
-    month: "short", day: "numeric", year: "numeric",
-    hour: "2-digit", minute: "2-digit"
-  });
+      const ts = new Date().toLocaleString("en-US", {
+        month: "short", day: "numeric", year: "numeric",
+        hour: "2-digit", minute: "2-digit"
+      });
 
-  const n = key => (Array.isArray(data[key]) ? data[key].length : 0);
+      const n = key => (Array.isArray(data[key]) ? data[key].length : 0);
 
-  const sections = [
-    buildSection("overview",
-      icon('<circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>'),
-      "si-cobalt", "Overview",
-      `<p class="prose">${data.overview || "No overview available."}</p>`
-    ),
-    buildSection("symptoms",
-      icon('<path d="M8 2v4M8 10v4M2 8h4M10 8h4"/><circle cx="8" cy="8" r="2"/>'),
-      "si-teal", "Symptoms",
-      renderList(data.symptoms), n("symptoms")
-    ),
-    buildSection("diagnosis",
-      icon('<path d="M2 14l4-4 2-6 2 6 4 4M6 10h4"/>'),
-      "si-amber", "Diagnosis",
-      renderList(data.diagnosis), n("diagnosis")
-    ),
-    buildSection("icd",
-      icon('<rect x="3" y="2" width="10" height="12" rx="1.5"/><path d="M6 6h4M6 9h4M6 12h2"/>'),
-      "si-violet", "ICD Codes",
-      renderIcd(data.icd_codes), n("icd_codes")
-    ),
-    buildSection("procedures",
-      icon('<path d="M8 2v12M5 5l3-3 3 3"/><path d="M5 11l3 3 3-3"/>'),
-      "si-rose", "Procedures",
-      renderProcedures(data.procedures), n("procedures")
-    ),
-    buildSection("treatments",
-      icon('<path d="M5 8h6M8 5v6"/><circle cx="8" cy="8" r="6"/>'),
-      "si-teal", "Treatments",
-      renderTreatments(data.treatments), n("treatments")
-    ),
-    buildSection("trials",
-      icon('<path d="M4 4h8v5.5a4 4 0 01-8 0V4z"/><path d="M6 4V2h4v2"/>'),
-      "si-cobalt", "Clinical Trials",
-      renderTrials(data.clinical_trials), n("clinical_trials")
-    ),
-    buildSection("literature",
-      icon('<path d="M3 4h10v9a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/><path d="M6 4V2h4v2"/><path d="M6 8h4M6 11h2"/>'),
-      "si-slate", "Literature",
-      renderLiterature(data.literature), n("literature")
-    ),
-    buildSection("dc",
-      icon('<circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>'),
-      "si-cobalt", "Data Considerations",
-      renderDC(data.data_considerations),
-      n("data_considerations"), true
-    ),
-    buildSection("sources",
-      icon('<circle cx="8" cy="8" r="6"/><path d="M8 6v2l1 1"/>'),
-      "si-slate", "Sources",
-      renderSources(data.sources), n("sources")
-    )
-  ];
+      const sections = [
+        buildSection("overview",
+          icon('<circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>'),
+          "si-cobalt", "Overview",
+          `<p class="prose">${data.overview || "No overview available."}</p>`
+        ),
+        buildSection("symptoms",
+          icon('<path d="M8 2v4M8 10v4M2 8h4M10 8h4"/><circle cx="8" cy="8" r="2"/>'),
+          "si-teal", "Symptoms",
+          renderList(data.symptoms), n("symptoms")
+        ),
+        buildSection("diagnosis",
+          icon('<path d="M2 14l4-4 2-6 2 6 4 4M6 10h4"/>'),
+          "si-amber", "Diagnosis",
+          renderList(data.diagnosis), n("diagnosis")
+        ),
+        buildSection("icd",
+          icon('<rect x="3" y="2" width="10" height="12" rx="1.5"/><path d="M6 6h4M6 9h4M6 12h2"/>'),
+          "si-violet", "ICD Codes",
+          renderIcd(data.icd_codes), n("icd_codes")
+        ),
+        buildSection("procedures",
+          icon('<path d="M8 2v12M5 5l3-3 3 3"/><path d="M5 11l3 3 3-3"/>'),
+          "si-rose", "Procedures",
+          renderProcedures(data.procedures), n("procedures")
+        ),
+        buildSection("treatments",
+          icon('<path d="M5 8h6M8 5v6"/><circle cx="8" cy="8" r="6"/>'),
+          "si-teal", "Treatments",
+          renderTreatments(data.treatments), n("treatments")
+        ),
+        buildSection("trials",
+          icon('<path d="M4 4h8v5.5a4 4 0 01-8 0V4z"/><path d="M6 4V2h4v2"/>'),
+          "si-cobalt", "Clinical Trials",
+          renderTrials(data.clinical_trials), n("clinical_trials")
+        ),
+        buildSection("literature",
+          icon('<path d="M3 4h10v9a1 1 0 01-1 1H4a1 1 0 01-1-1V4z"/><path d="M6 4V2h4v2"/><path d="M6 8h4M6 11h2"/>'),
+          "si-slate", "Literature",
+          renderLiterature(data.literature), n("literature")
+        ),
+        buildSection("dc",
+          icon('<circle cx="8" cy="8" r="6"/><path d="M8 5v3l2 2"/>'),
+          "si-cobalt", "Data Considerations",
+          renderDC(data.data_considerations),
+          n("data_considerations"), true
+        ),
+        buildSection("sources",
+          icon('<circle cx="8" cy="8" r="6"/><path d="M8 6v2l1 1"/>'),
+          "si-slate", "Sources",
+          renderSources(data.sources), n("sources")
+        )
+      ];
 
-  const dcCount  = n("data_considerations");
-  const secCount = sections.length;
+      const dcCount = n("data_considerations");
+      const secCount = sections.length;
 
-  const mainHtml = `
+      const mainHtml = `
     <div class="results-main">
       <div class="result-header">
         <div class="rh-left">
@@ -1411,18 +2447,18 @@ function renderResults(data) {
       ${sections.join("")}
     </div>`;
 
-  const railHtml = `<div class="results-rail">${buildRail(data, ts)}</div>`;
+      const railHtml = `<div class="results-rail">${buildRail(data, ts)}</div>`;
 
-  document.getElementById("resultsContainer").innerHTML =
-    `<div class="results-layout">${mainHtml}${railHtml}</div>`;
-}
+      document.getElementById("resultsContainer").innerHTML =
+        `<div class="results-layout">${mainHtml}${railHtml}</div>`;
+    }
 
-/* ═══════════════════════════════════════════════════════════════════════════
-   ERROR DISPLAY
-═══════════════════════════════════════════════════════════════════════════ */
-function showError(code, detail) {
-  setState("errorState");
-  document.getElementById("errorState").innerHTML = `
+    /* ═══════════════════════════════════════════════════════════════════════════
+       ERROR DISPLAY
+    ═══════════════════════════════════════════════════════════════════════════ */
+    function showError(code, detail) {
+      setState("errorState");
+      document.getElementById("errorState").innerHTML = `
     <div class="error-box">
       <svg viewBox="0 0 16 16" fill="none" stroke-width="1.7" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
         <circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 11v.5"/>
@@ -1432,47 +2468,48 @@ function showError(code, detail) {
         <div class="error-body">${detail || "The API did not respond. Verify the server is running at " + API_URL}</div>
       </div>
     </div>`;
-}
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   SEARCH HANDLER
-═══════════════════════════════════════════════════════════════════════════ */
-async function handleSearch(event) {
-  event.preventDefault();
-
-  const query = document.getElementById("searchInput").value.trim();
-  if (!query) return;
-
-  setState("loadingState");
-
-  try {
-    const response = await fetch(API_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ query })
-    });
-
-    if (!response.ok) {
-      let apiMessage = "";
-      try {
-        const err = await response.json();
-        apiMessage = err.detail || err.message || err.error || "";
-      } catch (_) {}
-      showError(`HTTP ${response.status}`, apiMessage || `The server returned an error for query "${query}".`);
-      return;
     }
 
-    const data = await response.json();
-    renderResults(data);
+    /* ═══════════════════════════════════════════════════════════════════════════
+       SEARCH HANDLER
+    ═══════════════════════════════════════════════════════════════════════════ */
+    async function handleSearch(event) {
+      event.preventDefault();
 
-  } catch (err) {
-    showError(
-      "Network Error",
-      `Could not connect to ${API_URL}. Ensure the backend server is running and CORS is configured.`
-    );
-  }
-}
+      const query = document.getElementById("searchInput").value.trim();
+      if (!query) return;
 
-</script>
+      setState("loadingState");
+
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ query })
+        });
+
+        if (!response.ok) {
+          let apiMessage = "";
+          try {
+            const err = await response.json();
+            apiMessage = err.detail || err.message || err.error || "";
+          } catch (_) { }
+          showError(`HTTP ${response.status}`, apiMessage || `The server returned an error for query "${query}".`);
+          return;
+        }
+
+        const data = await response.json();
+        renderResults(data);
+
+      } catch (err) {
+        showError(
+          "Network Error",
+          `Could not connect to ${API_URL}. Ensure the backend server is running and CORS is configured.`
+        );
+      }
+    }
+
+  </script>
 </body>
+
 </html>
