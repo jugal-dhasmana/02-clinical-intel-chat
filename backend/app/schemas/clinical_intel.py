@@ -1,7 +1,7 @@
 from __future__ import annotations
 from enum import Enum
-from pydantic import BaseModel, Field
-
+from pydantic import BaseModel, Field, field_validator, model_validator
+from typing import List
 
 class EvidenceLevel(str, Enum):
     HIGH = 'high'
@@ -81,21 +81,48 @@ class ClinicalIntelRequest(BaseModel):
 
 class ClinicalIntelResponse(BaseModel):
     query: str
+    is_curated: bool = True
     normalized_term: str
-    aliases: list[str] = Field(default_factory=list)
+    aliases: List[str] = Field(default_factory=list)
+
     overview: str
-    symptoms: list[str] = Field(default_factory=list)
-    diagnosis: list[str] = Field(default_factory=list)
-    icd_codes: list[ICDCode] = Field(default_factory=list)
-    procedures: list[Procedure] = Field(default_factory=list)
-    treatments: list[Treatment] = Field(default_factory=list)
-    clinical_trials: list[ClinicalTrial] = Field(default_factory=list)
-    literature: list[LiteratureReference] = Field(default_factory=list)
-    sources: list[Source] = Field(default_factory=list)
-    data_considerations: list[str] = Field(default_factory=list)
+
+    symptoms: List[str] = Field(default_factory=list)
+    diagnosis: List[str] = Field(default_factory=list)
+
+    icd_codes: List[ICDCode] = Field(default_factory=list)
+    procedures: List[Procedure] = Field(default_factory=list)
+    treatments: List[Treatment] = Field(default_factory=list)
+
+    clinical_trials: List[ClinicalTrial] = Field(default_factory=list)
+    literature: List[LiteratureReference] = Field(default_factory=list)
+
+    sources: List[Source] = Field(default_factory=list)
+    data_considerations: List[str] = Field(default_factory=list)
+
     disclaimer: str = Field(
         default=(
             'This information is AI-generated for educational and informational purposes only. '
             'It is not medical advice and should not be used for patient-specific decisions.'
         )
     )
+
+    @field_validator("overview")
+    def overview_not_empty(cls, v):
+        if not v or len(v.strip()) < 20:
+            raise ValueError("overview must be meaningful")
+        return v
+
+    @model_validator(mode="after")
+    def validate_curated_minimums(self):
+        if "not yet available in the current knowledge base" in self.overview.lower():
+            return self
+
+        if len(self.symptoms) < 3:
+            raise ValueError("at least 3 symptoms required")
+        if len(self.diagnosis) < 3:
+            raise ValueError("at least 3 diagnosis points required")
+        if len(self.treatments) < 2:
+            raise ValueError("at least 2 treatments required")
+
+        return self

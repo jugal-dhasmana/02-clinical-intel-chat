@@ -666,156 +666,6 @@
     .rail-note-body { font-size: 12px; line-height: 1.65; color: var(--cobalt-700); }
     .rail-note-body strong { font-weight: 600; }
 
-
-    /* ═══════════════════════════════════════════════════════════════════════
-       NON-CURATED FALLBACK RESULT
-    ═══════════════════════════════════════════════════════════════════════ */
-    .fallback-shell {
-      max-width: 860px;
-      margin: 0 auto;
-      padding-top: 22px;
-    }
-
-    .fallback-card {
-      background: var(--card-bg);
-      border: 1.5px solid var(--cobalt-100);
-      border-radius: var(--r-xl);
-      box-shadow: var(--shadow-md);
-      overflow: hidden;
-    }
-
-    .fallback-card-hdr {
-      background: linear-gradient(180deg, var(--cobalt-50), #F7FAFF);
-      border-bottom: 1.5px solid var(--cobalt-100);
-      padding: 1.4rem 1.6rem;
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 1rem;
-    }
-
-    .fallback-kicker {
-      font-family: var(--mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 1.2px;
-      text-transform: uppercase;
-      color: var(--cobalt-600);
-      margin-bottom: 7px;
-    }
-
-    .fallback-title {
-      font-size: 24px;
-      font-weight: 700;
-      color: var(--text-900);
-      letter-spacing: -0.6px;
-      line-height: 1.15;
-    }
-
-    .fallback-badge {
-      font-family: var(--mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.7px;
-      text-transform: uppercase;
-      color: var(--amber-700);
-      background: var(--amber-50);
-      border: 1px solid var(--amber-100);
-      border-radius: var(--r-xs);
-      padding: 4px 9px;
-      white-space: nowrap;
-    }
-
-    .fallback-body {
-      padding: 1.5rem 1.6rem 1.6rem;
-    }
-
-    .fallback-message {
-      font-size: 14px;
-      line-height: 1.8;
-      color: var(--text-700);
-      margin-bottom: 1rem;
-    }
-
-    .fallback-next {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 1rem;
-    }
-
-    .fallback-step {
-      background: var(--subtle-bg);
-      border: 1px solid var(--border-xs);
-      border-radius: var(--r-md);
-      padding: 12px;
-    }
-
-    .fallback-step-label {
-      font-family: var(--mono);
-      font-size: 9px;
-      font-weight: 600;
-      letter-spacing: 0.8px;
-      text-transform: uppercase;
-      color: var(--text-300);
-      margin-bottom: 4px;
-    }
-
-    .fallback-step-text {
-      font-size: 12.5px;
-      line-height: 1.55;
-      color: var(--text-700);
-    }
-
-    .fallback-supported {
-      margin-top: 1.2rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border-xs);
-    }
-
-    .fallback-supported-title {
-      font-family: var(--mono);
-      font-size: 9.5px;
-      font-weight: 600;
-      letter-spacing: 0.9px;
-      text-transform: uppercase;
-      color: var(--text-300);
-      margin-bottom: 8px;
-    }
-
-    .fallback-chip-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-    }
-
-    .fallback-chip {
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--cobalt-700);
-      background: var(--cobalt-50);
-      border: 1px solid var(--cobalt-100);
-      border-radius: var(--r-sm);
-      padding: 5px 10px;
-      cursor: pointer;
-      transition: background 0.12s, border-color 0.12s;
-    }
-
-    .fallback-chip:hover {
-      background: var(--cobalt-100);
-      border-color: var(--cobalt-300);
-    }
-
-    @media (max-width: 760px) {
-      .fallback-next {
-        grid-template-columns: 1fr;
-      }
-
-      .fallback-card-hdr {
-        flex-direction: column;
-      }
-    }
-
     /* ═══════════════════════════════════════════════════════════════════════
        FOOTER
     ═══════════════════════════════════════════════════════════════════════ */
@@ -883,14 +733,13 @@
               Run Query
             </button>
           </form>
-
           <div class="search-hints">
             <span class="hints-label">Try:</span>
             <span class="hint-chip" onclick="fillSearch('iTTP')">iTTP</span>
             <span class="hint-chip" onclick="fillSearch('Crohn\'s disease')">Crohn's disease</span>
-            <span class="hint-chip" onclick="fillSearch('amyloidosis')">amyloidosis</span>
-            <span class="hint-chip" onclick="fillSearch('multiple myeloma')">multiple myeloma</span>
-            <span class="hint-chip" onclick="fillSearch('ALS')">ALS</span>
+            <span class="hint-chip" onclick="fillSearch('ulcerative colitis')">Ulcerative colitis</span>
+            <span class="hint-chip" onclick="fillSearch('hemophilia a')">Hemophilia A</span>
+            <span class="hint-chip" onclick="fillSearch('short bowel syndrome')">Short bowel syndrome</span>
           </div>
         </div>
       </section>
@@ -1260,71 +1109,10 @@ function buildRail(data, ts) {
     </div>`;
 }
 
-
-/* ═══════════════════════════════════════════════════════════════════════════
-   NON-CURATED FALLBACK RENDERER
-═══════════════════════════════════════════════════════════════════════════ */
-function renderFallbackResult(data) {
-  setState("resultsContainer");
-
-  const term = data.normalized_term || data.query || "Requested therapy";
-
-  document.getElementById("resultsContainer").innerHTML = `
-    <div class="fallback-shell">
-      <div class="fallback-card">
-        <div class="fallback-card-hdr">
-          <div>
-            <div class="fallback-kicker">ClinicalIntel Library Status</div>
-            <div class="fallback-title">${term}</div>
-          </div>
-          <span class="fallback-badge">Not Curated</span>
-        </div>
-
-        <div class="fallback-body">
-          <p class="fallback-message">
-            ${data.overview || "This therapy is not yet available in the curated ClinicalIntel knowledge base."}
-          </p>
-
-          <div class="fallback-next">
-            <div class="fallback-step">
-              <div class="fallback-step-label">Status</div>
-              <div class="fallback-step-text">No curated profile is currently available for this query.</div>
-            </div>
-            <div class="fallback-step">
-              <div class="fallback-step-label">Reason</div>
-              <div class="fallback-step-text">The term was accepted, but it is outside the current starter therapy library.</div>
-            </div>
-            <div class="fallback-step">
-              <div class="fallback-step-label">Next Action</div>
-              <div class="fallback-step-text">Use one of the supported starter therapies or add this term to the registry later.</div>
-            </div>
-          </div>
-
-          <div class="fallback-supported">
-            <div class="fallback-supported-title">Currently curated therapies</div>
-            <div class="fallback-chip-row">
-              <span class="fallback-chip" onclick="fillSearch('iTTP'); document.getElementById('searchForm').requestSubmit();">iTTP</span>
-              <span class="fallback-chip" onclick="fillSearch('Crohn\\'s disease'); document.getElementById('searchForm').requestSubmit();">Crohn's disease</span>
-              <span class="fallback-chip" onclick="fillSearch('ulcerative colitis'); document.getElementById('searchForm').requestSubmit();">Ulcerative colitis</span>
-              <span class="fallback-chip" onclick="fillSearch('hemophilia a'); document.getElementById('searchForm').requestSubmit();">Hemophilia A</span>
-              <span class="fallback-chip" onclick="fillSearch('short bowel syndrome'); document.getElementById('searchForm').requestSubmit();">Short bowel syndrome</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>`;
-}
-
-
 /* ═══════════════════════════════════════════════════════════════════════════
    RENDER RESULTS
 ═══════════════════════════════════════════════════════════════════════════ */
 function renderResults(data) {
-  if (data.is_curated === false) {
-    renderFallbackResult(data);
-    return;
-  }
-
   setState("resultsContainer");
 
   const ts = new Date().toLocaleString("en-US", {
