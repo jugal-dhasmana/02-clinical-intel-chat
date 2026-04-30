@@ -3,50 +3,51 @@ from enum import Enum
 from pydantic import BaseModel, Field, field_validator, model_validator
 from typing import List
 
+
 class EvidenceLevel(str, Enum):
-    HIGH = 'high'
-    MODERATE = 'moderate'
-    LOW = 'low'
-    UNKNOWN = 'unknown'
+    HIGH = "high"
+    MODERATE = "moderate"
+    LOW = "low"
+    UNKNOWN = "unknown"
 
 
 class TrialPhase(str, Enum):
-    PHASE_1 = 'Phase I'
-    PHASE_2 = 'Phase II'
-    PHASE_3 = 'Phase III'
-    PHASE_4 = 'Phase IV'
-    NOT_APPLICABLE = 'N/A'
+    PHASE_1 = "Phase I"
+    PHASE_2 = "Phase II"
+    PHASE_3 = "Phase III"
+    PHASE_4 = "Phase IV"
+    NOT_APPLICABLE = "N/A"
 
 
 class TrialStatus(str, Enum):
-    RECRUITING = 'Recruiting'
-    ACTIVE = 'Active, not recruiting'
-    COMPLETED = 'Completed'
-    TERMINATED = 'Terminated'
-    UNKNOWN = 'Unknown'
+    RECRUITING = "Recruiting"
+    ACTIVE = "Active, not recruiting"
+    COMPLETED = "Completed"
+    TERMINATED = "Terminated"
+    UNKNOWN = "Unknown"
 
 
 class ICDCode(BaseModel):
-    code: str = Field(..., examples=['I21.0'])
+    code: str = Field(..., examples=["I21.0"])
     description: str
-    system: str = Field(default='ICD-10-CM')
+    system: str = Field(default="ICD-10-CM")
 
 
 class Procedure(BaseModel):
     name: str
-    code: str | None = Field(default=None, description='CPT or SNOMED procedure code')
+    code: str | None = Field(default=None, description="CPT or SNOMED procedure code")
     indication: str | None = None
 
 
 class Treatment(BaseModel):
     name: str
-    type: str = Field(..., description='e.g. Pharmacological, Supportive, Lifestyle')
-    line: str | None = Field(default=None, description='e.g. First-line, Escalation')
+    type: str = Field(..., description="e.g. Pharmacological, Supportive, Lifestyle")
+    line: str | None = Field(default=None, description="e.g. First-line, Escalation")
     notes: str | None = None
 
 
 class ClinicalTrial(BaseModel):
-    nct_id: str = Field(..., description='ClinicalTrials.gov identifier')
+    nct_id: str = Field(..., description="ClinicalTrials.gov identifier")
     title: str
     phase: TrialPhase
     status: TrialStatus
@@ -66,7 +67,7 @@ class LiteratureReference(BaseModel):
 class Source(BaseModel):
     name: str
     url: str | None = None
-    accessed: str | None = Field(default=None, description='ISO date of last access')
+    accessed: str | None = Field(default=None, description="ISO date of last access")
 
 
 class ClinicalIntelRequest(BaseModel):
@@ -74,8 +75,8 @@ class ClinicalIntelRequest(BaseModel):
         ...,
         min_length=2,
         max_length=300,
-        description='Disease name, therapy area, or drug to look up.',
-        examples=['iTTP', 'multiple myeloma', 'hemophilia A'],
+        description="Disease name, therapy area, or drug to look up.",
+        examples=["iTTP", "multiple myeloma", "hemophilia A"],
     )
 
 
@@ -84,6 +85,7 @@ class ClinicalIntelResponse(BaseModel):
     is_curated: bool = True
     normalized_term: str
     aliases: List[str] = Field(default_factory=list)
+    suggestions: List[str] = Field(default_factory=list)
 
     overview: str
 
@@ -102,8 +104,8 @@ class ClinicalIntelResponse(BaseModel):
 
     disclaimer: str = Field(
         default=(
-            'This information is AI-generated for educational and informational purposes only. '
-            'It is not medical advice and should not be used for patient-specific decisions.'
+            "This information is AI-generated for educational and informational purposes only. "
+            "It is not medical advice and should not be used for patient-specific decisions."
         )
     )
 
