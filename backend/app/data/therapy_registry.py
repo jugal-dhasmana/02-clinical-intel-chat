@@ -1353,6 +1353,446 @@ THERAPY_DB: dict[str, dict] = {
             "Augmentation therapy, COPD diagnoses, liver disease codes, and pulmonary testing can help characterize treated or clinically recognized patients.",
         ],
     },
+    "gastroparesis": {
+        "normalized_term": "Gastroparesis",
+        "aliases": [
+            "gastroparesis",
+            "delayed gastric emptying",
+            "gastric emptying disorder",
+        ],
+        "overview": (
+            "Gastroparesis is a disorder of delayed stomach emptying in the absence of a mechanical blockage. "
+            "It can cause chronic upper gastrointestinal symptoms and may be associated with diabetes, postsurgical states, medications, neurologic disease, or idiopathic causes."
+        ),
+        "symptoms": [
+            "Early satiety or feeling full soon after starting a meal",
+            "Nausea or vomiting",
+            "Bloating or excessive belching",
+            "Upper abdominal pain or discomfort",
+            "Poor appetite or weight loss",
+        ],
+        "diagnosis": [
+            "Clinical history and physical examination focused on chronic upper gastrointestinal symptoms",
+            "Exclusion of mechanical obstruction with endoscopy or imaging when clinically appropriate",
+            "Gastric emptying study to document delayed gastric emptying",
+            "Assessment for contributing conditions such as diabetes, medications, or prior surgery",
+        ],
+        "icd_codes": [
+            ICDCode(code="K31.84", description="Gastroparesis"),
+        ],
+        "procedures": [
+            Procedure(
+                name="Gastric emptying study",
+                code=None,
+                indication="Objective assessment of delayed gastric emptying",
+            ),
+            Procedure(
+                name="Upper endoscopy",
+                code=None,
+                indication="Evaluation for obstruction or alternative causes of symptoms",
+            ),
+            Procedure(
+                name="Jejunostomy tube feeding",
+                code=None,
+                indication="Nutritional support in selected severe cases",
+            ),
+        ],
+        "treatments": [
+            Treatment(
+                name="Dietary modification",
+                type="Dietary / lifestyle",
+                line="Foundational management",
+                notes="Small, low-fat meals and nutrition strategies are commonly used.",
+            ),
+            Treatment(
+                name="Glucose control optimization",
+                type="Supportive / metabolic",
+                line="Diabetic gastroparesis",
+                notes="Relevant when diabetes contributes to symptoms or delayed emptying.",
+            ),
+            Treatment(
+                name="Prokinetic therapy",
+                type="Pharmacological",
+                line="Symptom management",
+                notes="Used in selected patients to improve gastric motility.",
+            ),
+            Treatment(
+                name="Antiemetic therapy",
+                type="Pharmacological",
+                line="Symptom management",
+                notes="Used to control nausea and vomiting.",
+            ),
+        ],
+        "clinical_trials": [],
+        "literature": [],
+        "sources": [
+            Source(
+                name="NIDDK Gastroparesis",
+                url="https://www.niddk.nih.gov/health-information/digestive-diseases/gastroparesis",
+                accessed="2026-04-29",
+            ),
+            Source(
+                name="NIDDK Gastroparesis Treatment",
+                url="https://www.niddk.nih.gov/health-information/digestive-diseases/gastroparesis/treatment",
+                accessed="2026-04-29",
+            ),
+        ],
+        "data_considerations": [
+            "Gastroparesis symptoms are often nonspecific and may overlap with functional dyspepsia, obstruction, medication effects, or other GI disorders.",
+            "Claims data may capture diagnosis codes and procedures but usually lacks gastric emptying results and symptom severity.",
+            "Medication exposure, diabetes status, endoscopy, gastric emptying tests, and nutrition support may help define more specific cohorts.",
+        ],
+    },
+    "primary biliary cholangitis": {
+        "normalized_term": "Primary Biliary Cholangitis",
+        "aliases": [
+            "primary biliary cholangitis",
+            "pbc",
+            "primary biliary cirrhosis",
+        ],
+        "overview": (
+            "Primary biliary cholangitis is a chronic autoimmune cholestatic liver disease in which small intrahepatic bile ducts become injured and inflamed, leading to bile retention and potential progressive liver damage."
+        ),
+        "symptoms": [
+            "Fatigue",
+            "Pruritus or itchy skin",
+            "Dry eyes or dry mouth",
+            "Right upper abdominal discomfort",
+            "Jaundice or complications of advanced liver disease in later stages",
+        ],
+        "diagnosis": [
+            "Clinical evaluation with cholestatic liver enzyme pattern",
+            "Serologic testing including antimitochondrial antibodies when appropriate",
+            "Imaging to evaluate biliary obstruction or alternative liver disease",
+            "Liver biopsy in selected cases when diagnosis is uncertain or overlap disease is suspected",
+        ],
+        "icd_codes": [
+            ICDCode(code="K74.3", description="Primary biliary cirrhosis"),
+        ],
+        "procedures": [
+            Procedure(
+                name="Liver biochemical testing",
+                code=None,
+                indication="Evaluation of cholestatic liver injury",
+            ),
+            Procedure(
+                name="Autoantibody testing",
+                code=None,
+                indication="Support diagnosis of primary biliary cholangitis",
+            ),
+            Procedure(
+                name="Liver biopsy",
+                code=None,
+                indication="Selected cases with diagnostic uncertainty or overlap features",
+            ),
+        ],
+        "treatments": [
+            Treatment(
+                name="Ursodiol",
+                type="Pharmacological",
+                line="First-line",
+                notes="Used to slow disease progression in many patients.",
+            ),
+            Treatment(
+                name="Second-line cholestatic liver disease therapy",
+                type="Pharmacological",
+                line="Inadequate response or intolerance",
+                notes="Used in selected patients depending on response and indication.",
+            ),
+            Treatment(
+                name="Pruritus management",
+                type="Supportive / symptom control",
+                line="As needed",
+                notes="Used to manage itching and quality-of-life burden.",
+            ),
+            Treatment(
+                name="Liver transplant",
+                type="Procedural / transplant",
+                line="Advanced disease",
+                notes="Considered for liver failure or severe complications.",
+            ),
+        ],
+        "clinical_trials": [],
+        "literature": [],
+        "sources": [
+            Source(
+                name="NIDDK Primary Biliary Cholangitis",
+                url="https://www.niddk.nih.gov/health-information/liver-disease/primary-biliary-cholangitis",
+                accessed="2026-04-29",
+            ),
+            Source(
+                name="NIDDK Primary Biliary Cholangitis Treatment",
+                url="https://www.niddk.nih.gov/health-information/liver-disease/primary-biliary-cholangitis/treatment",
+                accessed="2026-04-29",
+            ),
+        ],
+        "data_considerations": [
+            "PBC may be underrecognized in claims data if diagnosis codes are inconsistently used.",
+            "Disease severity, biochemical response, autoantibody status, and fibrosis stage often require labs or EMR detail.",
+            "Treatment persistence and response may require integration of pharmacy claims, labs, and hepatology visit patterns.",
+        ],
+    },
+    "primary sclerosing cholangitis": {
+        "normalized_term": "Primary Sclerosing Cholangitis",
+        "aliases": [
+            "primary sclerosing cholangitis",
+            "psc",
+            "sclerosing cholangitis",
+        ],
+        "overview": (
+            "Primary sclerosing cholangitis is a chronic cholestatic liver disease characterized by inflammation, fibrosis, and narrowing of bile ducts. "
+            "It is often associated with inflammatory bowel disease and may progress to cirrhosis, biliary complications, or liver transplant need."
+        ),
+        "symptoms": [
+            "Fatigue or weakness",
+            "Pruritus or itchy skin",
+            "Right upper abdominal pain",
+            "Jaundice",
+            "Fever or symptoms of bile duct infection in selected cases",
+        ],
+        "diagnosis": [
+            "Clinical evaluation with cholestatic liver enzyme pattern",
+            "Biliary imaging such as MRCP or ERCP to evaluate bile duct strictures",
+            "Assessment for inflammatory bowel disease association",
+            "Liver biopsy in selected cases such as suspected small-duct disease or diagnostic uncertainty",
+        ],
+        "icd_codes": [
+            ICDCode(code="K83.01", description="Primary sclerosing cholangitis"),
+        ],
+        "procedures": [
+            Procedure(
+                name="MRCP",
+                code=None,
+                indication="Noninvasive evaluation of biliary strictures and ductal changes",
+            ),
+            Procedure(
+                name="ERCP",
+                code=None,
+                indication="Evaluation or management of selected dominant strictures or biliary obstruction",
+            ),
+            Procedure(
+                name="Colonoscopy",
+                code=None,
+                indication="Evaluation or surveillance for associated inflammatory bowel disease",
+            ),
+        ],
+        "treatments": [
+            Treatment(
+                name="Management of biliary strictures",
+                type="Procedural / supportive",
+                line="Complication management",
+                notes="Used for selected narrowed or blocked bile ducts.",
+            ),
+            Treatment(
+                name="Pruritus management",
+                type="Supportive / symptom control",
+                line="As needed",
+                notes="Used for itching and quality-of-life burden.",
+            ),
+            Treatment(
+                name="Cholangitis management",
+                type="Supportive / antimicrobial",
+                line="Complication management",
+                notes="Used when bile duct infection is suspected or confirmed.",
+            ),
+            Treatment(
+                name="Liver transplant",
+                type="Procedural / transplant",
+                line="Advanced disease",
+                notes="Considered for liver failure, recurrent cholangitis, or severe complications.",
+            ),
+        ],
+        "clinical_trials": [],
+        "literature": [],
+        "sources": [
+            Source(
+                name="NIDDK Primary Sclerosing Cholangitis",
+                url="https://www.niddk.nih.gov/health-information/liver-disease/primary-sclerosing-cholangitis",
+                accessed="2026-04-29",
+            ),
+            Source(
+                name="NIDDK Primary Sclerosing Cholangitis Treatment",
+                url="https://www.niddk.nih.gov/health-information/liver-disease/primary-sclerosing-cholangitis/treatment",
+                accessed="2026-04-29",
+            ),
+        ],
+        "data_considerations": [
+            "PSC is rare and cohort definitions may need diagnosis codes plus hepatology care, biliary imaging, ERCP, or IBD context.",
+            "Claims data usually lacks bile duct imaging findings, liver biochemistry trends, and disease stage.",
+            "Associated IBD, cholangitis, biliary procedures, transplant evaluation, and malignancy surveillance are important longitudinal signals.",
+        ],
+    },
+    "chronic pancreatitis": {
+        "normalized_term": "Chronic Pancreatitis",
+        "aliases": [
+            "chronic pancreatitis",
+            "cp pancreatitis",
+            "recurrent chronic pancreatitis",
+            "pancreatic insufficiency chronic pancreatitis",
+        ],
+        "overview": (
+            "Chronic pancreatitis is a long-standing inflammatory disease of the pancreas that can lead to irreversible structural damage, chronic abdominal pain, exocrine pancreatic insufficiency, diabetes, and nutritional complications."
+        ),
+        "symptoms": [
+            "Chronic or recurrent upper abdominal pain",
+            "Nausea or digestive discomfort",
+            "Steatorrhea or fatty stools",
+            "Weight loss or malnutrition",
+            "Diabetes or glucose intolerance in advanced disease",
+        ],
+        "diagnosis": [
+            "Clinical history including recurrent pancreatitis, alcohol exposure, smoking, genetic risk, or obstructive causes",
+            "Pancreatic imaging to assess calcifications, ductal changes, or structural damage",
+            "Assessment for exocrine pancreatic insufficiency and nutritional deficiencies",
+            "Evaluation for diabetes or endocrine pancreatic dysfunction",
+        ],
+        "icd_codes": [
+            ICDCode(code="K86.1", description="Other chronic pancreatitis"),
+            ICDCode(code="K86.0", description="Alcohol-induced chronic pancreatitis"),
+        ],
+        "procedures": [
+            Procedure(
+                name="Pancreatic imaging",
+                code=None,
+                indication="Evaluation of structural pancreatic damage",
+            ),
+            Procedure(
+                name="Endoscopic pancreatic intervention",
+                code=None,
+                indication="Selected cases with ductal obstruction or complications",
+            ),
+            Procedure(
+                name="Fecal elastase testing",
+                code=None,
+                indication="Evaluation for exocrine pancreatic insufficiency",
+            ),
+        ],
+        "treatments": [
+            Treatment(
+                name="Pain management",
+                type="Supportive / pharmacological",
+                line="Symptom control",
+                notes="Used for chronic or recurrent abdominal pain.",
+            ),
+            Treatment(
+                name="Pancreatic enzyme replacement therapy",
+                type="Pharmacological / digestive support",
+                line="Exocrine insufficiency",
+                notes="Used when malabsorption or pancreatic enzyme insufficiency is present.",
+            ),
+            Treatment(
+                name="Alcohol and smoking cessation",
+                type="Lifestyle / risk reduction",
+                line="Foundational management",
+                notes="Important for reducing progression and complications.",
+            ),
+            Treatment(
+                name="Endoscopic or surgical management",
+                type="Procedural",
+                line="Selected complications",
+                notes="Considered for obstructive disease, ductal complications, or refractory symptoms.",
+            ),
+        ],
+        "clinical_trials": [],
+        "literature": [],
+        "sources": [
+            Source(
+                name="NIDDK Pancreatitis",
+                url="https://www.niddk.nih.gov/health-information/digestive-diseases/pancreatitis",
+                accessed="2026-04-29",
+            ),
+        ],
+        "data_considerations": [
+            "Chronic pancreatitis may require repeated diagnosis codes, imaging/procedure signals, and longitudinal pain or enzyme therapy patterns.",
+            "Alcohol, smoking, genetic risk, imaging findings, and severity are often incomplete in claims data.",
+            "Exocrine pancreatic insufficiency and diabetes complications may require linked labs, prescriptions, and encounter patterns.",
+        ],
+    },
+    "eosinophilic esophagitis": {
+        "normalized_term": "Eosinophilic Esophagitis",
+        "aliases": [
+            "eosinophilic esophagitis",
+            "eoe",
+            "eosinophilic oesophagitis",
+            "allergic esophagitis",
+        ],
+        "overview": (
+            "Eosinophilic esophagitis is a chronic immune-mediated inflammatory disease of the esophagus characterized by eosinophil-predominant inflammation and symptoms of esophageal dysfunction."
+        ),
+        "symptoms": [
+            "Difficulty swallowing or dysphagia",
+            "Food impaction",
+            "Chest discomfort or heartburn-like symptoms",
+            "Abdominal pain, vomiting, or feeding difficulty in children",
+            "Avoidance of certain foods or slow eating behaviors",
+        ],
+        "diagnosis": [
+            "Clinical history of esophageal dysfunction or food impaction",
+            "Upper endoscopy with esophageal biopsies",
+            "Histologic evaluation showing eosinophil-predominant inflammation",
+            "Assessment for alternative causes of esophageal eosinophilia",
+        ],
+        "icd_codes": [
+            ICDCode(code="K20.0", description="Eosinophilic esophagitis"),
+        ],
+        "procedures": [
+            Procedure(
+                name="Upper endoscopy with esophageal biopsy",
+                code=None,
+                indication="Diagnostic confirmation and assessment of esophageal inflammation",
+            ),
+            Procedure(
+                name="Esophageal dilation",
+                code=None,
+                indication="Selected patients with strictures or narrowing",
+            ),
+            Procedure(
+                name="Allergy or dietary assessment",
+                code=None,
+                indication="Support management planning in selected patients",
+            ),
+        ],
+        "treatments": [
+            Treatment(
+                name="Proton pump inhibitor therapy",
+                type="Pharmacological",
+                line="Initial or selected management",
+                notes="Used in selected patients with esophageal eosinophilia and symptoms.",
+            ),
+            Treatment(
+                name="Swallowed topical corticosteroids",
+                type="Pharmacological",
+                line="Anti-inflammatory therapy",
+                notes="Used to reduce esophageal inflammation.",
+            ),
+            Treatment(
+                name="Dietary elimination therapy",
+                type="Dietary / lifestyle",
+                line="Selected patients",
+                notes="Used to identify and avoid dietary triggers in selected patients.",
+            ),
+            Treatment(
+                name="Biologic therapy",
+                type="Pharmacological / biologic",
+                line="Selected patients",
+                notes="Used in selected patients with persistent or severe disease based on indication and clinical criteria.",
+            ),
+        ],
+        "clinical_trials": [],
+        "literature": [],
+        "sources": [
+            Source(
+                name="NIDDK Eosinophilic Esophagitis",
+                url="https://www.niddk.nih.gov/health-information/digestive-diseases/eosinophilic-esophagitis",
+                accessed="2026-04-29",
+            ),
+        ],
+        "data_considerations": [
+            "EoE diagnosis ideally requires endoscopy and biopsy detail, which may not be available in claims data.",
+            "Food impaction, repeated endoscopies, dilation, PPI use, topical steroid use, and biologic exposure can help characterize disease burden.",
+            "Pediatric and adult presentation may differ, so age-specific cohort logic may be needed.",
+        ],
+    },
 }
 
 ALIAS_INDEX: dict[str, str] = {}
@@ -1398,7 +1838,7 @@ def suggest_therapies(query: str, limit: int = 3) -> list[str]:
         q,
         list(candidate_to_key.keys()),
         n=limit,
-        cutoff=0.25,
+        cutoff=0.15,
     )
 
     suggestions = []
