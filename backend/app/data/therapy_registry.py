@@ -3,6 +3,8 @@ from app.data.therapies.gi import THERAPIES_GI
 from app.data.therapies.liver import THERAPIES_LIVER
 from app.data.therapies.heme_rare import THERAPIES_HEME_RARE
 from app.data.therapies.derm_rheum import THERAPIES_DERM_RHEUM
+from app.data.therapies.derm_rheum_extended import THERAPIES_DERM_RHEUM_EXT
+from app.data.therapies.gi_extended import THERAPIES_GI_ONCOLOGY
 from app.schemas.clinical_intel import (
     ICDCode,
     Procedure,
@@ -20,6 +22,8 @@ THERAPY_DB: dict[str, dict] = {
     **THERAPIES_LIVER,
     **THERAPIES_HEME_RARE,
     **THERAPIES_DERM_RHEUM,
+    **THERAPIES_DERM_RHEUM_EXT,
+    **THERAPIES_GI_ONCOLOGY,
     "short bowel syndrome": {
         "normalized_term": "Short Bowel Syndrome",
         "aliases": [

@@ -8,6 +8,9 @@ from app.schemas.clinical_intel import (
 logger = get_logger(__name__)
 
 
+all_terms = list(THERAPY_DB.keys())
+
+
 class ClinicalIntelService:
     async def lookup(self, request: ClinicalIntelRequest) -> ClinicalIntelResponse:
         key = resolve_therapy_key(request.query)
