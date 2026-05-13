@@ -16,36 +16,49 @@ settings = get_settings()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
-    logger.info('Starting clinical-intel-chat | env=%s version=%s', settings.app_env, settings.app_version)
+    logger.info(
+        "Starting clinical-intel-chat | env=%s version=%s",
+        settings.app_env,
+        settings.app_version,
+    )
     yield
-    logger.info('Shutting down clinical-intel-chat')
+    logger.info("Shutting down clinical-intel-chat")
 
 
 def create_app() -> FastAPI:
     app = FastAPI(
-        title='clinical-intel-chat',
-        description='Clinical intelligence API for normalized, structured disease and therapy lookups.',
+        title="clinical-intel-chat",
+        description="Clinical intelligence API for normalized, structured disease and therapy lookups.",
         version=settings.app_version,
-        docs_url='/docs',
-        redoc_url='/redoc',
-        openapi_url='/openapi.json',
+        docs_url="/docs",
+        redoc_url="/redoc",
+        openapi_url="/openapi.json",
         lifespan=lifespan,
     )
 
     app.add_middleware(
         CORSMiddleware,
-        allow_origins=["http://127.0.0.1:5500", 
-                       "http://localhost:5500", 
-                       ],
+        allow_origins=[
+            "http://127.0.0.1:5500",
+            "http://localhost:5500",
+            "https://clinicalintelchat-frontend.onrender.com",
+        ],
         allow_credentials=False,
-        allow_methods=['*'],
-        allow_headers=['*'],
+        allow_methods=["*"],
+        allow_headers=["*"],
     )
 
     @app.exception_handler(Exception)
-    async def unhandled_exception_handler(request: Request, exc: Exception) -> JSONResponse:
-        logger.exception('Unhandled exception on %s %s', request.method, request.url.path)
-        return JSONResponse(status_code=500, content={'detail': 'An unexpected error occurred. Please try again later.'})
+    async def unhandled_exception_handler(
+        request: Request, exc: Exception
+    ) -> JSONResponse:
+        logger.exception(
+            "Unhandled exception on %s %s", request.method, request.url.path
+        )
+        return JSONResponse(
+            status_code=500,
+            content={"detail": "An unexpected error occurred. Please try again later."},
+        )
 
     app.include_router(health_router)
     app.include_router(normalize_router)
