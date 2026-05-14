@@ -15,6 +15,7 @@ THERAPIES_HEME_RARE = {
         "normalized_term": "Immune Thrombotic Thrombocytopenic Purpura",
         "aliases": [
             "iTTP",
+            "ttp",
             "ittp",
             "i ttp",
             "immune ttp",
