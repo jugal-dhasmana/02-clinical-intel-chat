@@ -180,6 +180,13 @@ THERAPIES_HEME_RARE = {
             "Prolonged activated partial thromboplastin time (aPTT) with normal prothrombin time (PT)",
             "Bleeding history and family history consistent with inherited disorder",
         ],
+        "diagnostic_considerations": [
+            "Hemophilia A diagnosis is based on reduced factor VIII activity in the setting of compatible bleeding history and clinical presentation.",
+            "Disease severity is commonly classified by factor VIII activity level and may influence bleeding risk, treatment intensity, and prophylaxis strategy.",
+            "Differential diagnosis may include other inherited or acquired coagulation disorders, including von Willebrand disease and acquired factor inhibitors.",
+            "Inhibitor development is an important clinical consideration because neutralizing antibodies against factor VIII can significantly alter treatment response.",
+            "In real-world data, disease severity, inhibitor status, bleeding frequency, and prophylaxis adherence are often incompletely captured in claims datasets.",
+        ],
         "icd_codes": [
             ICDCode(code="D66", description="Hereditary factor VIII deficiency"),
         ],

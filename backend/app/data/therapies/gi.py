@@ -32,6 +32,13 @@ THERAPIES_GI = {
             "Cross-sectional imaging such as CT enterography or MR enterography",
             "Inflammatory markers and stool testing including fecal calprotectin",
         ],
+        "diagnostic_considerations": [
+            "Crohn’s disease diagnosis usually requires integration of symptoms, endoscopy, histology, imaging, and exclusion of infectious or alternative inflammatory causes.",
+            "Disease location and behavior should be characterized where possible, including ileal, colonic, ileocolonic, stricturing, penetrating, and perianal disease patterns.",
+            "Cross-sectional imaging such as MR enterography or CT enterography may be important when small bowel disease, strictures, fistulas, or abscesses are suspected.",
+            "Fecal calprotectin and inflammatory markers may support assessment of intestinal inflammation but are not diagnostic alone.",
+            "In real-world data, Crohn’s disease may be confused with ulcerative colitis or nonspecific colitis unless longitudinal diagnosis, procedure, pathology, and treatment patterns are considered.",
+        ],
         "icd_codes": [
             ICDCode(
                 code="K50.90",
@@ -103,6 +110,13 @@ THERAPIES_GI = {
             "Colonoscopy with biopsy showing continuous colonic inflammation",
             "Stool testing to exclude infectious causes",
             "Inflammatory markers and fecal calprotectin as supportive evidence",
+        ],
+        "diagnostic_considerations": [
+            "Ulcerative colitis diagnosis generally requires integration of clinical symptoms, endoscopic findings, histology, and exclusion of infectious colitis or alternative inflammatory conditions.",
+            "Disease extent should be characterized where possible, including proctitis, left-sided colitis, or extensive pancolitis involvement.",
+            "Endoscopic assessment is important for evaluating disease severity, mucosal inflammation, and treatment response.",
+            "Inflammatory markers and fecal calprotectin may support assessment of inflammatory activity but are not diagnostic independently.",
+            "In real-world data, ulcerative colitis may be difficult to distinguish from Crohn’s disease, indeterminate colitis, or nonspecific colitis without longitudinal clinical and procedural context.",
         ],
         "icd_codes": [
             ICDCode(

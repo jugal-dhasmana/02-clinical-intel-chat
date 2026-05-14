@@ -53,6 +53,13 @@ THERAPY_DB: dict[str, dict] = {
             "Laboratory evaluation for electrolyte abnormalities, micronutrient deficiencies, and liver function",
             "Clinical evaluation for dependence on parenteral nutrition or need for specialized nutritional support",
         ],
+        "diagnostic_considerations": [
+            "Short bowel syndrome diagnosis depends on clinical history, intestinal anatomy, malabsorption severity, and functional nutritional status.",
+            "Underlying cause, remaining bowel length, colon continuity, and presence of ileocecal valve may significantly influence disease severity and nutritional dependence.",
+            "Patients may develop intestinal failure requiring long-term parenteral nutrition, fluid support, or specialized nutritional management.",
+            "Complications such as dehydration, electrolyte abnormalities, micronutrient deficiencies, liver disease, and catheter-related infections may require longitudinal monitoring.",
+            "In real-world data, bowel anatomy, residual bowel length, nutritional status, and intestinal adaptation are often poorly captured in administrative datasets.",
+        ],
         "icd_codes": [
             ICDCode(
                 code="K91.2",
