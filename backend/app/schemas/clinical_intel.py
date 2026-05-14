@@ -91,7 +91,7 @@ class ClinicalIntelResponse(BaseModel):
 
     symptoms: List[str] = Field(default_factory=list)
     diagnosis: List[str] = Field(default_factory=list)
-
+    diagnostic_considerations: List[str] = Field(default_factory=list)
     icd_codes: List[ICDCode] = Field(default_factory=list)
     procedures: List[Procedure] = Field(default_factory=list)
     treatments: List[Treatment] = Field(default_factory=list)

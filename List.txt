@@ -1,0 +1,36 @@
+GI / Digestive
+Crohn’s disease
+Ulcerative colitis
+Celiac disease
+Eosinophilic esophagitis (EoE)
+Gastroparesis
+Chronic pancreatitis
+Irritable bowel syndrome (IBS)
+Exocrine pancreatic insufficiency (EPI)
+Gastroesophageal reflux disease (GERD)
+Barrett’s esophagus
+Short bowel syndrome
+Liver / Hepatology
+Nonalcoholic steatohepatitis (NASH)
+Primary biliary cholangitis (PBC)
+Primary sclerosing cholangitis (PSC)
+Hepatocellular carcinoma (HCC)
+Hematology / Rare
+Immune thrombotic thrombocytopenic purpura (iTTP)
+Hemophilia A
+Multiple myeloma
+Amyloidosis
+Sickle cell disease
+Alpha-1 antitrypsin deficiency
+Dermatology / Rheumatology
+Psoriasis
+Psoriatic arthritis
+Rheumatoid arthritis
+Atopic dermatitis
+Systemic lupus erythematosus (SLE)
+Ankylosing spondylitis
+Hidradenitis suppurativa
+Neurology
+Amyotrophic lateral sclerosis (ALS)
+Oncology
+Colorectal cancer

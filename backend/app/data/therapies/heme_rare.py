@@ -39,6 +39,13 @@ THERAPIES_HEME_RARE = {
             "Severely reduced ADAMTS13 activity, often <10%",
             "Clinical evaluation for TMA and urgent treatment need before confirmatory results if suspicion is high",
         ],
+        "diagnostic_considerations": [
+            "iTTP should be suspected in patients with thrombocytopenia and microangiopathic hemolytic anemia without an alternative explanation.",
+            "Severe ADAMTS13 deficiency, typically below 10%, strongly supports the diagnosis of immune-mediated TTP.",
+            "Because ADAMTS13 testing may not be immediately available, treatment is often initiated based on clinical suspicion before confirmatory results return.",
+            "PLASMIC and related clinical scoring systems may support early risk stratification in suspected thrombotic microangiopathy.",
+            "Diagnostic evaluation commonly includes exclusion of other thrombotic microangiopathies and secondary causes such as hemolytic uremic syndrome, disseminated intravascular coagulation, severe hypertension, infection, malignancy, or drug-induced thrombotic microangiopathy.",
+        ],
         "icd_codes": [
             ICDCode(code="M31.1", description="Thrombotic microangiopathy"),
         ],
