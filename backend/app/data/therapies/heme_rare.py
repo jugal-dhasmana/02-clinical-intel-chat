@@ -25,8 +25,21 @@ THERAPIES_HEME_RARE = {
             "adamts13 deficiency",
         ],
         "overview": (
-            "Immune thrombotic thrombocytopenic purpura is a rare, life-threatening thrombotic microangiopathy caused by severe ADAMTS13 deficiency, usually due to acquired autoantibodies. It is characterized by thrombocytopenia, microangiopathic hemolytic anemia, and risk of neurologic, cardiac, renal, and other organ ischemia, requiring urgent recognition and treatment."
+            "Immune thrombotic thrombocytopenic purpura is a rare, life-threatening thrombotic microangiopathy caused by severe ADAMTS13 deficiency, usually due to acquired autoantibodies. "
+            "It is characterized by thrombocytopenia, microangiopathic hemolytic anemia, and risk of neurologic, cardiac, renal, and other organ ischemia, requiring urgent recognition and treatment. "
+            "Estimated annual incidence is approximately 2 to 6 cases per million population globally and in the United States."
         ),
+        "causes": [
+            "Severe acquired deficiency of ADAMTS13 activity caused by autoantibodies against the ADAMTS13 enzyme.",
+            "Deficiency of ADAMTS13 leads to accumulation of ultra-large von Willebrand factor multimers and platelet-rich microvascular thrombosis.",
+        ],
+        "risk_factors": [
+            "Female sex",
+            "History of autoimmune disease",
+            "Pregnancy or postpartum state",
+            "HIV infection",
+            "Certain medications associated with thrombotic microangiopathy",
+        ],
         "symptoms": [
             "Fatigue and weakness",
             "Petechiae or bruising",

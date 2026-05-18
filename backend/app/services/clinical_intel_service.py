@@ -27,6 +27,8 @@ class ClinicalIntelService:
                 aliases=data.get("aliases", []),
                 suggestions=[],
                 overview=data["overview"],
+                causes=data.get("causes", []),
+                risk_factors=data.get("risk_factors", []),
                 symptoms=data.get("symptoms", []),
                 diagnosis=data.get("diagnosis", []),
                 diagnostic_considerations=data.get("diagnostic_considerations", []),
@@ -52,6 +54,8 @@ class ClinicalIntelService:
             overview=(
                 f"Structured clinical intelligence data for '{request.query}' is not yet available in the current knowledge base."
             ),
+            causes=[],
+            risk_factors=[],
             symptoms=[],
             diagnosis=[],
             diagnostic_considerations=[],

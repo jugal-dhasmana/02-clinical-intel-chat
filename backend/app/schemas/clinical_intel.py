@@ -88,7 +88,8 @@ class ClinicalIntelResponse(BaseModel):
     suggestions: List[str] = Field(default_factory=list)
 
     overview: str
-
+    causes: List[str] = Field(default_factory=list)
+    risk_factors: List[str] = Field(default_factory=list)
     symptoms: List[str] = Field(default_factory=list)
     diagnosis: List[str] = Field(default_factory=list)
     diagnostic_considerations: List[str] = Field(default_factory=list)

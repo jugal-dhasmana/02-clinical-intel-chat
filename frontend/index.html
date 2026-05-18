@@ -2218,6 +2218,8 @@
        * [ display label, data key for count, section id to navigate to, dot class ]
        */
       const metrics = [
+        ["Causes", "causes", "causes", "dot-rose"],
+        ["Risk Factors", "risk_factors", "risk-factors", "dot-amber"],
         ["Symptoms", "symptoms", "symptoms", "dot-teal"],
         ["Diagnosis", "diagnosis", "diagnosis", "dot-amber"],
         ["Diagnostic Considerations", "diagnostic_considerations", "diagnostic-considerations", "dot-amber"],
@@ -2386,6 +2388,17 @@
           "si-cobalt", "Overview",
           `<p class="prose">${data.overview || "No overview available."}</p>`
         ),
+        buildSection("causes",
+          icon('<path d="M8 2v12M2 8h12"/>'),
+          "si-rose", "Causes",
+          renderList(data.causes), n("causes")
+        ),
+
+        buildSection("risk-factors",
+          icon('<path d="M8 2l5 12H3L8 2z"/><path d="M8 6v3"/><circle cx="8" cy="11" r=".5"/>'),
+          "si-amber", "Risk Factors",
+          renderList(data.risk_factors), n("risk_factors")
+        ),
         buildSection("symptoms",
           icon('<path d="M8 2v4M8 10v4M2 8h4M10 8h4"/><circle cx="8" cy="8" r="2"/>'),
           "si-teal", "Symptoms",
@@ -2435,7 +2448,7 @@
         ),
         buildSection("sources",
           icon('<circle cx="8" cy="8" r="6"/><path d="M8 6v2l1 1"/>'),
-          "si-slate", "Sources",
+          "si-slate", "Bibliography",
           renderSources(data.sources), n("sources")
         )
       ];
