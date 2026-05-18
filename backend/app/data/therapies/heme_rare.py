@@ -507,4 +507,220 @@ THERAPIES_HEME_RARE = {
             "Augmentation therapy, COPD diagnoses, liver disease codes, and pulmonary testing can help characterize treated or clinically recognized patients.",
         ],
     },
+    "narcolepsy type 1": {
+        "normalized_term": "Narcolepsy Type 1",
+        "aliases": [
+            "nt1",
+            "narcolepsy type 1",
+            "type 1 narcolepsy",
+            "narcolepsy with cataplexy",
+            "cataplexy narcolepsy",
+            "orexin deficiency",
+            "hypocretin deficiency",
+        ],
+        "overview": (
+            "Narcolepsy Type 1 is a chronic neurologic sleep disorder characterized by excessive daytime sleepiness and cataplexy, "
+            "often associated with loss of hypocretin/orexin signaling. It affects sleep-wake regulation and may include disrupted nighttime sleep, "
+            "sleep paralysis, and hallucinations around sleep transitions."
+        ),
+        "symptoms": [
+            "Excessive daytime sleepiness",
+            "Cataplexy or sudden loss of muscle tone triggered by emotion",
+            "Sleep paralysis",
+            "Hypnagogic or hypnopompic hallucinations",
+            "Fragmented nighttime sleep",
+        ],
+        "diagnosis": [
+            "Clinical history of excessive daytime sleepiness and cataplexy",
+            "Overnight polysomnography followed by multiple sleep latency testing",
+            "Short mean sleep latency with sleep-onset REM periods on MSLT",
+            "Low cerebrospinal fluid hypocretin-1 level when tested",
+        ],
+        "diagnostic_considerations": [
+            "Narcolepsy Type 1 is distinguished from Narcolepsy Type 2 primarily by cataplexy and/or hypocretin deficiency.",
+            "Diagnostic evaluation should exclude insufficient sleep, obstructive sleep apnea, circadian rhythm disorders, medication effects, and other hypersomnolence disorders.",
+            "MSLT interpretation may be affected by sleep deprivation, antidepressants, stimulants, REM-suppressing medications, and untreated sleep disorders.",
+            "Cataplexy history is clinically important and may be underdocumented in routine claims or EMR data.",
+            "In real-world data, narcolepsy subtype may be difficult to distinguish unless cataplexy codes, sleep study evidence, specialist care, or medication patterns are available.",
+        ],
+        "icd_codes": [
+            ICDCode(code="G47.411", description="Narcolepsy with cataplexy"),
+        ],
+        "procedures": [
+            Procedure(
+                name="Polysomnography",
+                code=None,
+                indication="Overnight sleep assessment before MSLT and evaluation for other sleep disorders",
+            ),
+            Procedure(
+                name="Multiple sleep latency test",
+                code=None,
+                indication="Objective assessment of daytime sleepiness and sleep-onset REM periods",
+            ),
+            Procedure(
+                name="CSF hypocretin-1 testing",
+                code=None,
+                indication="Support diagnostic confirmation when hypocretin deficiency is suspected",
+            ),
+        ],
+        "treatments": [
+            Treatment(
+                name="Wake-promoting therapy",
+                type="Pharmacological",
+                line="Daytime sleepiness management",
+                notes="Used to improve excessive daytime sleepiness in selected patients.",
+            ),
+            Treatment(
+                name="Sodium oxybate or oxybate therapy",
+                type="Pharmacological",
+                line="Cataplexy and sleepiness management",
+                notes="Used in selected patients to reduce cataplexy and improve sleep-related symptoms.",
+            ),
+            Treatment(
+                name="Antidepressant therapy",
+                type="Pharmacological",
+                line="Cataplexy symptom management",
+                notes="Some REM-suppressing agents may be used to reduce cataplexy in selected patients.",
+            ),
+            Treatment(
+                name="Behavioral and safety strategies",
+                type="Supportive",
+                line="Foundational management",
+                notes="Includes scheduled naps, sleep hygiene, driving safety counseling, and school or workplace accommodations.",
+            ),
+        ],
+        "clinical_trials": [],
+        "literature": [],
+        "sources": [
+            Source(
+                name="NINDS Narcolepsy",
+                url="https://www.ninds.nih.gov/health-information/disorders/narcolepsy",
+                accessed="2026-05-18",
+            ),
+            Source(
+                name="NCBI Bookshelf Narcolepsy",
+                url="https://www.ncbi.nlm.nih.gov/books/NBK459236/",
+                accessed="2026-05-18",
+            ),
+            Source(
+                name="ICD-10-CM G47.411 Narcolepsy with cataplexy",
+                url="https://www.icd10data.com/ICD10CM/Codes/G00-G99/G40-G47/G47-/G47.411",
+                accessed="2026-05-18",
+            ),
+        ],
+        "data_considerations": [
+            "Claims data may identify narcolepsy but often lacks sleep study results, MSLT metrics, and hypocretin testing.",
+            "Cataplexy may be undercoded, making Narcolepsy Type 1 difficult to distinguish from Narcolepsy Type 2.",
+            "Medication patterns may support phenotype identification but are not specific because wake-promoting agents can be used across multiple sleep disorders.",
+            "Specialist visits, sleep study procedures, diagnosis persistence, and cataplexy documentation can improve cohort specificity.",
+        ],
+    },
+    "polycythemia vera": {
+        "normalized_term": "Polycythemia Vera",
+        "aliases": [
+            "pv",
+            "polycythemia vera",
+            "polycythaemia vera",
+            "primary polycythemia",
+            "primary polycythaemia",
+            "jak2 polycythemia",
+            "myeloproliferative neoplasm polycythemia vera",
+        ],
+        "overview": (
+            "Polycythemia vera is a chronic myeloproliferative neoplasm characterized by increased red blood cell production, "
+            "often associated with JAK2 mutation. It can increase blood viscosity and is associated with thrombotic risk, symptoms such as pruritus or headache, "
+            "and potential progression to myelofibrosis or acute leukemia in some patients."
+        ),
+        "symptoms": [
+            "Headache, dizziness, or visual disturbances",
+            "Aquagenic pruritus or itching after warm water exposure",
+            "Fatigue or weakness",
+            "Erythromelalgia or burning pain and redness in hands or feet",
+            "Splenomegaly or abdominal fullness",
+        ],
+        "diagnosis": [
+            "CBC showing elevated hemoglobin, hematocrit, or red cell mass",
+            "JAK2 mutation testing",
+            "Serum erythropoietin level, often low in PV",
+            "Bone marrow evaluation when needed to support diagnosis and assess myeloproliferative features",
+        ],
+        "diagnostic_considerations": [
+            "Polycythemia vera should be distinguished from secondary erythrocytosis due to hypoxia, smoking, sleep apnea, testosterone use, renal disease, or erythropoietin-producing tumors.",
+            "JAK2 mutation status is central to diagnostic evaluation, but laboratory values and clinical context are also important.",
+            "Thrombotic risk assessment is important and often incorporates age, prior thrombosis, cardiovascular risk factors, and hematocrit control.",
+            "Hematocrit control is a key treatment target because elevated hematocrit is associated with increased thrombotic risk.",
+            "In real-world data, PV may be confused with secondary polycythemia unless diagnosis persistence, hematology care, JAK2 testing, phlebotomy, cytoreductive therapy, and lab patterns are considered.",
+        ],
+        "icd_codes": [
+            ICDCode(code="D45", description="Polycythemia vera"),
+        ],
+        "procedures": [
+            Procedure(
+                name="JAK2 mutation testing",
+                code=None,
+                indication="Support diagnostic confirmation of polycythemia vera",
+            ),
+            Procedure(
+                name="Therapeutic phlebotomy",
+                code=None,
+                indication="Reduce hematocrit and blood viscosity in selected patients",
+            ),
+            Procedure(
+                name="Bone marrow biopsy",
+                code=None,
+                indication="Support diagnosis and evaluate marrow morphology when clinically appropriate",
+            ),
+        ],
+        "treatments": [
+            Treatment(
+                name="Therapeutic phlebotomy",
+                type="Procedural",
+                line="Foundational management",
+                notes="Used to reduce hematocrit, commonly targeting hematocrit below 45% in appropriate patients.",
+            ),
+            Treatment(
+                name="Low-dose aspirin",
+                type="Pharmacological",
+                line="Thrombosis risk reduction",
+                notes="Used in many patients unless contraindicated.",
+            ),
+            Treatment(
+                name="Cytoreductive therapy",
+                type="Pharmacological",
+                line="High-risk or selected patients",
+                notes="Hydroxyurea or interferon-based therapy may be used depending on patient risk and clinical context.",
+            ),
+            Treatment(
+                name="JAK inhibitor therapy",
+                type="Pharmacological / targeted therapy",
+                line="Selected patients",
+                notes="Ruxolitinib may be used in selected patients with inadequate response or intolerance to hydroxyurea.",
+            ),
+        ],
+        "clinical_trials": [],
+        "literature": [],
+        "sources": [
+            Source(
+                name="NCI Myeloproliferative Neoplasms Treatment PDQ",
+                url="https://www.cancer.gov/types/myeloproliferative/hp/myeloproliferative-neoplasms-treatment",
+                accessed="2026-05-18",
+            ),
+            Source(
+                name="Merck Manual Professional Polycythemia Vera",
+                url="https://www.merckmanuals.com/professional/hematology-and-oncology/myeloproliferative-disorders/polycythemia-vera",
+                accessed="2026-05-18",
+            ),
+            Source(
+                name="ICD-10-CM D45 Polycythemia vera",
+                url="https://www.icd10data.com/ICD10CM/Codes/C00-D49/D37-D48/D45-/D45",
+                accessed="2026-05-18",
+            ),
+        ],
+        "data_considerations": [
+            "Claims data may identify PV diagnosis but usually lacks complete hematocrit, hemoglobin, erythropoietin, and JAK2 test results unless linked labs are available.",
+            "Secondary erythrocytosis can create false positives if cohort logic relies on diagnosis codes alone.",
+            "Phlebotomy, hematology visits, cytoreductive therapy, aspirin use, thrombotic events, and serial CBC values may help strengthen real-world cohort definitions.",
+            "Risk stratification variables such as prior thrombosis, cardiovascular risk factors, symptom burden, and hematocrit control may require longitudinal claims, labs, and EMR integration.",
+        ],
+    },
 }
