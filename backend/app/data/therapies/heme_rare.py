@@ -26,8 +26,9 @@ THERAPIES_HEME_RARE = {
         ],
         "overview": (
             "Immune thrombotic thrombocytopenic purpura is a rare, life-threatening thrombotic microangiopathy caused by severe ADAMTS13 deficiency, usually due to acquired autoantibodies. "
-            "It is characterized by thrombocytopenia, microangiopathic hemolytic anemia, and risk of neurologic, cardiac, renal, and other organ ischemia, requiring urgent recognition and treatment. "
-            "Estimated annual incidence is approximately 2 to 6 cases per million population globally and in the United States."
+            "It is characterized by thrombocytopenia, microangiopathic hemolytic anemia, and risk of neurologic, cardiac, renal, and other organ ischemia, requiring urgent recognition and treatment.\n\n"
+            "Global / U.S. Epidemiology: iTTP is rare, with reported annual incidence generally estimated at approximately 2 to 6 cases per million people globally. "
+            "U.S. real-world estimates have reported annual iTTP episode incidence around 1.8 to 3.4 per million, depending on case definition and data source."
         ),
         "causes": [
             "Severe acquired deficiency of ADAMTS13 activity caused by autoantibodies against the ADAMTS13 enzyme.",
