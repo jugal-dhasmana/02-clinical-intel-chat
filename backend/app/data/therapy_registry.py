@@ -36,10 +36,22 @@ THERAPY_DB: dict[str, dict] = {
             "intestinal failure due to short bowel syndrome",
         ],
         "overview": (
-            "Short bowel syndrome is a malabsorptive condition caused by substantial loss of functional small intestine, "
-            "most often after surgical resection or due to congenital or acquired intestinal disease. "
-            "It can lead to chronic diarrhea, dehydration, electrolyte abnormalities, weight loss, and dependence on parenteral nutrition in more severe cases."
+            "Short bowel syndrome is a malabsorptive condition caused by substantial loss of functional small intestine, most often after surgical resection or due to congenital or acquired intestinal disease. "
+            "It can lead to chronic diarrhea, dehydration, electrolyte abnormalities, weight loss, and dependence on parenteral nutrition in more severe cases.\n\n"
+            "Global / U.S. Epidemiology: Short bowel syndrome is rare but clinically significant. "
+            "Prevalence estimates vary by definition and severity, with intestinal failure requiring long-term parenteral nutrition representing the most severe end of the disease spectrum."
         ),
+        "causes": [
+            "Loss of functional small intestine resulting in reduced nutrient, fluid, and electrolyte absorption.",
+            "Common underlying causes include bowel resection, Crohn’s disease, mesenteric ischemia, trauma, congenital abnormalities, or radiation-related injury.",
+        ],
+        "risk_factors": [
+            "Major small bowel resection",
+            "Crohn’s disease or inflammatory bowel disease complications",
+            "Mesenteric ischemia",
+            "Congenital intestinal disorders",
+            "Radiation injury or abdominal surgical complications",
+        ],
         "symptoms": [
             "Chronic diarrhea or high stool output",
             "Weight loss and malnutrition",
@@ -215,8 +227,20 @@ THERAPY_DB: dict[str, dict] = {
             "motor neuron disease",
         ],
         "overview": (
-            "Amyotrophic lateral sclerosis is a progressive neurodegenerative disorder affecting motor neurons, leading to worsening muscle weakness, loss of voluntary movement, speech and swallowing difficulties, and respiratory impairment over time."
+            "Amyotrophic lateral sclerosis is a progressive neurodegenerative disorder affecting upper and lower motor neurons, leading to worsening muscle weakness, loss of voluntary movement, speech and swallowing difficulties, and respiratory impairment over time.\n\n"
+            "Global / U.S. Epidemiology: ALS is rare, with prevalence commonly estimated around 4 to 6 cases per 100,000 people. U.S. estimates suggest approximately 30,000 individuals are living with ALS."
         ),
+        "causes": [
+            "Progressive degeneration of upper and lower motor neurons.",
+            "Most cases are sporadic, while a smaller proportion are familial and associated with genetic variants such as C9orf72, SOD1, TARDBP, or FUS.",
+        ],
+        "risk_factors": [
+            "Older age",
+            "Male sex",
+            "Family history of ALS or motor neuron disease",
+            "Genetic susceptibility in familial ALS",
+            "Possible environmental or occupational exposures, although causal relationships are not always clear",
+        ],
         "symptoms": [
             "Progressive muscle weakness",
             "Muscle twitching or cramps",
@@ -229,6 +253,13 @@ THERAPY_DB: dict[str, dict] = {
             "Electromyography and nerve conduction studies to support diagnosis and exclude mimics",
             "Imaging and laboratory evaluation to rule out alternative causes",
             "Longitudinal clinical assessment of progressive motor decline",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis is based on progressive upper and lower motor neuron involvement with exclusion of mimicking conditions.",
+            "Electromyography and nerve conduction studies support diagnosis and help assess lower motor neuron involvement.",
+            "MRI and laboratory testing may be used to exclude structural, inflammatory, infectious, metabolic, or neuromuscular mimics.",
+            "Respiratory and swallowing function should be assessed longitudinally because they strongly influence prognosis and care needs.",
+            "In real-world data, functional decline, ALSFRS-R score, respiratory metrics, and symptom onset timing are often incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="G12.21", description="Amyotrophic lateral sclerosis"),

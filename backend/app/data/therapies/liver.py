@@ -13,8 +13,21 @@ THERAPIES_LIVER = {
             "masld",
         ],
         "overview": (
-            "Nonalcoholic steatohepatitis is a progressive form of fatty liver disease characterized by hepatic fat accumulation with inflammation and liver cell injury. It may progress to fibrosis, cirrhosis, liver failure, or hepatocellular carcinoma in selected patients."
+            "Nonalcoholic steatohepatitis, now commonly referred to as metabolic dysfunction-associated steatohepatitis, is a progressive form of fatty liver disease characterized by hepatic fat accumulation with inflammation and liver cell injury. "
+            "It may progress to fibrosis, cirrhosis, liver failure, or hepatocellular carcinoma in selected patients.\n\n"
+            "Global / U.S. Epidemiology: MASH/NASH is part of the broader MASLD/NAFLD spectrum. U.S. estimates suggest about 24% of adults have NAFLD and about 1.5% to 6.5% have NASH/MASH."
         ),
+        "causes": [
+            "Metabolic dysfunction leading to hepatic fat accumulation, inflammation, and liver cell injury.",
+            "Often associated with insulin resistance, obesity, type 2 diabetes, dyslipidemia, and cardiometabolic risk.",
+        ],
+        "risk_factors": [
+            "Obesity or central adiposity",
+            "Type 2 diabetes",
+            "Insulin resistance or metabolic syndrome",
+            "Dyslipidemia",
+            "Hypertension or other cardiometabolic risk factors",
+        ],
         "symptoms": [
             "Often asymptomatic in early disease",
             "Fatigue or low energy",
@@ -27,6 +40,13 @@ THERAPIES_LIVER = {
             "Liver enzyme and laboratory evaluation",
             "Imaging to assess hepatic steatosis and fibrosis risk",
             "Liver biopsy or noninvasive fibrosis assessment when clinically appropriate",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis requires assessment of hepatic steatosis, inflammation, fibrosis risk, and exclusion of other liver diseases.",
+            "Liver biopsy remains the reference standard for confirming steatohepatitis and fibrosis stage, but noninvasive fibrosis assessment is commonly used in practice.",
+            "Noninvasive tools may include liver enzymes, FIB-4, elastography, imaging, and serum-based fibrosis markers.",
+            "Patients with type 2 diabetes, obesity, or metabolic syndrome may warrant higher suspicion for advanced fibrosis.",
+            "In real-world data, fibrosis stage, histology, imaging results, alcohol exposure, and metabolic risk details may be incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="K75.81", description="Nonalcoholic steatohepatitis (NASH)"),
@@ -100,8 +120,20 @@ THERAPIES_LIVER = {
             "primary biliary cirrhosis",
         ],
         "overview": (
-            "Primary biliary cholangitis is a chronic autoimmune cholestatic liver disease in which small intrahepatic bile ducts become injured and inflamed, leading to bile retention and potential progressive liver damage."
+            "Primary biliary cholangitis is a chronic autoimmune cholestatic liver disease in which small intrahepatic bile ducts become injured and inflamed, leading to bile retention and potential progressive liver damage.\n\n"
+            "Global / U.S. Epidemiology: PBC is a rare disease with pooled global prevalence estimated around 14.6 to 18.1 cases per 100,000 people, with higher reported prevalence in some North American and European populations."
         ),
+        "causes": [
+            "Autoimmune injury targeting small intrahepatic bile ducts.",
+            "Progressive bile duct destruction can lead to cholestasis, fibrosis, cirrhosis, and liver failure in some patients.",
+        ],
+        "risk_factors": [
+            "Female sex",
+            "Middle age or older age",
+            "Family history of primary biliary cholangitis",
+            "Personal or family history of autoimmune disease",
+            "Environmental and genetic susceptibility factors",
+        ],
         "symptoms": [
             "Fatigue",
             "Pruritus or itchy skin",
@@ -114,6 +146,13 @@ THERAPIES_LIVER = {
             "Serologic testing including antimitochondrial antibodies when appropriate",
             "Imaging to evaluate biliary obstruction or alternative liver disease",
             "Liver biopsy in selected cases when diagnosis is uncertain or overlap disease is suspected",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis is commonly supported by cholestatic liver enzyme elevation and antimitochondrial antibody positivity.",
+            "Imaging is often used to exclude extrahepatic biliary obstruction or alternative cholestatic liver disease.",
+            "Liver biopsy may be useful when diagnosis is uncertain or overlap with autoimmune hepatitis is suspected.",
+            "Biochemical response to therapy is important for prognosis and treatment escalation decisions.",
+            "In real-world data, autoantibody status, alkaline phosphatase trends, fibrosis stage, symptoms, and treatment response may require linked labs or EMR data.",
         ],
         "icd_codes": [
             ICDCode(code="K74.3", description="Primary biliary cirrhosis"),
@@ -190,8 +229,20 @@ THERAPIES_LIVER = {
         ],
         "overview": (
             "Primary sclerosing cholangitis is a chronic cholestatic liver disease characterized by inflammation, fibrosis, and narrowing of bile ducts. "
-            "It is often associated with inflammatory bowel disease and may progress to cirrhosis, biliary complications, or liver transplant need."
+            "It is often associated with inflammatory bowel disease and may progress to cirrhosis, biliary complications, liver transplant need, or hepatobiliary malignancy.\n\n"
+            "Global / U.S. Epidemiology: PSC is rare, with prevalence estimates varying widely by geography. Pooled global estimates are commonly around 11 to 14 cases per 100,000 people, with higher rates reported in some Northern European and North American populations."
         ),
+        "causes": [
+            "Chronic inflammatory and fibrosing injury of intrahepatic and/or extrahepatic bile ducts.",
+            "Exact cause is not fully understood, but immune-mediated, genetic, microbiome, and inflammatory bowel disease-related mechanisms are implicated.",
+        ],
+        "risk_factors": [
+            "Inflammatory bowel disease, especially ulcerative colitis",
+            "Male sex",
+            "Younger to middle adult age at diagnosis",
+            "Family history of primary sclerosing cholangitis or inflammatory bowel disease",
+            "Northern European ancestry or residence in higher-prevalence regions",
+        ],
         "symptoms": [
             "Fatigue or weakness",
             "Pruritus or itchy skin",
@@ -204,6 +255,13 @@ THERAPIES_LIVER = {
             "Biliary imaging such as MRCP or ERCP to evaluate bile duct strictures",
             "Assessment for inflammatory bowel disease association",
             "Liver biopsy in selected cases such as suspected small-duct disease or diagnostic uncertainty",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis is commonly supported by cholestatic liver enzyme abnormalities and characteristic bile duct changes on MRCP or ERCP.",
+            "Secondary causes of sclerosing cholangitis should be excluded where clinically appropriate.",
+            "Associated inflammatory bowel disease should be assessed because it affects surveillance and longitudinal management.",
+            "Dominant strictures, cholangitis, cirrhosis, transplant evaluation, and cholangiocarcinoma risk are important clinical considerations.",
+            "In real-world data, bile duct imaging findings, liver biochemistry trends, IBD phenotype, malignancy surveillance, and transplant status may be incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="K83.01", description="Primary sclerosing cholangitis"),

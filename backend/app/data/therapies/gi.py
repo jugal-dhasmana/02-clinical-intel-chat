@@ -14,11 +14,21 @@ THERAPIES_GI = {
             "ibd crohn",
         ],
         "overview": (
-            "Crohn's disease is a chronic inflammatory bowel disease characterized by transmural "
-            "inflammation that can affect any part of the gastrointestinal tract, most commonly the "
-            "terminal ileum and colon. It often follows a relapsing and remitting course and may lead "
-            "to complications such as strictures, fistulas, abscesses, and nutritional deficiencies."
+            "Crohn's disease is a chronic inflammatory bowel disease characterized by transmural inflammation that can affect any part of the gastrointestinal tract, most commonly the terminal ileum and colon. "
+            "It often follows a relapsing and remitting course and may lead to complications such as strictures, fistulas, abscesses, and nutritional deficiencies.\n\n"
+            "Global / U.S. Epidemiology: Crohn's disease prevalence varies by geography and is highest in North America and Europe. Recent global estimates report Crohn's disease prevalence around 84 per 100,000 people, while U.S. estimates suggest approximately 1 million people are living with Crohn's disease."
         ),
+        "causes": [
+            "Chronic immune-mediated inflammation involving the gastrointestinal tract.",
+            "Likely multifactorial pathogenesis involving genetic susceptibility, intestinal microbiome changes, environmental exposures, and dysregulated immune response.",
+        ],
+        "risk_factors": [
+            "Family history of inflammatory bowel disease",
+            "Cigarette smoking",
+            "Younger adult age at onset, commonly between ages 20 and 29",
+            "Ashkenazi Jewish ancestry",
+            "Residence in industrialized regions or environments associated with higher IBD prevalence",
+        ],
         "symptoms": [
             "Chronic diarrhea",
             "Abdominal pain and cramping",
@@ -96,8 +106,21 @@ THERAPIES_GI = {
         "normalized_term": "Ulcerative Colitis",
         "aliases": ["UC", "colitis", "ulcerative colitis", "ibd uc"],
         "overview": (
-            "Ulcerative colitis is a chronic inflammatory bowel disease characterized by continuous mucosal inflammation of the colon, beginning in the rectum and extending proximally to a variable extent. It typically follows a relapsing and remitting course and may range from mild distal disease to extensive colitis with systemic manifestations."
+            "Ulcerative colitis is a chronic inflammatory bowel disease characterized by continuous mucosal inflammation of the colon, beginning in the rectum and extending proximally to varying degrees. "
+            "Patients commonly experience relapsing and remitting symptoms including diarrhea, rectal bleeding, abdominal pain, and urgency.\n\n"
+            "Global / U.S. Epidemiology: Ulcerative colitis prevalence is highest in North America and Europe. Global prevalence estimates are commonly reported around 87 per 100,000 people, while U.S. estimates suggest approximately 600,000 to 900,000 individuals are living with ulcerative colitis."
         ),
+        "causes": [
+            "Chronic immune-mediated inflammation involving the colonic mucosa.",
+            "Likely multifactorial pathogenesis involving genetic susceptibility, altered gut microbiome, environmental exposures, and dysregulated immune response.",
+        ],
+        "risk_factors": [
+            "Family history of inflammatory bowel disease",
+            "Younger age at disease onset, often between ages 15 and 30",
+            "Ashkenazi Jewish ancestry",
+            "Residence in industrialized regions with higher inflammatory bowel disease prevalence",
+            "Certain environmental and microbiome-related exposures associated with immune dysregulation",
+        ],
         "symptoms": [
             "Bloody diarrhea",
             "Urgency and tenesmus",
@@ -181,8 +204,22 @@ THERAPIES_GI = {
             "gluten-sensitive enteropathy",
         ],
         "overview": (
-            "Celiac disease is a chronic immune-mediated digestive disorder triggered by gluten exposure in genetically susceptible individuals. It damages the small intestine and may cause gastrointestinal symptoms, nutrient deficiencies, and extraintestinal manifestations."
+            "Celiac disease is a chronic immune-mediated digestive disorder triggered by gluten exposure in genetically susceptible individuals. "
+            "It damages the small intestine and may cause gastrointestinal symptoms, nutrient deficiencies, and extraintestinal manifestations.\n\n"
+            "Global / U.S. Epidemiology: Celiac disease affects populations worldwide with estimated global prevalence around 1% of the population. "
+            "U.S. prevalence is also estimated near 1%, although many individuals remain undiagnosed or are diagnosed after prolonged symptoms."
         ),
+        "causes": [
+            "Immune-mediated reaction to gluten exposure in genetically susceptible individuals.",
+            "Gluten ingestion triggers inflammatory injury and villous atrophy in the small intestine.",
+        ],
+        "risk_factors": [
+            "Family history of celiac disease",
+            "Type 1 diabetes or other autoimmune disorders",
+            "Genetic predisposition including HLA-DQ2 or HLA-DQ8 positivity",
+            "First-degree relatives with celiac disease",
+            "Autoimmune thyroid disease or Down syndrome",
+        ],
         "symptoms": [
             "Chronic diarrhea or loose stools",
             "Abdominal bloating or pain",
@@ -195,6 +232,13 @@ THERAPIES_GI = {
             "Small intestinal biopsy to assess villous atrophy when clinically indicated",
             "Clinical and dietary history including gluten exposure",
             "Assessment for nutritional deficiencies and associated autoimmune conditions",
+        ],
+        "diagnostic_considerations": [
+            "Accurate serologic testing generally requires active gluten consumption before testing.",
+            "Small bowel biopsy remains important in many adult patients for diagnostic confirmation and assessment of villous atrophy.",
+            "Differential diagnosis may include irritable bowel syndrome, inflammatory bowel disease, lactose intolerance, small intestinal bacterial overgrowth, and non-celiac gluten sensitivity.",
+            "Associated autoimmune diseases and nutritional deficiencies should be evaluated where clinically appropriate.",
+            "In real-world data, diagnosis confirmation may be challenging because biopsy results, serology, dietary adherence, and symptom response are often incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="K90.0", description="Celiac disease"),
@@ -265,8 +309,21 @@ THERAPIES_GI = {
             "allergic esophagitis",
         ],
         "overview": (
-            "Eosinophilic esophagitis is a chronic immune-mediated inflammatory disease of the esophagus characterized by eosinophil-predominant inflammation and symptoms of esophageal dysfunction."
+            "Eosinophilic esophagitis is a chronic immune-mediated inflammatory disease of the esophagus characterized by eosinophil-predominant inflammation and symptoms of esophageal dysfunction.\n\n"
+            "Global / U.S. Epidemiology: Eosinophilic esophagitis prevalence has increased substantially over recent decades. "
+            "Current prevalence estimates are commonly reported around 30 to 60 cases per 100,000 people in the United States and other developed regions."
         ),
+        "causes": [
+            "Chronic immune-mediated inflammatory response involving the esophagus.",
+            "Food and environmental antigen exposure are believed to contribute to eosinophilic inflammation in genetically susceptible individuals.",
+        ],
+        "risk_factors": [
+            "Male sex",
+            "Personal or family history of atopic disease",
+            "Asthma, eczema, allergic rhinitis, or food allergies",
+            "Younger age at diagnosis",
+            "Family history of eosinophilic esophagitis",
+        ],
         "symptoms": [
             "Difficulty swallowing or dysphagia",
             "Food impaction",
@@ -279,6 +336,13 @@ THERAPIES_GI = {
             "Upper endoscopy with esophageal biopsies",
             "Histologic evaluation showing eosinophil-predominant inflammation",
             "Assessment for alternative causes of esophageal eosinophilia",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis requires symptoms of esophageal dysfunction together with eosinophil-predominant inflammation on esophageal biopsy.",
+            "Alternative causes of esophageal eosinophilia including gastroesophageal reflux disease and infections should be considered.",
+            "Endoscopic findings may include rings, furrows, edema, strictures, or white exudates, although appearance can vary.",
+            "Disease monitoring often requires repeat endoscopy and biopsy assessment.",
+            "In real-world data, definitive diagnosis may be difficult because pathology and endoscopic findings are often unavailable in claims-only datasets.",
         ],
         "icd_codes": [
             ICDCode(code="K20.0", description="Eosinophilic esophagitis"),
@@ -350,8 +414,21 @@ THERAPIES_GI = {
         ],
         "overview": (
             "Gastroparesis is a disorder of delayed stomach emptying in the absence of a mechanical blockage. "
-            "It can cause chronic upper gastrointestinal symptoms and may be associated with diabetes, postsurgical states, medications, neurologic disease, or idiopathic causes."
+            "It can cause chronic upper gastrointestinal symptoms and may be associated with diabetes, postsurgical states, medications, neurologic disease, or idiopathic causes.\n\n"
+            "Global / U.S. Epidemiology: Gastroparesis is an uncommon but clinically significant gastrointestinal motility disorder. "
+            "U.S. prevalence estimates vary by population and methodology but are commonly reported between approximately 10 and 40 cases per 100,000 people, with higher prevalence among women and individuals with diabetes."
         ),
+        "causes": [
+            "Delayed gastric emptying due to impaired gastric motility or abnormal neuromuscular regulation.",
+            "Associated causes may include diabetes, postsurgical vagal nerve injury, neurologic disease, medications, or idiopathic dysfunction.",
+        ],
+        "risk_factors": [
+            "Diabetes mellitus",
+            "Female sex",
+            "Prior upper gastrointestinal surgery",
+            "Neurologic disorders affecting autonomic function",
+            "Use of medications that slow gastric emptying such as opioids or GLP-1 related therapies",
+        ],
         "symptoms": [
             "Early satiety or feeling full soon after starting a meal",
             "Nausea or vomiting",
@@ -364,6 +441,13 @@ THERAPIES_GI = {
             "Exclusion of mechanical obstruction with endoscopy or imaging when clinically appropriate",
             "Gastric emptying study to document delayed gastric emptying",
             "Assessment for contributing conditions such as diabetes, medications, or prior surgery",
+        ],
+        "diagnostic_considerations": [
+            "Mechanical obstruction should be excluded before establishing a diagnosis of gastroparesis.",
+            "Objective evidence of delayed gastric emptying is important for diagnostic confirmation.",
+            "Symptoms may overlap with functional dyspepsia, medication effects, cyclic vomiting syndrome, and other upper gastrointestinal disorders.",
+            "Diabetic gastroparesis should be evaluated in the context of glycemic control and autonomic dysfunction.",
+            "In real-world data, gastric emptying study results and symptom severity are often unavailable, limiting diagnostic specificity.",
         ],
         "icd_codes": [
             ICDCode(code="K31.84", description="Gastroparesis"),
@@ -440,8 +524,21 @@ THERAPIES_GI = {
             "pancreatic insufficiency chronic pancreatitis",
         ],
         "overview": (
-            "Chronic pancreatitis is a long-standing inflammatory disease of the pancreas that can lead to irreversible structural damage, chronic abdominal pain, exocrine pancreatic insufficiency, diabetes, and nutritional complications."
+            "Chronic pancreatitis is a long-standing inflammatory disease of the pancreas that can lead to irreversible structural damage, chronic abdominal pain, exocrine pancreatic insufficiency, diabetes, and nutritional complications.\n\n"
+            "Global / U.S. Epidemiology: Chronic pancreatitis is an uncommon but clinically significant pancreatic disorder. "
+            "Reported prevalence estimates commonly range from approximately 30 to 50 cases per 100,000 people globally, with higher rates in populations with significant alcohol and smoking exposure."
         ),
+        "causes": [
+            "Chronic pancreatic inflammation resulting in irreversible structural and functional pancreatic damage.",
+            "Common etiologies include alcohol exposure, genetic factors, obstructive disease, autoimmune pancreatitis, and recurrent acute pancreatitis.",
+        ],
+        "risk_factors": [
+            "Heavy alcohol use",
+            "Cigarette smoking",
+            "Recurrent acute pancreatitis",
+            "Genetic predisposition including PRSS1, SPINK1, or CFTR mutations",
+            "Obstructive pancreatic duct disease or autoimmune pancreatitis",
+        ],
         "symptoms": [
             "Chronic or recurrent upper abdominal pain",
             "Nausea or digestive discomfort",
@@ -454,6 +551,13 @@ THERAPIES_GI = {
             "Pancreatic imaging to assess calcifications, ductal changes, or structural damage",
             "Assessment for exocrine pancreatic insufficiency and nutritional deficiencies",
             "Evaluation for diabetes or endocrine pancreatic dysfunction",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis often requires integration of clinical symptoms, imaging findings, pancreatic function assessment, and longitudinal disease history.",
+            "Differential diagnosis may include pancreatic cancer, recurrent acute pancreatitis, biliary disease, and other chronic abdominal pain syndromes.",
+            "Exocrine pancreatic insufficiency and diabetes should be evaluated in advanced disease.",
+            "Alcohol and smoking exposure are important contributors to disease progression and complications.",
+            "In real-world data, imaging detail, alcohol exposure, smoking status, and pancreatic function testing are often incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="K86.1", description="Other chronic pancreatitis"),

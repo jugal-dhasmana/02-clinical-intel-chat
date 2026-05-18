@@ -138,7 +138,23 @@ THERAPIES_HEME_RARE = {
     "multiple myeloma": {
         "normalized_term": "Multiple Myeloma",
         "aliases": ["MM"],
-        "overview": "Multiple myeloma is a plasma cell malignancy characterized by clonal proliferation in the bone marrow and end-organ damage in selected patients.",
+        "overview": (
+            "Multiple myeloma is a plasma cell malignancy characterized by clonal proliferation in the bone marrow and end-organ damage in selected patients. "
+            "Disease manifestations commonly involve bone destruction, anemia, renal dysfunction, hypercalcemia, and immunologic impairment.\n\n"
+            "Global / U.S. Epidemiology: Multiple myeloma accounts for approximately 1% to 2% of all cancers and about 10% of hematologic malignancies. "
+            "U.S. prevalence is estimated at more than 150,000 people living with multiple myeloma."
+        ),
+        "causes": [
+            "Clonal proliferation of malignant plasma cells within the bone marrow.",
+            "Disease biology involves abnormal plasma cell growth, monoclonal protein production, immune dysregulation, and bone marrow microenvironment interactions.",
+        ],
+        "risk_factors": [
+            "Older age",
+            "Male sex",
+            "African ancestry",
+            "Family history of plasma cell disorders",
+            "Monoclonal gammopathy of undetermined significance (MGUS)",
+        ],
         "symptoms": [
             "Bone pain",
             "Anemia-related fatigue",
@@ -149,6 +165,13 @@ THERAPIES_HEME_RARE = {
             "Serum and urine protein studies",
             "Bone marrow evaluation",
             "Imaging as clinically appropriate",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis integrates monoclonal protein testing, bone marrow plasma cell evaluation, imaging, and assessment of end-organ involvement.",
+            "CRAB criteria and myeloma-defining events are important for distinguishing symptomatic disease from precursor states.",
+            "Differential diagnosis includes MGUS, smoldering myeloma, plasmacytoma, amyloidosis, and other plasma cell disorders.",
+            "Disease staging and cytogenetic risk assessment influence prognosis and treatment strategy.",
+            "In real-world data, cytogenetics, bone marrow findings, staging, and disease response assessments are often incompletely captured.",
         ],
         "icd_codes": [ICDCode(code="C90.0", description="Multiple myeloma")],
         "procedures": [
@@ -178,10 +201,21 @@ THERAPIES_HEME_RARE = {
             "fviii deficiency",
         ],
         "overview": (
-            "Hemophilia A is an inherited X-linked bleeding disorder caused by deficiency of clotting factor VIII, "
-            "leading to impaired blood coagulation. It is characterized by spontaneous bleeding episodes, particularly "
-            "into joints and muscles, and severity depends on the level of factor VIII activity."
+            "Hemophilia A is an inherited bleeding disorder caused by deficiency or dysfunction of coagulation factor VIII, resulting in impaired blood clotting and increased bleeding risk. "
+            "Severity varies based on factor VIII activity level and may range from mild bleeding tendency to spontaneous joint and muscle hemorrhage.\n\n"
+            "Global / U.S. Epidemiology: Hemophilia A occurs worldwide and is one of the most common inherited bleeding disorders. "
+            "Global prevalence is commonly estimated at approximately 15 to 20 cases per 100,000 males, while U.S. estimates suggest more than 20,000 individuals are living with hemophilia A."
         ),
+        "causes": [
+            "Inherited mutation in the F8 gene resulting in reduced or absent factor VIII activity.",
+            "Most cases follow X-linked inheritance, although spontaneous mutations can occur.",
+        ],
+        "risk_factors": [
+            "Family history of hemophilia",
+            "Male sex due to X-linked inheritance pattern",
+            "Known maternal carrier status",
+            "Personal or family history of unexplained bleeding disorders",
+        ],
         "symptoms": [
             "Easy bruising",
             "Joint bleeding (hemarthrosis)",
@@ -255,8 +289,21 @@ THERAPIES_HEME_RARE = {
         ],
         "overview": (
             "Amyloidosis refers to a group of disorders caused by abnormal amyloid protein deposition in tissues and organs. "
-            "Clinical presentation depends on the amyloid type and organs involved, commonly including cardiac, renal, neurologic, gastrointestinal, and soft tissue manifestations."
+            "Clinical presentation depends on amyloid subtype and organs involved, commonly including cardiac, renal, neurologic, gastrointestinal, and soft tissue manifestations.\n\n"
+            "Global / U.S. Epidemiology: Amyloidosis is rare, although recognition has increased with improved diagnostic techniques. "
+            "ATTR amyloidosis prevalence appears to be increasing, particularly among older adults and patients with cardiomyopathy."
         ),
+        "causes": [
+            "Misfolded protein deposition within tissues and organs resulting in amyloid accumulation and organ dysfunction.",
+            "Amyloid subtype may be related to plasma cell disorders, transthyretin instability, chronic inflammation, or hereditary mutations.",
+        ],
+        "risk_factors": [
+            "Older age",
+            "Monoclonal plasma cell disorders",
+            "Family history of hereditary amyloidosis",
+            "Chronic inflammatory conditions",
+            "Male sex in some ATTR amyloidosis populations",
+        ],
         "symptoms": [
             "Fatigue and weakness",
             "Shortness of breath or exercise intolerance",
@@ -269,6 +316,13 @@ THERAPIES_HEME_RARE = {
             "Laboratory testing including monoclonal protein assessment when AL amyloidosis is suspected",
             "Tissue biopsy with amyloid confirmation and typing when appropriate",
             "Cardiac, renal, neurologic, or gastrointestinal evaluation depending on suspected organ involvement",
+        ],
+        "diagnostic_considerations": [
+            "Accurate amyloid subtype identification is critical because treatment pathways differ substantially between AL, ATTR, and secondary amyloidosis.",
+            "Diagnosis often requires tissue confirmation together with specialized amyloid typing techniques.",
+            "Cardiac involvement may mimic hypertrophic or restrictive cardiomyopathy and is increasingly recognized in older adults.",
+            "Monoclonal protein evaluation is important when AL amyloidosis is suspected.",
+            "In real-world data, amyloid subtype, organ involvement, biopsy findings, and staging details are often incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="E85.9", description="Amyloidosis, unspecified"),
@@ -351,8 +405,19 @@ THERAPIES_HEME_RARE = {
             "hemoglobin ss disease",
         ],
         "overview": (
-            "Sickle cell disease is an inherited hemoglobin disorder characterized by abnormal sickling of red blood cells, chronic hemolytic anemia, vaso-occlusive pain episodes, and risk of multi-organ complications."
+            "Sickle cell disease is an inherited hemoglobin disorder characterized by abnormal sickling of red blood cells, chronic hemolytic anemia, vaso-occlusive pain episodes, and risk of multi-organ complications.\n\n"
+            "Global / U.S. Epidemiology: Sickle cell disease affects millions of people globally and is particularly prevalent among individuals of African ancestry. "
+            "Approximately 100,000 individuals are estimated to live with sickle cell disease in the United States."
         ),
+        "causes": [
+            "Inherited mutation in the beta-globin gene resulting in abnormal hemoglobin S formation.",
+            "Red blood cell sickling contributes to vaso-occlusion, hemolysis, inflammation, and organ injury.",
+        ],
+        "risk_factors": [
+            "Family history of sickle cell disease or sickle cell trait",
+            "African, Mediterranean, Middle Eastern, or South Asian ancestry",
+            "Inheritance of two abnormal beta-globin genes",
+        ],
         "symptoms": [
             "Pain crises or vaso-occlusive episodes",
             "Chronic anemia and fatigue",
@@ -365,6 +430,13 @@ THERAPIES_HEME_RARE = {
             "Newborn screening or diagnostic testing based on symptoms and family history",
             "Laboratory evaluation for anemia, hemolysis, and organ complications",
             "Longitudinal assessment of pain episodes, transfusions, and complications",
+        ],
+        "diagnostic_considerations": [
+            "Hemoglobin electrophoresis or equivalent testing is central to diagnostic confirmation and genotype characterization.",
+            "Disease severity varies substantially by genotype and clinical phenotype.",
+            "Acute complications may include vaso-occlusive crises, acute chest syndrome, stroke, and infection-related morbidity.",
+            "Longitudinal monitoring of organ complications and transfusion exposure is important.",
+            "In real-world data, genotype, disease severity, and acute complication detail may be incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="D57.1", description="Sickle-cell disease without crisis"),
@@ -445,8 +517,20 @@ THERAPIES_HEME_RARE = {
             "alpha 1",
         ],
         "overview": (
-            "Alpha-1 antitrypsin deficiency is an inherited disorder caused by low or dysfunctional alpha-1 antitrypsin protein, increasing risk of lung disease such as emphysema and liver disease in selected patients."
+            "Alpha-1 antitrypsin deficiency is an inherited disorder caused by low or dysfunctional alpha-1 antitrypsin protein, increasing risk of lung disease such as emphysema and liver disease in selected patients.\n\n"
+            "Global / U.S. Epidemiology: Alpha-1 antitrypsin deficiency is considered underdiagnosed worldwide. "
+            "Severe deficiency genotypes are estimated to affect approximately 1 in 2,000 to 1 in 5,000 individuals in populations of European ancestry."
         ),
+        "causes": [
+            "Inherited SERPINA1 gene mutations resulting in low or dysfunctional alpha-1 antitrypsin protein.",
+            "Protein deficiency increases risk of protease-mediated lung injury and abnormal protein accumulation in the liver.",
+        ],
+        "risk_factors": [
+            "Family history of alpha-1 antitrypsin deficiency",
+            "Smoking exposure",
+            "European ancestry in some severe deficiency populations",
+            "Underlying chronic lung disease or emphysema at younger age",
+        ],
         "symptoms": [
             "Shortness of breath or wheezing",
             "Chronic cough",
@@ -459,6 +543,13 @@ THERAPIES_HEME_RARE = {
             "Genotype or phenotype testing to characterize variant status",
             "Pulmonary function testing to assess lung involvement",
             "Liver evaluation when hepatic involvement is suspected",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis involves alpha-1 antitrypsin level assessment together with genotype or phenotype testing.",
+            "Testing should be considered in early emphysema, unexplained liver disease, or family history of deficiency.",
+            "Smoking exposure substantially accelerates lung disease progression.",
+            "Liver involvement may occur independently of lung disease severity.",
+            "In real-world data, genotype detail, pulmonary function testing, smoking status, and augmentation eligibility are often incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(code="E88.01", description="Alpha-1-antitrypsin deficiency"),
@@ -533,10 +624,22 @@ THERAPIES_HEME_RARE = {
             "hypocretin deficiency",
         ],
         "overview": (
-            "Narcolepsy Type 1 is a chronic neurologic sleep disorder characterized by excessive daytime sleepiness and cataplexy, "
-            "often associated with loss of hypocretin/orexin signaling. It affects sleep-wake regulation and may include disrupted nighttime sleep, "
-            "sleep paralysis, and hallucinations around sleep transitions."
+            "Narcolepsy Type 1 is a chronic neurologic sleep disorder characterized by excessive daytime sleepiness and cataplexy, often associated with loss of hypocretin/orexin signaling. "
+            "It affects sleep-wake regulation and may include disrupted nighttime sleep, sleep paralysis, and hallucinations around sleep transitions.\n\n"
+            "Global / U.S. Epidemiology: Narcolepsy is rare worldwide, with prevalence estimates commonly ranging from approximately 25 to 50 cases per 100,000 people. "
+            "Narcolepsy Type 1 represents the subtype associated with cataplexy and hypocretin deficiency."
         ),
+        "causes": [
+            "Loss or dysfunction of hypocretin/orexin-producing neurons involved in sleep-wake regulation.",
+            "Narcolepsy Type 1 is commonly associated with autoimmune-mediated hypocretin deficiency, although exact mechanisms may vary.",
+        ],
+        "risk_factors": [
+            "Family history of narcolepsy",
+            "Certain HLA genetic associations such as HLA-DQB1*06:02",
+            "Autoimmune susceptibility",
+            "History of cataplexy or symptoms beginning in adolescence or young adulthood",
+            "Possible environmental triggers in genetically susceptible individuals",
+        ],
         "symptoms": [
             "Excessive daytime sleepiness",
             "Cataplexy or sudden loss of muscle tone triggered by emotion",
@@ -641,10 +744,21 @@ THERAPIES_HEME_RARE = {
             "myeloproliferative neoplasm polycythemia vera",
         ],
         "overview": (
-            "Polycythemia vera is a chronic myeloproliferative neoplasm characterized by increased red blood cell production, "
-            "often associated with JAK2 mutation. It can increase blood viscosity and is associated with thrombotic risk, symptoms such as pruritus or headache, "
-            "and potential progression to myelofibrosis or acute leukemia in some patients."
+            "Polycythemia vera is a chronic myeloproliferative neoplasm characterized by increased red blood cell production, often associated with JAK2 mutation. "
+            "It can increase blood viscosity and is associated with thrombotic risk, symptoms such as pruritus or headache, and potential progression to myelofibrosis or acute leukemia in some patients.\n\n"
+            "Global / U.S. Epidemiology: Polycythemia vera is a rare hematologic malignancy with reported prevalence commonly ranging from approximately 20 to 60 cases per 100,000 people in North America and Europe."
         ),
+        "causes": [
+            "Clonal myeloproliferation leading to increased red blood cell production.",
+            "Most cases are associated with acquired JAK2 mutation, commonly JAK2 V617F or exon 12 mutation.",
+        ],
+        "risk_factors": [
+            "Older age",
+            "JAK2 mutation positivity",
+            "History of thrombosis",
+            "Cardiovascular risk factors such as hypertension, diabetes, smoking, or hyperlipidemia",
+            "Male sex in some epidemiologic studies",
+        ],
         "symptoms": [
             "Headache, dizziness, or visual disturbances",
             "Aquagenic pruritus or itching after warm water exposure",

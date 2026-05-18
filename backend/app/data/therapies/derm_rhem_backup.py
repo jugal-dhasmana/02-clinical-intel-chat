@@ -11,8 +11,20 @@ THERAPIES_DERM_RHEUM = {
         ],
         "overview": (
             "Psoriasis is a chronic immune-mediated skin disease characterized by inflammatory, scaly plaques that may vary in extent and severity. "
-            "It can be associated with systemic inflammation, comorbidities, and psoriatic arthritis in some patients."
+            "It can be associated with systemic inflammation, comorbidities, and psoriatic arthritis in some patients.\n\n"
+            "Global / U.S. Epidemiology: Psoriasis is common worldwide, with prevalence varying by geography and population. U.S. adult prevalence is commonly estimated around 3%."
         ),
+        "causes": [
+            "Chronic immune-mediated inflammation involving abnormal activation of skin and systemic inflammatory pathways.",
+            "Disease activity is driven by genetic susceptibility, immune dysregulation, and environmental triggers.",
+        ],
+        "risk_factors": [
+            "Family history of psoriasis",
+            "Obesity",
+            "Smoking",
+            "Certain infections or skin trauma",
+            "Stress and selected medication triggers",
+        ],
         "symptoms": [
             "Red or inflamed scaly skin plaques",
             "Itching, burning, or soreness of affected skin",
@@ -25,6 +37,13 @@ THERAPIES_DERM_RHEUM = {
             "Assessment of lesion morphology, distribution, and severity",
             "Evaluation for nail disease and joint symptoms",
             "Skin biopsy in selected cases when diagnosis is uncertain",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis is usually clinical based on plaque morphology, distribution, and chronicity.",
+            "Assessment should consider severity, body surface area, sensitive locations, nail involvement, and psoriatic arthritis symptoms.",
+            "Skin biopsy may be used when diagnosis is uncertain or mimics are suspected.",
+            "Differential diagnosis may include eczema, seborrheic dermatitis, tinea, lichen planus, and cutaneous lupus.",
+            "In real-world data, PASI score, body surface area, lesion location, and symptom burden are often not available.",
         ],
         "icd_codes": [
             ICDCode(code="L40.0", description="Psoriasis vulgaris"),
@@ -98,8 +117,20 @@ THERAPIES_DERM_RHEUM = {
         ],
         "overview": (
             "Psoriatic arthritis is a chronic inflammatory arthritis associated with psoriasis. "
-            "It can involve peripheral joints, axial skeleton, entheses, digits, skin, and nails, and may lead to pain, stiffness, swelling, and structural damage if uncontrolled."
+            "It can involve peripheral joints, axial skeleton, entheses, digits, skin, and nails, and may lead to pain, stiffness, swelling, and structural damage if uncontrolled.\n\n"
+            "Global / U.S. Epidemiology: Psoriatic arthritis occurs in a subset of patients with psoriasis. Estimates vary, but approximately 20% to 30% of patients with psoriasis may develop psoriatic arthritis."
         ),
+        "causes": [
+            "Chronic immune-mediated inflammation affecting joints, entheses, skin, nails, and sometimes the axial skeleton.",
+            "Disease development is associated with genetic susceptibility, psoriasis-related inflammation, and environmental triggers.",
+        ],
+        "risk_factors": [
+            "Personal history of psoriasis",
+            "Family history of psoriasis or psoriatic arthritis",
+            "Nail psoriasis",
+            "Obesity",
+            "History of severe or extensive skin disease",
+        ],
         "symptoms": [
             "Joint pain, swelling, or stiffness",
             "Morning stiffness",
@@ -112,6 +143,13 @@ THERAPIES_DERM_RHEUM = {
             "Assessment for inflammatory arthritis patterns including peripheral, axial, enthesitis, or dactylitis involvement",
             "Laboratory testing to help exclude rheumatoid arthritis or other mimics",
             "Imaging to assess joint damage, enthesitis, or axial involvement when clinically appropriate",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis is clinical and requires assessment of inflammatory joint, enthesis, axial, skin, and nail involvement.",
+            "Psoriatic arthritis should be distinguished from rheumatoid arthritis, osteoarthritis, gout, axial spondyloarthritis, and mechanical joint disease.",
+            "CASPAR criteria may support classification in research settings.",
+            "Disease domains such as dactylitis, enthesitis, axial disease, peripheral arthritis, skin disease, and nail disease influence treatment selection.",
+            "In real-world data, disease domains and severity are often poorly captured without rheumatology notes, imaging, or structured clinical assessments.",
         ],
         "icd_codes": [
             ICDCode(code="L40.50", description="Arthropathic psoriasis, unspecified"),
@@ -186,8 +224,20 @@ THERAPIES_DERM_RHEUM = {
             "rectal carcinoma",
         ],
         "overview": (
-            "Colorectal cancer is a malignancy arising in the colon or rectum. It may develop from precancerous polyps and can present with bowel habit changes, bleeding, anemia, abdominal symptoms, or be detected through screening before symptoms occur."
+            "Colorectal cancer is a malignancy arising in the colon or rectum. It may develop from precancerous polyps and can present with bowel habit changes, bleeding, anemia, abdominal symptoms, or be detected through screening before symptoms occur.\n\n"
+            "Global / U.S. Epidemiology: Colorectal cancer is one of the most common cancers worldwide. In the United States, it remains a major cause of cancer incidence and mortality, with risk increasing with age."
         ),
+        "causes": [
+            "Malignant transformation of epithelial cells in the colon or rectum, often through adenoma-carcinoma sequence or serrated pathway mechanisms.",
+            "Tumor development may involve accumulated genetic and epigenetic alterations, microsatellite instability, chromosomal instability, or inherited cancer syndromes.",
+        ],
+        "risk_factors": [
+            "Older age",
+            "Family history of colorectal cancer or advanced adenomas",
+            "Inflammatory bowel disease involving the colon",
+            "Lynch syndrome or familial adenomatous polyposis",
+            "Obesity, smoking, heavy alcohol use, low physical activity, and diet-related factors",
+        ],
         "symptoms": [
             "Change in bowel habits",
             "Blood in stool or rectal bleeding",
@@ -200,6 +250,13 @@ THERAPIES_DERM_RHEUM = {
             "Pathology review to confirm histology and tumor features",
             "Imaging for staging and evaluation of metastatic disease",
             "Molecular testing when clinically appropriate for treatment planning",
+        ],
+        "diagnostic_considerations": [
+            "Diagnosis requires tissue confirmation, usually through colonoscopy with biopsy.",
+            "Tumor location, stage, histology, molecular markers, and metastatic status are central to treatment planning.",
+            "Screening history and detection pathway may influence stage at diagnosis.",
+            "Molecular testing may include mismatch repair or microsatellite instability status and other biomarkers depending on disease setting.",
+            "In real-world data, stage, recurrence, biomarkers, pathology details, and intent of therapy are often incompletely captured.",
         ],
         "icd_codes": [
             ICDCode(
