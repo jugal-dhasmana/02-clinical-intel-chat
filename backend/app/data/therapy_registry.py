@@ -5,6 +5,7 @@ from app.data.therapies.heme_rare import THERAPIES_HEME_RARE
 from app.data.therapies.derm_rheum import THERAPIES_DERM_RHEUM
 from app.data.therapies.derm_rheum_extended import THERAPIES_DERM_RHEUM_EXT
 from app.data.therapies.gi_extended import THERAPIES_GI_ONCOLOGY
+from app.data.therapies.cardiology import THERAPIES_CARDIOLOGY
 from app.schemas.clinical_intel import (
     ICDCode,
     Procedure,
@@ -243,20 +244,12 @@ for canonical, data in THERAPY_DB.items():
 def resolve_therapy_key(query: str) -> str | None:
     q = query.strip().lower()
 
-    # 1. Exact match
+    # 1. Exact match only against canonical keys and aliases
     if q in ALIAS_INDEX:
         return ALIAS_INDEX[q]
 
-    # 2. Partial match on aliases
-    for alias, canonical in ALIAS_INDEX.items():
-        if q in alias or alias in q:
-            return canonical
-
-    # 3. Partial match on canonical keys
-    for key in THERAPY_DB:
-        if q in key or key in q:
-            return key
-
+    # 2. No loose partial matching for clinical terms.
+    # Unsupported terms should return Not Curated instead of guessing.
     return None
 
 

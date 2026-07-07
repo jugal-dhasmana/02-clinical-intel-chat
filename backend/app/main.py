@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 from contextlib import asynccontextmanager
 from typing import AsyncGenerator
 
@@ -8,6 +9,8 @@ from fastapi.responses import JSONResponse
 from app.core.logging import configure_logging, get_logger
 from app.core.settings import get_settings
 from app.routes import health_router, normalize_router, clinical_intel_router
+
+load_dotenv()
 
 configure_logging()
 logger = get_logger(__name__)

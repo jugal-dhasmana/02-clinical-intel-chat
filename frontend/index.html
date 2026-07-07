@@ -1965,8 +1965,11 @@
     /* ═══════════════════════════════════════════════════════════════════════════
        CONFIG
     ═══════════════════════════════════════════════════════════════════════════ */
-    /*const API_URL = "http://127.0.0.1:8000/api/clinical-intel";*/
-    const API_URL = "https://clinicalintelchat.onrender.com/api/clinical-intel";
+    const API_URL = "http://127.0.0.1:8000/api/clinical-intel";
+    const AI_URL = "http://127.0.0.1:8000/api/clinical-intel/ask-ai";
+
+    /*const API_URL = "https://clinicalintelchat.onrender.com/api/clinical-intel";
+    const AI_URL = "https://clinicalintelchat.onrender.com/api/clinical-intel/ask-ai";*/
     /* ═══════════════════════════════════════════════════════════════════════════
        UTILITIES
     ═══════════════════════════════════════════════════════════════════════════ */
@@ -2316,7 +2319,7 @@
             <div class="fallback-kicker">ClinicalIntel Library Status</div>
             <div class="fallback-title">${term}</div>
           </div>
-          <span class="fallback-badge">Not Curated</span>
+          <span class="fallback-badge" style="padding:10px 18px; font-size:11px;">Not Curated. Ask AI</span>
         </div>
 
         <div class="fallback-body">
@@ -2336,17 +2339,27 @@
           <div class="fallback-next">
             <div class="fallback-step">
               <div class="fallback-step-label">Status</div>
-              <div class="fallback-step-text">No curated profile is currently available for this query.</div>
+              <div class="fallback-step-text">
+                No curated profile is currently available for this query.
+              </div>
             </div>
+
             <div class="fallback-step">
               <div class="fallback-step-label">Reason</div>
-              <div class="fallback-step-text">The term was accepted, but it is outside the current starter therapy library.</div>
+              <div class="fallback-step-text">
+                The term was accepted, but it is outside the current starter therapy library.
+              </div>
             </div>
+
             <div class="fallback-step">
-              <div class="fallback-step-label">Next Action</div>
-              <div class="fallback-step-text">Use one of the supported starter therapies or add this term to the registry later.</div>
+              <div class="fallback-step-label">AI Access</div>
+              <div class="fallback-step-text">
+                Use the Clinical Intelligence AI Assistant below to generate a general AI clinical draft for this condition.
+              </div>
             </div>
           </div>
+
+          ${buildAISection(data.normalized_term || data.query || "")}
 
           <div class="fallback-supported">
             <div class="fallback-supported-title">Currently curated therapies</div>
@@ -2363,6 +2376,58 @@
     </div>`;
     }
 
+    function buildAISection(therapyName) {
+      return `
+        <div class="section theme-cobalt">
+          <div class="sec-hdr">
+            <div class="sec-left">
+              <div class="sec-icon si-cobalt">
+                ${icon('<circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 11v.5"/>')}
+              </div>
+                <span class="sec-label">Clinical Intelligence AI Assistant</span>
+            </div>
+          </div>
+
+          <div class="sec-body">
+            <div
+              class="rail-note-body"
+              style="
+                margin-top:1rem;
+                padding:10px 14px;
+                border-radius:8px;
+                background:#fef2f2;
+                border:1px solid #fecaca;
+                color:#b91c1c;
+                font-weight:700;
+                font-size:12px;
+              "
+            >
+              ⚠ AI-generated. Not yet curated in Clinical Intel.
+            </div>
+            <div style="padding-top:1rem; display:flex; gap:10px; flex-wrap:wrap;">
+              <input
+                id="aiQuestion"
+                type="text"
+                placeholder="Ask clinical questions about this disease or condition..."
+                style="flex:1; min-width:280px; padding:12px; border:1px solid #d8dee9; border-radius:8px; font-size:13px;"
+              />
+
+              <button
+                id="askAiButton"
+                onclick='askAI(${JSON.stringify(therapyName)})'
+                style="background:#2563eb; color:white; border:none; border-radius:8px; padding:0 18px; font-weight:600; cursor:pointer;"
+              >
+                Ask AI
+              </button>
+            </div>
+
+            <div
+              id="aiResponse"
+              style="margin-top:1rem; padding:14px; background:#f8fafc; border:1px solid #e2e8f0; border-radius:10px; line-height:1.8; font-size:13px; color:#334155; display:none;"
+            ></div>
+          </div>
+        </div>`;
+    }
 
     /* ═══════════════════════════════════════════════════════════════════════════
        RENDER RESULTS
@@ -2473,7 +2538,9 @@
           <span class="rh-badge badge-teal">RWD Ready</span>
         </div>
       </div>
-      ${sections.join("")}
+      ${sections.join("")} 
+      
+      ${buildAISection(data.normalized_term || data.query || "")}
     </div>`;
 
       const railHtml = `<div class="results-rail">${buildRail(data, ts)}</div>`;
@@ -2488,7 +2555,7 @@
     function showError(code, detail) {
       setState("errorState");
       document.getElementById("errorState").innerHTML = `
-    <div class="error-box">
+        <div class="error-box">
       <svg viewBox="0 0 16 16" fill="none" stroke-width="1.7" stroke-linecap="round" xmlns="http://www.w3.org/2000/svg">
         <circle cx="8" cy="8" r="6"/><path d="M8 5v3M8 11v.5"/>
       </svg>
@@ -2496,12 +2563,79 @@
         <div class="error-title">Request failed${code ? ` · ${code}` : ""}</div>
         <div class="error-body">${detail || "The API did not respond. Verify the server is running at " + API_URL}</div>
       </div>
-    </div>`;
+    </div> `;
     }
 
     /* ═══════════════════════════════════════════════════════════════════════════
        SEARCH HANDLER
     ═══════════════════════════════════════════════════════════════════════════ */
+    async function askAI(therapyName) {
+      const questionInput = document.getElementById("aiQuestion");
+      const responseBox = document.getElementById("aiResponse");
+      const askButton = document.getElementById("askAiButton");
+      const question = questionInput.value.trim();
+
+      if (!question) {
+        responseBox.style.display = "block";
+        responseBox.innerHTML = `<div class="error-title">Please enter a clinical question.</div>`;
+        return;
+      }
+
+      responseBox.style.display = "block";
+      responseBox.innerHTML = `<div class="rail-note-body" > Generating AI response...</div>`;
+      askButton.disabled = true;
+      askButton.innerText = "Thinking...";
+      askButton.style.opacity = "0.7";
+      askButton.style.cursor = "not-allowed";
+      try {
+        const response = await fetch(AI_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            therapy_name: therapyName,
+            question: question
+          })
+        });
+
+        if (!response.ok) {
+          let apiMessage = "AI request failed.";
+          try {
+            const err = await response.json();
+            apiMessage = err.detail || err.message || err.error || apiMessage;
+          } catch (_) { }
+
+          responseBox.innerHTML = `
+        <div class="error-title" > AI request failed · HTTP ${response.status}</div >
+          <div class="error-body">${apiMessage}</div>
+      `;
+          return;
+        }
+
+        const data = await response.json();
+
+        responseBox.innerHTML = `
+        <div class="rail-card-title" style = "margin-bottom:8px;" >
+          ${data.is_curated === false
+            ? "AI-Generated Clinical Draft"
+            : "Curated ClinicalIntel + AI Expansion"}
+      </div >
+        <div class="rail-note-body" style="white-space:pre-wrap;">
+          ${data.answer}
+        </div>
+      `;
+
+      } catch (err) {
+        responseBox.innerHTML = `
+        <div class="error-title" > AI connection failed</div >
+          <div class="error-body">Unable to connect to the AI service.</div>
+      `;
+      } finally {
+        askButton.disabled = false;
+        askButton.innerText = "Ask AI";
+        askButton.style.opacity = "1";
+        askButton.style.cursor = "pointer";
+      }
+    }
     async function handleSearch(event) {
       event.preventDefault();
 
@@ -2523,7 +2657,7 @@
             const err = await response.json();
             apiMessage = err.detail || err.message || err.error || "";
           } catch (_) { }
-          showError(`HTTP ${response.status}`, apiMessage || `The server returned an error for query "${query}".`);
+          showError(`HTTP ${response.status} `, apiMessage || `The server returned an error for query "${query}".`);
           return;
         }
 
