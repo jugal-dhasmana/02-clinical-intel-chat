@@ -25,6 +25,7 @@ THERAPY_DB: dict[str, dict] = {
     **THERAPIES_DERM_RHEUM,
     **THERAPIES_DERM_RHEUM_EXT,
     **THERAPIES_GI_ONCOLOGY,
+    **THERAPIES_CARDIOLOGY,    
     "short bowel syndrome": {
         "normalized_term": "Short Bowel Syndrome",
         "aliases": [
